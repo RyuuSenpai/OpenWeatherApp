@@ -22,11 +22,14 @@ extension DashboardInteractor {
     func fetchWeatherData(with latitude: Double,
                           _ longitude: Double) {
         weatherLoader.loadWeather(with: latitude, longitude) { [weak self] result in
+            guard let self else { return }
             switch result {
-            case .success(let weatherData): break
+            case .success(let weatherData):
                 // handle success case
-            case .failure(let error): break
+                self.presenter?.displayWeatherData(weatherData)
+            case .failure(let error):
                 // handle error case
+                self.presenter?.failedToUpdateWeather(withError: error)
             }
         }
     }

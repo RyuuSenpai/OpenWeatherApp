@@ -43,6 +43,8 @@ protocol DashboardPresenterInteractorProtocol: AnyObject {
 
 // Interactor --> Presenter
 protocol DashboardInteractorOutput: AnyObject {
+    func displayWeatherData(_ weatherData: DashboardEntity.Weather)
+    func failedToUpdateWeather(withError error: Error)
 }
 // Presenter --> Router
 protocol DashboardRouterProtocol: AnyObject {

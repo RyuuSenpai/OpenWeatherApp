@@ -7,30 +7,68 @@
 
 import XCTest
 @testable import OpenWeatherApp
-
+/// UnitTest DashboardInteractor Using Factory Methods instead of setup() and teardown()
 final class DashboardInteractorTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // MARK: - Factory Methods
+    func weatherLoaderMockFactory() -> WeatherLoaderMock {
+        WeatherLoaderMock()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func presenterMockFactory() -> DashboardPresenterOutputMock {
+        DashboardPresenterOutputMock()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func interactorFactory(loader: WeatherLoaderMock,
+                           preseneter: DashboardPresenterOutputMock? = nil) -> DashboardInteractor {
+        let interactor = DashboardInteractor(weatherLoader: loader)
+        interactor.presenter = preseneter
+        return interactor
+    }
+    // MARK: - Tests
+    func testFetchWeatherDataSuccess() {
+        // Given
+        let loaderMock = weatherLoaderMockFactory()
+        let presenterMock = presenterMockFactory()
+        let interactor = interactorFactory(loader: loaderMock,
+                                           preseneter: presenterMock)
+        let latitude: Double = 30.793719
+        let longitude: Double = 30.998633
+        let expectedResult: APIResult<DashboardEntity.Weather> = .success(DashboardEntity.Weather())
+        // Set the expected result on the mock loader
+        loaderMock.expectedResult = expectedResult
+
+        // When
+        interactor.fetchWeatherData(with: latitude, longitude)
+
+        // Then
+        XCTAssertEqual(loaderMock.loadWeatherCalled, true)
+        XCTAssertEqual(presenterMock.displayWeatherDataCalled, true)
+        XCTAssertNil(presenterMock.error)
+        XCTAssertEqual(presenterMock.requestDidFail, false)
+
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    func testFetchWeatherDataFailure() {
+        // Given
+        let loaderMock = weatherLoaderMockFactory()
+        let presenterMock = presenterMockFactory()
+        let interactor = interactorFactory(loader: loaderMock,
+                                           preseneter: presenterMock)
+        let latitude: Double = 30.793719
+        let longitude: Double = 30.998633
+        let expectedError = APIError.badRequest
+        let expectedResult: APIResult<DashboardEntity.Weather> = .failure(expectedError)
+        // Set the expected result on the mock loader
+        loaderMock.expectedResult = expectedResult
 
+        // When
+        interactor.fetchWeatherData(with: latitude, longitude)
+
+        // Then
+        XCTAssertEqual(loaderMock.loadWeatherCalled, true)
+        XCTAssertEqual(presenterMock.error, expectedError)
+        XCTAssertEqual(presenterMock.requestDidFail, true)
+        XCTAssertEqual(presenterMock.displayWeatherDataCalled, false)
+    }
 }

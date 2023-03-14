@@ -16,7 +16,6 @@
 		F91B289729C0C0E2009466E7 /* OpenWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F91B289529C0C0E2009466E7 /* OpenWeatherApp.xcdatamodeld */; };
 		F91B289929C0C0E3009466E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91B289829C0C0E3009466E7 /* Assets.xcassets */; };
 		F91B289C29C0C0E3009466E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91B289A29C0C0E3009466E7 /* LaunchScreen.storyboard */; };
-		F91B28A729C0C0E3009466E7 /* OpenWeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28A629C0C0E3009466E7 /* OpenWeatherAppTests.swift */; };
 		F91B28B129C0C0E3009466E7 /* OpenWeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28B029C0C0E3009466E7 /* OpenWeatherAppUITests.swift */; };
 		F91B28B329C0C0E3009466E7 /* OpenWeatherAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28B229C0C0E3009466E7 /* OpenWeatherAppUITestsLaunchTests.swift */; };
 		F91B28C229C0EC2B009466E7 /* UIViewExtesnions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */; };
@@ -31,6 +30,9 @@
 		F94BC37429C110610010B5B6 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37329C110610010B5B6 /* APIRouter.swift */; };
 		F94BC37629C1153D0010B5B6 /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37529C1153D0010B5B6 /* APILoader.swift */; };
 		F94BC37829C12B9E0010B5B6 /* DashboardInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37729C12B9E0010B5B6 /* DashboardInteractorTests.swift */; };
+		F94BC37C29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37B29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift */; };
+		F94BC37E29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37D29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift */; };
+		F94BC38129C131410010B5B6 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37F29C12FD30010B5B6 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +71,6 @@
 		F91B289B29C0C0E3009466E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91B289D29C0C0E3009466E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F91B28A229C0C0E3009466E7 /* OpenWeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenWeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F91B28A629C0C0E3009466E7 /* OpenWeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAppTests.swift; sourceTree = "<group>"; };
 		F91B28AC29C0C0E3009466E7 /* OpenWeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenWeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91B28B029C0C0E3009466E7 /* OpenWeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAppUITests.swift; sourceTree = "<group>"; };
 		F91B28B229C0C0E3009466E7 /* OpenWeatherAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -85,6 +86,9 @@
 		F94BC37329C110610010B5B6 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		F94BC37529C1153D0010B5B6 /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
 		F94BC37729C12B9E0010B5B6 /* DashboardInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorTests.swift; sourceTree = "<group>"; };
+		F94BC37B29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoaderProtocolMock.swift; sourceTree = "<group>"; };
+		F94BC37D29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorOutputMock.swift; sourceTree = "<group>"; };
+		F94BC37F29C12FD30010B5B6 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +184,8 @@
 		F91B28A529C0C0E3009466E7 /* OpenWeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				F91B28A629C0C0E3009466E7 /* OpenWeatherAppTests.swift */,
 				F94BC37929C12BA20010B5B6 /* DashboardTests */,
+				F94BC38229C131530010B5B6 /* Helpers */,
 			);
 			path = OpenWeatherAppTests;
 			sourceTree = "<group>";
@@ -287,8 +291,26 @@
 			isa = PBXGroup;
 			children = (
 				F94BC37729C12B9E0010B5B6 /* DashboardInteractorTests.swift */,
+				F94BC37A29C12E420010B5B6 /* Mocks */,
 			);
 			path = DashboardTests;
+			sourceTree = "<group>";
+		};
+		F94BC37A29C12E420010B5B6 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC37B29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift */,
+				F94BC37D29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		F94BC38229C131530010B5B6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC37F29C12FD30010B5B6 /* APIError.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,7 +573,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F91B28A729C0C0E3009466E7 /* OpenWeatherAppTests.swift in Sources */,
+				F94BC37E29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift in Sources */,
+				F94BC37C29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift in Sources */,
+				F94BC38129C131410010B5B6 /* APIError.swift in Sources */,
 				F94BC37829C12B9E0010B5B6 /* DashboardInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

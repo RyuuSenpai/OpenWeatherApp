@@ -27,4 +27,10 @@ extension DashboardPresenter: DashboardPresenterProtocol {
 }
 // MARK: - Conforming to DashboardInteractorOutput
 extension DashboardPresenter: DashboardInteractorOutput {
+    func displayWeatherData(_ weatherData: DashboardEntity.Weather) {
+    }
+    
+    func failedToUpdateWeather(withError error: Error) {
+        
+    }
 }
