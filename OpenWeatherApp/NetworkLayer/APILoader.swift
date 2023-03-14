@@ -15,12 +15,11 @@ struct LoaderConfiguration {
 }
 protocol LoaderProtocol {
     associatedtype Entity: Codable
-    var configuration: LoaderConfiguration { get }
-    init(configuration: LoaderConfiguration)
 }
 
 extension LoaderProtocol {
-    func loadItems(completionHandler: @escaping ResultHandler<Entity>) {
+    func loadItems(requestConfiguration configuration: LoaderConfiguration,
+                   completionHandler: @escaping ResultHandler<Entity>) {
         APIClient.shared.performRequest(router: configuration.router,
                                         method: configuration.method) { (result: APIResult<Entity>) in
             switch result {
