@@ -8,28 +8,18 @@
 import Foundation
 
 typealias ResultHandler<Entity: Codable> = ((APIResult<Entity>) -> Void)
-protocol Loader {
-    associatedtype Entity: Codable
-    func loadItems(completionHandler: @escaping ResultHandler<Entity>)}
 
-protocol LoaderInput: Loader {
-    init(configuration: LoaderConfiguration)
-}
 struct LoaderConfiguration {
     let router: APIRouter
     let method: RequestMethod
-    
 }
-class MainItemsLoader<Entity: Codable>: LoaderInput {
-    // MARK: Properties
-    let configuration: LoaderConfiguration
-    // MARK: Init
-    required init(configuration: LoaderConfiguration) {
-        self.configuration = configuration
-    }
+protocol LoaderProtocol {
+    associatedtype Entity: Codable
+    var configuration: LoaderConfiguration { get }
+    init(configuration: LoaderConfiguration)
 }
 
-extension MainItemsLoader {
+extension LoaderProtocol {
     func loadItems(completionHandler: @escaping ResultHandler<Entity>) {
         APIClient.shared.performRequest(router: configuration.router,
                                         method: configuration.method) { (result: APIResult<Entity>) in
