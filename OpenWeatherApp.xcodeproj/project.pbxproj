@@ -22,8 +22,15 @@
 		F91B28C229C0EC2B009466E7 /* UIViewExtesnions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */; };
 		F91B28C429C0F38A009466E7 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28C329C0F38A009466E7 /* DashboardViewController.swift */; };
 		F91B28C829C0F6A0009466E7 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28C729C0F6A0009466E7 /* APIClient.swift */; };
+		F94BC36529C0FB4B0010B5B6 /* DashboardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC36429C0FB4B0010B5B6 /* DashboardConfiguration.swift */; };
+		F94BC36729C0FB5A0010B5B6 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC36629C0FB5A0010B5B6 /* DashboardInteractor.swift */; };
+		F94BC36929C0FB610010B5B6 /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC36829C0FB610010B5B6 /* DashboardPresenter.swift */; };
+		F94BC36B29C0FB6B0010B5B6 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC36A29C0FB6B0010B5B6 /* DashboardRouter.swift */; };
+		F94BC36D29C0FCC20010B5B6 /* DashboardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC36C29C0FCC20010B5B6 /* DashboardEntity.swift */; };
+		F94BC37229C0FD7A0010B5B6 /* DashboardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37129C0FD7A0010B5B6 /* DashboardLoader.swift */; };
 		F94BC37429C110610010B5B6 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37329C110610010B5B6 /* APIRouter.swift */; };
 		F94BC37629C1153D0010B5B6 /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37529C1153D0010B5B6 /* APILoader.swift */; };
+		F94BC37829C12B9E0010B5B6 /* DashboardInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37729C12B9E0010B5B6 /* DashboardInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +76,15 @@
 		F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtesnions.swift; sourceTree = "<group>"; };
 		F91B28C329C0F38A009466E7 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F91B28C729C0F6A0009466E7 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		F94BC36429C0FB4B0010B5B6 /* DashboardConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardConfiguration.swift; sourceTree = "<group>"; };
+		F94BC36629C0FB5A0010B5B6 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
+		F94BC36829C0FB610010B5B6 /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
+		F94BC36A29C0FB6B0010B5B6 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
+		F94BC36C29C0FCC20010B5B6 /* DashboardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEntity.swift; sourceTree = "<group>"; };
+		F94BC37129C0FD7A0010B5B6 /* DashboardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLoader.swift; sourceTree = "<group>"; };
 		F94BC37329C110610010B5B6 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		F94BC37529C1153D0010B5B6 /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
+		F94BC37729C12B9E0010B5B6 /* DashboardInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +135,6 @@
 				4417F28087ACA4815B4582E3 /* Pods-OpenWeatherAppTests.debug.xcconfig */,
 				1E143F18346638DCBD073036 /* Pods-OpenWeatherAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -168,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				F91B28A629C0C0E3009466E7 /* OpenWeatherAppTests.swift */,
+				F94BC37929C12BA20010B5B6 /* DashboardTests */,
 			);
 			path = OpenWeatherAppTests;
 			sourceTree = "<group>";
@@ -200,7 +214,13 @@
 		F91B28C529C0F4ED009466E7 /* DashboardScene */ = {
 			isa = PBXGroup;
 			children = (
-				F91B28C329C0F38A009466E7 /* DashboardViewController.swift */,
+				F94BC35F29C0FAC50010B5B6 /* View */,
+				F94BC36029C0FACB0010B5B6 /* Interactor */,
+				F94BC36129C0FAFF0010B5B6 /* Presenter */,
+				F94BC36229C0FB0D0010B5B6 /* Entity */,
+				F94BC36329C0FB220010B5B6 /* Router */,
+				F94BC37029C0FD6B0010B5B6 /* Loader */,
+				F94BC36429C0FB4B0010B5B6 /* DashboardConfiguration.swift */,
 			);
 			path = DashboardScene;
 			sourceTree = "<group>";
@@ -213,6 +233,62 @@
 				F94BC37529C1153D0010B5B6 /* APILoader.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		F94BC35F29C0FAC50010B5B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F91B28C329C0F38A009466E7 /* DashboardViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F94BC36029C0FACB0010B5B6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC36629C0FB5A0010B5B6 /* DashboardInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F94BC36129C0FAFF0010B5B6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC36829C0FB610010B5B6 /* DashboardPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F94BC36229C0FB0D0010B5B6 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC36C29C0FCC20010B5B6 /* DashboardEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F94BC36329C0FB220010B5B6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC36A29C0FB6B0010B5B6 /* DashboardRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F94BC37029C0FD6B0010B5B6 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC37129C0FD7A0010B5B6 /* DashboardLoader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		F94BC37929C12BA20010B5B6 /* DashboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC37729C12B9E0010B5B6 /* DashboardInteractorTests.swift */,
+			);
+			path = DashboardTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,8 +534,16 @@
 				F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */,
 				F91B28C229C0EC2B009466E7 /* UIViewExtesnions.swift in Sources */,
 				F91B289729C0C0E2009466E7 /* OpenWeatherApp.xcdatamodeld in Sources */,
+				F94BC36D29C0FCC20010B5B6 /* DashboardEntity.swift in Sources */,
 				F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */,
+				F94BC36929C0FB610010B5B6 /* DashboardPresenter.swift in Sources */,
+				F94BC37229C0FD7A0010B5B6 /* DashboardLoader.swift in Sources */,
+				F94BC37429C110610010B5B6 /* APIRouter.swift in Sources */,
+				F94BC37629C1153D0010B5B6 /* APILoader.swift in Sources */,
+				F94BC36529C0FB4B0010B5B6 /* DashboardConfiguration.swift in Sources */,
+				F94BC36B29C0FB6B0010B5B6 /* DashboardRouter.swift in Sources */,
 				F91B28C829C0F6A0009466E7 /* APIClient.swift in Sources */,
+				F94BC36729C0FB5A0010B5B6 /* DashboardInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91B28A729C0C0E3009466E7 /* OpenWeatherAppTests.swift in Sources */,
+				F94BC37829C12B9E0010B5B6 /* DashboardInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

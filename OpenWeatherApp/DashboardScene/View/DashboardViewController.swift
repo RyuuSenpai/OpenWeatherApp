@@ -12,7 +12,7 @@ final class DashboardViewController: UIViewController {
     @IBOutlet weak var forcastScreenView: UIView!
     @IBOutlet weak var currentWeatherView: UIView!
     // MARK: - Properites
-
+    weak var presenter: DashboardPresenterProtocol?
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,4 +24,7 @@ final class DashboardViewController: UIViewController {
         forcastScreenView.addShadow()
         currentWeatherView.addShadow()
     }
+}
+// MARK: - Conforming to DashboardControllerProtocol
+extension DashboardViewController: DashboardControllerProtocol {
 }
