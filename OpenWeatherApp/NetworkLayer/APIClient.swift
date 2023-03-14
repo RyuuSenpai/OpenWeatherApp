@@ -8,22 +8,29 @@
 import Foundation
 import Alamofire
 
-typealias APIResult<T: Codable> = Result<T, Error>
+typealias APIResult<Entity: Codable> = Result<Entity, Error>
 
 enum RequestMethod {
     case get
     case post(parameters: [String: Any])
 }
 protocol APIClientProtocol {
-    func performRequest<T: Codable>(url: String,
-                                    method: RequestMethod,
-                                    completion: @escaping (APIResult<T>) -> Void)
+    func performRequest<Entity: Codable>(router: APIRouter,
+                                         method: RequestMethod,
+                                         completion: @escaping (APIResult<Entity>) -> Void)
 }
 
 final class APIClient: APIClientProtocol {
-    func performRequest<T: Codable>(url: String,
-                                    method: RequestMethod,
-                                    completion: @escaping (APIResult<T>) -> Void) {
+    static let shared = APIClient()
+    private let baseUrl = "http://api.openweathermap.org"
+    private let accessKey = "f5cb0b965ea1564c50c6f1b74534d823"
+
+    private init() {}
+
+    func performRequest<Entity: Codable>(router: APIRouter,
+                                         method: RequestMethod,
+                                         completion: @escaping (APIResult<Entity>) -> Void) {
+        let url = baseUrl + router.path + "&appid=\(accessKey)"
         let requestMethod: HTTPMethod
         var requestParameters: [String: Any]?
         switch method {
@@ -37,7 +44,7 @@ final class APIClient: APIClientProtocol {
                    method: requestMethod,
                    parameters: requestParameters)
         .validate(statusCode: 200..<300)
-        .responseDecodable(of: T.self) { response in
+        .responseDecodable(of: Entity.self) { response in
             switch response.result {
             case .success(let data):
                 completion(.success(data))

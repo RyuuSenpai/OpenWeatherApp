@@ -22,6 +22,8 @@
 		F91B28C229C0EC2B009466E7 /* UIViewExtesnions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */; };
 		F91B28C429C0F38A009466E7 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28C329C0F38A009466E7 /* DashboardViewController.swift */; };
 		F91B28C829C0F6A0009466E7 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B28C729C0F6A0009466E7 /* APIClient.swift */; };
+		F94BC37429C110610010B5B6 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37329C110610010B5B6 /* APIRouter.swift */; };
+		F94BC37629C1153D0010B5B6 /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37529C1153D0010B5B6 /* APILoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtesnions.swift; sourceTree = "<group>"; };
 		F91B28C329C0F38A009466E7 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F91B28C729C0F6A0009466E7 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		F94BC37329C110610010B5B6 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		F94BC37529C1153D0010B5B6 /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				F91B28C729C0F6A0009466E7 /* APIClient.swift */,
+				F94BC37329C110610010B5B6 /* APIRouter.swift */,
+				F94BC37529C1153D0010B5B6 /* APILoader.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
