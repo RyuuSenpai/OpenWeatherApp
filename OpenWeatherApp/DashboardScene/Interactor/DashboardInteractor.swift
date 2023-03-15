@@ -10,16 +10,28 @@ import CoreLocation
 
 final class DashboardInteractor {
     // MARK: - Properites
-    weak var presenter: DashboardInteractorOutput?
+    var presenter: DashboardInteractorOutput?
     private let weatherLoader: WeatherLoaderProtocol
-
-    init(weatherLoader: WeatherLoaderProtocol) {
+    private let locationManager: LocationManagerDelegate?
+    // Passing LocationManagerDelegate to make it easier for us to Apply UnitTest, and 
+    init(weatherLoader: WeatherLoaderProtocol,
+         locationManager: LocationManagerDelegate? = nil) {
         self.weatherLoader = weatherLoader
+        self.locationManager = locationManager
     }
 }
 // MARK: Conforming to DashboardPresenterInteractorProtocol
-extension DashboardInteractor {
-    func fetchWeatherData(with latitude: Double,
+extension DashboardInteractor: DashboardPresenterInteractorProtocol {
+    // MARK: - Get User Location
+    func getUserCurrentLocation() {
+        locationManager?.getCurrentLocation(completion: { [weak self] userLocation in
+            guard let self else { return }
+            self.presenter?.getUserCurrentLocation(latitude: userLocation?.coordinate.latitude ?? 30.0,
+                                                   longitude: userLocation?.coordinate.longitude ?? 30.0)
+        })
+    }
+    // MARK: API Calls
+    func fetchWeatherData(for latitude: Double,
                           _ longitude: Double) {
         weatherLoader.loadWeather(with: latitude, longitude) { [weak self] result in
             guard let self else { return }
@@ -33,8 +45,4 @@ extension DashboardInteractor {
             }
         }
     }
-}
-// MARK: Conforming to DashboardPresenterInteractorProtocol
-extension DashboardInteractor: DashboardPresenterInteractorProtocol {
-
 }

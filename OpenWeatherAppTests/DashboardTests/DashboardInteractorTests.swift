@@ -39,7 +39,7 @@ final class DashboardInteractorTests: XCTestCase {
         loaderMock.expectedResult = expectedResult
 
         // When
-        interactor.fetchWeatherData(with: latitude, longitude)
+        interactor.fetchWeatherData(for: latitude, longitude)
 
         // Then
         XCTAssertEqual(loaderMock.loadWeatherCalled, true)
@@ -63,7 +63,7 @@ final class DashboardInteractorTests: XCTestCase {
         loaderMock.expectedResult = expectedResult
 
         // When
-        interactor.fetchWeatherData(with: latitude, longitude)
+        interactor.fetchWeatherData(for: latitude, longitude)
 
         // Then
         XCTAssertEqual(loaderMock.loadWeatherCalled, true)

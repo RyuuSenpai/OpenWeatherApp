@@ -9,9 +9,10 @@ import Foundation
 
 final class DashboardPresenter {
     // MARK: - Properites
-    weak private var view: DashboardControllerProtocol?
-    weak private var interactor: DashboardPresenterInteractorProtocol?
-    weak private var router: DashboardRouterProtocol?
+    private var view: DashboardControllerProtocol?
+    private var interactor: DashboardPresenterInteractorProtocol?
+    private var router: DashboardRouterProtocol?
+    private var userLocation: (latitude: Double, longitude: Double)?
     // MARK: - Init
     init(view: DashboardControllerProtocol?,
          interactor: DashboardPresenterInteractorProtocol?,
@@ -23,10 +24,17 @@ final class DashboardPresenter {
 // MARK: - Conforming to DashboardPresenterProtocol
 extension DashboardPresenter: DashboardPresenterProtocol {
     func viewDidLoad() {
+        interactor?.getUserCurrentLocation()
     }
 }
 // MARK: - Conforming to DashboardInteractorOutput
 extension DashboardPresenter: DashboardInteractorOutput {
+    // MARK: UserLocationUpdates
+    func getUserCurrentLocation(latitude: Double, longitude: Double) {
+        self.userLocation = (latitude, longitude)
+        self.interactor?.fetchWeatherData(for: latitude, longitude)
+    }
+    // MARK: API Delegates
     func displayWeatherData(_ weatherData: DashboardEntity.Weather) {
     }
     

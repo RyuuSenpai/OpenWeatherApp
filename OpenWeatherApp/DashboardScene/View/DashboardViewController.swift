@@ -12,11 +12,13 @@ final class DashboardViewController: UIViewController {
     @IBOutlet weak var forcastScreenView: UIView!
     @IBOutlet weak var currentWeatherView: UIView!
     // MARK: - Properites
-    weak var presenter: DashboardPresenterProtocol?
+    var presenter: DashboardPresenterProtocol?
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        // Call Presetner ViewDidLoad that init the API calls and getting UserLocation
+        presenter?.viewDidLoad()
     }
 
     // MARK: - Config

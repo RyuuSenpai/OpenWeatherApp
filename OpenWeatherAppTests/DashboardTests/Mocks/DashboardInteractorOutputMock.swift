@@ -24,4 +24,6 @@ class DashboardPresenterOutputMock: DashboardInteractorOutput {
         requestDidFail = true
         self.error = error as? APIError 
     }
+    func getUserCurrentLocation(latitude: Double, longitude: Double) {
+    }
 }

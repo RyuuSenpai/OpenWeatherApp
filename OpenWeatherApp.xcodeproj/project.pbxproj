@@ -33,6 +33,7 @@
 		F94BC37C29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37B29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift */; };
 		F94BC37E29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37D29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift */; };
 		F94BC38129C131410010B5B6 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37F29C12FD30010B5B6 /* APIError.swift */; };
+		F94BC38729C1419F0010B5B6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC38629C1419F0010B5B6 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		F94BC37B29C12E570010B5B6 /* WeatherLoaderProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoaderProtocolMock.swift; sourceTree = "<group>"; };
 		F94BC37D29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorOutputMock.swift; sourceTree = "<group>"; };
 		F94BC37F29C12FD30010B5B6 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		F94BC38629C1419F0010B5B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */,
 				F91B28C529C0F4ED009466E7 /* DashboardScene */,
 				F91B28C629C0F4F7009466E7 /* NetworkLayer */,
+				F94BC38829C145DF0010B5B6 /* LocationHelpers */,
 				F91B289229C0C0E2009466E7 /* Main.storyboard */,
 				F91B289829C0C0E3009466E7 /* Assets.xcassets */,
 				F91B289A29C0C0E3009466E7 /* LaunchScreen.storyboard */,
@@ -311,6 +314,14 @@
 				F94BC37F29C12FD30010B5B6 /* APIError.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F94BC38829C145DF0010B5B6 /* LocationHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC38629C1419F0010B5B6 /* LocationManager.swift */,
+			);
+			path = LocationHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +565,7 @@
 			files = (
 				F91B28C429C0F38A009466E7 /* DashboardViewController.swift in Sources */,
 				F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */,
+				F94BC38729C1419F0010B5B6 /* LocationManager.swift in Sources */,
 				F91B28C229C0EC2B009466E7 /* UIViewExtesnions.swift in Sources */,
 				F91B289729C0C0E2009466E7 /* OpenWeatherApp.xcdatamodeld in Sources */,
 				F94BC36D29C0FCC20010B5B6 /* DashboardEntity.swift in Sources */,

@@ -16,7 +16,8 @@ final class DashboardModuleBuilder {
         guard let view = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController else {
             return UIViewController()
         }
-        let interactor = DashboardInteractor(weatherLoader: WeatherLoader())
+        let interactor = DashboardInteractor(weatherLoader: WeatherLoader(),
+                                             locationManager: LocationManager.shared)
         let router = DashboardRouter(viewController: view)
         let presenter = DashboardPresenter(view: view,
                                            interactor: interactor,
@@ -39,12 +40,17 @@ protocol DashboardControllerProtocol: AnyObject {
 
 // Presenter --> Interactor
 protocol DashboardPresenterInteractorProtocol: AnyObject {
+    func getUserCurrentLocation()
+    func fetchWeatherData(for latitude: Double,
+                          _ longitude: Double)
 }
 
 // Interactor --> Presenter
 protocol DashboardInteractorOutput: AnyObject {
     func displayWeatherData(_ weatherData: DashboardEntity.Weather)
     func failedToUpdateWeather(withError error: Error)
+    func getUserCurrentLocation(latitude: Double,
+                                longitude: Double)
 }
 // Presenter --> Router
 protocol DashboardRouterProtocol: AnyObject {
