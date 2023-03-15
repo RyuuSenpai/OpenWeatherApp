@@ -17,12 +17,17 @@ final class LocationManager: NSObject, LocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     private var locationCompletionHandler: ((CLLocation?) -> Void)?
-    
+    private var userLastLocation: CLLocation?
+    private var didUpdateLocation = false
     private override init() {
         super.init()
         locationManager.delegate = self
     }
-    
+
+    deinit {
+        locationManager.stopUpdatingLocation()
+    }
+
     func getCurrentLocation(completion: @escaping (CLLocation?) -> Void) {
         locationCompletionHandler = completion
         locationManager.requestWhenInUseAuthorization()
@@ -32,7 +37,10 @@ final class LocationManager: NSObject, LocationManagerDelegate {
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
+        guard let location = locations.last,
+        !didUpdateLocation else { return }
+        userLastLocation = location
+        didUpdateLocation = true 
         locationCompletionHandler?(location)
         locationManager.stopUpdatingLocation()
     }

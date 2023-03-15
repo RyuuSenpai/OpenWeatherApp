@@ -31,6 +31,7 @@ final class APIClient: APIClientProtocol {
                                          method: RequestMethod,
                                          completion: @escaping (APIResult<Entity>) -> Void) {
         let url = baseUrl + router.path + "&appid=\(accessKey)"
+        debugPrint(url)
         let requestMethod: HTTPMethod
         var requestParameters: [String: Any]?
         switch method {

@@ -25,5 +25,20 @@
 	<string>To Get your locationto display Weather </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To Get your locationto display Weather </string>
+    <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+            <key>NSExceptionDomains</key>
+            <dict>
+                <key>yourdomain.com</key>
+                <dict>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                    <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                    <false/>
+                </dict>
+           </dict>
+      </dict>
 </dict>
 </plist>
