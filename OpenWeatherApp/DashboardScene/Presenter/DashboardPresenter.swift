@@ -24,6 +24,13 @@ final class DashboardPresenter {
 }
 // MARK: - Conforming to DashboardPresenterProtocol
 extension DashboardPresenter: DashboardPresenterProtocol {
+    func navigateToForecastScreen() {
+        router?.navigateToForecastScreen()
+    }
+
+    func navigateToCurrentWeatherScreen() {
+    }
+
     func viewDidLoad() {
         interactor?.getUserCurrentLocation()
     }

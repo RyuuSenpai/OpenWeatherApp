@@ -33,7 +33,16 @@ final class DashboardViewController: UIViewController {
     func configView() {
         forcastScreenView.addShadow()
         currentWeatherView.addShadow()
+        addActionsForViews()
     }
+    func addActionsForViews() {
+        forcastScreenView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openForecastScreen)))
+    }
+    // MARK: Actions
+    @objc func openForecastScreen() {
+        presenter?.navigateToForecastScreen()
+    }
+
 }
 // MARK: - Conforming to DashboardControllerProtocol
 extension DashboardViewController: DashboardControllerProtocol {

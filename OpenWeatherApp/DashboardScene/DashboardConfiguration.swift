@@ -28,8 +28,9 @@ final class DashboardModuleBuilder {
     }
 }
 
+// MARK: - Protocols
 // Controller --> Presenter
-protocol DashboardPresenterProtocol: AnyObject {
+protocol DashboardPresenterProtocol: DashboardRouterProtocol {
     func viewDidLoad()
 }
 
@@ -57,7 +58,8 @@ protocol DashboardRouterProtocol: AnyObject {
     func navigateToForecastScreen()
     func navigateToCurrentWeatherScreen()
 }
-// Current Weather Item
+
+// MARK: - Items
 struct CurrentWeatherItemDetails {
     private let temp: Double
     let cloudsSate: String
@@ -73,7 +75,7 @@ struct CurrentWeatherItemDetails {
         cloudStateIconName.imageUrlPath
     }
     var windSpeed: String {
-        windSpeedValue.stringValue
+        windSpeedValue.stringValue + "mile"
     }
     var humidity: String {
         humidityValue.stringValue + "%"

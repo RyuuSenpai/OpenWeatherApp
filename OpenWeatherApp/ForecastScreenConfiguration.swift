@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 // MARK: - Builder
 final class ForecastScreenBuilder {
-
     static func build() -> UIViewController {
         let view = ForecastScreenViewController()
         let interactor = ForecastScreenInteractor()

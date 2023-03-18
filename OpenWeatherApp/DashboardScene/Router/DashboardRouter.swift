@@ -18,6 +18,8 @@ final class DashboardRouter {
 
 extension DashboardRouter: DashboardRouterProtocol {
     func navigateToForecastScreen() {
+        let vc = ForecastScreenBuilder.build()
+        self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 
     func navigateToCurrentWeatherScreen() {
