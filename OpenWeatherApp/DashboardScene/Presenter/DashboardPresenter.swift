@@ -19,6 +19,7 @@ final class DashboardPresenter {
          router: DashboardRouterProtocol?) {
         self.view = view
         self.interactor = interactor
+        self.router = router
     }
 }
 // MARK: - Conforming to DashboardPresenterProtocol

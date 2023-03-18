@@ -12,7 +12,16 @@
 		AB66EF84FA1964D9585F22D6 /* Pods_OpenWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57800F5B97C95F4E95327AE0 /* Pods_OpenWeatherApp.framework */; };
 		F90DFF1529C5C0F8003D4D3A /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */; };
 		F90DFF1729C5C20D003D4D3A /* General + Extensions .swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */; };
-		F9163CDF29C5C8B80056789F /* UIView + ActivityIndictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CDE29C5C8B80056789F /* UIView + ActivityIndictor.swift */; };
+		F9163CDF29C5C8B80056789F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CDE29C5C8B80056789F /* UIView + Extension.swift */; };
+		F9163CE729C65A540056789F /* ForecastScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CE629C65A540056789F /* ForecastScreenRouter.swift */; };
+		F9163CEA29C65A660056789F /* ForecastScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CE929C65A660056789F /* ForecastScreenEntity.swift */; };
+		F9163CED29C65A7C0056789F /* ForecastScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CEC29C65A7C0056789F /* ForecastScreenInteractor.swift */; };
+		F9163CF029C65A8A0056789F /* ForecastScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CEF29C65A8A0056789F /* ForecastScreenPresenter.swift */; };
+		F9163CF329C65AD30056789F /* ForecastScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CF129C65AD30056789F /* ForecastScreenViewController.swift */; };
+		F9163CF429C65AD30056789F /* ForecastScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9163CF229C65AD30056789F /* ForecastScreenViewController.xib */; };
+		F9163CF729C65FCC0056789F /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CF629C65FCC0056789F /* SearchTextField.swift */; };
+		F9163CF929C65FE40056789F /* SearchTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9163CF829C65FE40056789F /* SearchTextField.xib */; };
+		F9163CFB29C66B990056789F /* ForecastScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CFA29C66B990056789F /* ForecastScreenConfiguration.swift */; };
 		F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288C29C0C0E2009466E7 /* AppDelegate.swift */; };
 		F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */; };
 		F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91B289229C0C0E2009466E7 /* Main.storyboard */; };
@@ -68,7 +77,16 @@
 		F1F467E427347912CB7A537C /* Pods-OpenWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeatherApp.release.xcconfig"; path = "Target Support Files/Pods-OpenWeatherApp/Pods-OpenWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "General + Extensions .swift"; sourceTree = "<group>"; };
-		F9163CDE29C5C8B80056789F /* UIView + ActivityIndictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + ActivityIndictor.swift"; sourceTree = "<group>"; };
+		F9163CDE29C5C8B80056789F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		F9163CE629C65A540056789F /* ForecastScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreenRouter.swift; sourceTree = "<group>"; };
+		F9163CE929C65A660056789F /* ForecastScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreenEntity.swift; sourceTree = "<group>"; };
+		F9163CEC29C65A7C0056789F /* ForecastScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreenInteractor.swift; sourceTree = "<group>"; };
+		F9163CEF29C65A8A0056789F /* ForecastScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreenPresenter.swift; sourceTree = "<group>"; };
+		F9163CF129C65AD30056789F /* ForecastScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreenViewController.swift; sourceTree = "<group>"; };
+		F9163CF229C65AD30056789F /* ForecastScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastScreenViewController.xib; sourceTree = "<group>"; };
+		F9163CF629C65FCC0056789F /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		F9163CF829C65FE40056789F /* SearchTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTextField.xib; sourceTree = "<group>"; };
+		F9163CFA29C66B990056789F /* ForecastScreenConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreenConfiguration.swift; sourceTree = "<group>"; };
 		F91B288929C0C0E2009466E7 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91B288C29C0C0E2009466E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,9 +171,79 @@
 		F9163CDD29C5C8A10056789F /* Loader */ = {
 			isa = PBXGroup;
 			children = (
-				F9163CDE29C5C8B80056789F /* UIView + ActivityIndictor.swift */,
+				F9163CDE29C5C8B80056789F /* UIView + Extension.swift */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		F9163CE029C65A0D0056789F /* ForecastScene */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CE129C65A310056789F /* View */,
+				F9163CEE29C65A810056789F /* Presenter */,
+				F9163CEB29C65A6F0056789F /* Interactor */,
+				F9163CE829C65A590056789F /* Entity */,
+				F9163CE529C65A4B0056789F /* Router */,
+				F9163CE429C65A430056789F /* Loader */,
+			);
+			path = ForecastScene;
+			sourceTree = "<group>";
+		};
+		F9163CE129C65A310056789F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CF129C65AD30056789F /* ForecastScreenViewController.swift */,
+				F9163CF229C65AD30056789F /* ForecastScreenViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F9163CE429C65A430056789F /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		F9163CE529C65A4B0056789F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CE629C65A540056789F /* ForecastScreenRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F9163CE829C65A590056789F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CE929C65A660056789F /* ForecastScreenEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F9163CEB29C65A6F0056789F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CEC29C65A7C0056789F /* ForecastScreenInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F9163CEE29C65A810056789F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CEF29C65A8A0056789F /* ForecastScreenPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F9163CF529C65FC20056789F /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CF629C65FCC0056789F /* SearchTextField.swift */,
+				F9163CF829C65FE40056789F /* SearchTextField.xib */,
+			);
+			path = Reusables;
 			sourceTree = "<group>";
 		};
 		F91B288029C0C0E1009466E7 = {
@@ -185,6 +273,8 @@
 			children = (
 				F91B288C29C0C0E2009466E7 /* AppDelegate.swift */,
 				F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */,
+				F9163CE029C65A0D0056789F /* ForecastScene */,
+				F9163CFA29C66B990056789F /* ForecastScreenConfiguration.swift */,
 				F91B28C529C0F4ED009466E7 /* DashboardScene */,
 				F91B28C629C0F4F7009466E7 /* NetworkLayer */,
 				F94BC38829C145DF0010B5B6 /* LocationHelpers */,
@@ -192,6 +282,7 @@
 				F91B289829C0C0E3009466E7 /* Assets.xcassets */,
 				F91B289A29C0C0E3009466E7 /* LaunchScreen.storyboard */,
 				F91B289D29C0C0E3009466E7 /* Info.plist */,
+				F9163CF529C65FC20056789F /* Reusables */,
 				F91B28BF29C0EC0C009466E7 /* Helpers */,
 				F91B289529C0C0E2009466E7 /* OpenWeatherApp.xcdatamodeld */,
 			);
@@ -451,7 +542,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91B289C29C0C0E3009466E7 /* LaunchScreen.storyboard in Resources */,
+				F9163CF929C65FE40056789F /* SearchTextField.xib in Resources */,
 				F91B289929C0C0E3009466E7 /* Assets.xcassets in Resources */,
+				F9163CF429C65AD30056789F /* ForecastScreenViewController.xib in Resources */,
 				F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,7 +675,11 @@
 			files = (
 				F91B28C429C0F38A009466E7 /* DashboardViewController.swift in Sources */,
 				F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */,
-				F9163CDF29C5C8B80056789F /* UIView + ActivityIndictor.swift in Sources */,
+				F9163CFB29C66B990056789F /* ForecastScreenConfiguration.swift in Sources */,
+				F9163CF029C65A8A0056789F /* ForecastScreenPresenter.swift in Sources */,
+				F9163CF329C65AD30056789F /* ForecastScreenViewController.swift in Sources */,
+				F9163CF729C65FCC0056789F /* SearchTextField.swift in Sources */,
+				F9163CDF29C5C8B80056789F /* UIView + Extension.swift in Sources */,
 				F90DFF1529C5C0F8003D4D3A /* String + Extension.swift in Sources */,
 				F94BC38729C1419F0010B5B6 /* LocationManager.swift in Sources */,
 				F90DFF1729C5C20D003D4D3A /* General + Extensions .swift in Sources */,
@@ -592,11 +689,14 @@
 				F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */,
 				F94BC36929C0FB610010B5B6 /* DashboardPresenter.swift in Sources */,
 				F94BC37229C0FD7A0010B5B6 /* DashboardLoader.swift in Sources */,
+				F9163CED29C65A7C0056789F /* ForecastScreenInteractor.swift in Sources */,
+				F9163CE729C65A540056789F /* ForecastScreenRouter.swift in Sources */,
 				F94BC37429C110610010B5B6 /* APIRouter.swift in Sources */,
 				F94BC37629C1153D0010B5B6 /* APILoader.swift in Sources */,
 				F94BC36529C0FB4B0010B5B6 /* DashboardConfiguration.swift in Sources */,
 				F94BC36B29C0FB6B0010B5B6 /* DashboardRouter.swift in Sources */,
 				F91B28C829C0F6A0009466E7 /* APIClient.swift in Sources */,
+				F9163CEA29C65A660056789F /* ForecastScreenEntity.swift in Sources */,
 				F94BC36729C0FB5A0010B5B6 /* DashboardInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
