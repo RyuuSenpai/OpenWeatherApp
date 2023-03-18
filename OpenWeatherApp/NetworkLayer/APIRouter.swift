@@ -14,14 +14,14 @@ fileprivate class Environment {
 }
 enum APIRouter {
     case weatherFor(city: String)
-    case getWeatherBy(lat: Double, lng: Double)
+    case getCurrentWeatherBy(lat: Double, lng: Double)
     
     var path: String {
         switch self {
         case .weatherFor(let city):
             let city = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
             return Environment.dataMainVersion + "weather?q=\(city)"
-        case .getWeatherBy(let lat,let lng) : return Environment.dataMainVersion + "forecast/daily?lat=\(lat)&lon=\(lng)&cnt=7&units=metric"
+        case .getCurrentWeatherBy(let lat,let lng) : return Environment.dataMainVersion + "weather?lat=\(lat)&lon=\(lng)&units=metric"
         }
     }
 }

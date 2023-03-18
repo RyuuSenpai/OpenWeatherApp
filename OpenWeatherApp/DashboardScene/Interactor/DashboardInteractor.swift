@@ -26,19 +26,19 @@ extension DashboardInteractor: DashboardPresenterInteractorProtocol {
     func getUserCurrentLocation() {
         locationManager?.getCurrentLocation(completion: { [weak self] userLocation in
             guard let self else { return }
-            self.presenter?.getUserCurrentLocation(latitude: userLocation?.coordinate.latitude ?? 30.0,
-                                                   longitude: userLocation?.coordinate.longitude ?? 30.0)
+            self.presenter?.loadaUserCurrentWeather(byLocation: userLocation?.coordinate.latitude ?? 30.0,
+                                                    userLocation?.coordinate.longitude ?? 30.0)
         })
     }
     // MARK: API Calls
     func fetchWeatherData(for latitude: Double,
                           _ longitude: Double) {
-        weatherLoader.loadWeather(with: latitude, longitude) { [weak self] result in
+        weatherLoader.loadCurrentWeatherData(with: latitude, longitude) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let weatherData):
                 // handle success case
-                self.presenter?.displayWeatherData(weatherData)
+                self.presenter?.didFetchCurrentWeatherData(weatherData)
             case .failure(let error):
                 // handle error case
                 self.presenter?.failedToUpdateWeather(withError: error)

@@ -9,23 +9,21 @@ import Foundation
 import CoreLocation
 
 protocol WeatherLoaderProtocol {
-    func loadWeather(with latitude: Double,
-                     _ longitude: Double,
-                     completionHandler: @escaping (APIResult<DashboardEntity.Weather>) -> Void)
+    func loadCurrentWeatherData(with latitude: Double,
+                                _ longitude: Double,
+                                completionHandler: @escaping (APIResult<DashboardEntity.Weather>) -> Void)
 }
-
 final class WeatherLoader: WeatherLoaderProtocol, LoaderProtocol {
     typealias Entity = DashboardEntity.Weather
-
+    
     // MARK: Call API Request
-    func loadWeather(with latitude: Double,
-                     _ longitude: Double,
-                     completionHandler: @escaping (APIResult<DashboardEntity.Weather>) -> Void) {
-        let configuration = LoaderConfiguration(router: .getWeatherBy(lat: latitude,
-                                                                      lng: longitude),
+    func loadCurrentWeatherData(with latitude: Double,
+                                _ longitude: Double,
+                                completionHandler: @escaping (APIResult<Entity>) -> Void) {
+        let configuration = LoaderConfiguration(router: .getCurrentWeatherBy(lat: latitude,
+                                                                             lng: longitude),
                                                 method: .get)
         loadItems(requestConfiguration: configuration,
                   completionHandler: completionHandler)
-
     }
 }

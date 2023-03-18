@@ -22,8 +22,9 @@ protocol APIClientProtocol {
 
 final class APIClient: APIClientProtocol {
     static let shared = APIClient()
-    private let baseUrl = "http://api.openweathermap.org"
-    private let accessKey = "f5cb0b965ea1564c50c6f1b74534d823"
+
+    let baseUrl = "http://api.openweathermap.org"
+    private let accessKey = "115567a480c96d212ae01ead7371ecd4"
 
     private init() {}
 

@@ -10,6 +10,8 @@
 		1B8BDA0B7F61F096E3541D61 /* Pods_OpenWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B903F0CA47552051572A305B /* Pods_OpenWeatherAppTests.framework */; };
 		80ECF36281C658B649F19B22 /* Pods_OpenWeatherApp_OpenWeatherAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B7E7CDD7B39711BC20A14 /* Pods_OpenWeatherApp_OpenWeatherAppUITests.framework */; };
 		AB66EF84FA1964D9585F22D6 /* Pods_OpenWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57800F5B97C95F4E95327AE0 /* Pods_OpenWeatherApp.framework */; };
+		F90DFF1529C5C0F8003D4D3A /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */; };
+		F90DFF1729C5C20D003D4D3A /* General + Extensions .swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */; };
 		F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288C29C0C0E2009466E7 /* AppDelegate.swift */; };
 		F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */; };
 		F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91B289229C0C0E2009466E7 /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		B903F0CA47552051572A305B /* Pods_OpenWeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenWeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A0971F0FC1585D3994A19 /* Pods-OpenWeatherApp-OpenWeatherAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeatherApp-OpenWeatherAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-OpenWeatherApp-OpenWeatherAppUITests/Pods-OpenWeatherApp-OpenWeatherAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F1F467E427347912CB7A537C /* Pods-OpenWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeatherApp.release.xcconfig"; path = "Target Support Files/Pods-OpenWeatherApp/Pods-OpenWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "General + Extensions .swift"; sourceTree = "<group>"; };
 		F91B288929C0C0E2009466E7 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91B288C29C0C0E2009466E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				F91B28C029C0EC1C009466E7 /* Extensions */,
+				F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */,
+				F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,8 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				F94BC35F29C0FAC50010B5B6 /* View */,
-				F94BC36029C0FACB0010B5B6 /* Interactor */,
 				F94BC36129C0FAFF0010B5B6 /* Presenter */,
+				F94BC36029C0FACB0010B5B6 /* Interactor */,
 				F94BC36229C0FB0D0010B5B6 /* Entity */,
 				F94BC36329C0FB220010B5B6 /* Router */,
 				F94BC37029C0FD6B0010B5B6 /* Loader */,
@@ -565,7 +571,9 @@
 			files = (
 				F91B28C429C0F38A009466E7 /* DashboardViewController.swift in Sources */,
 				F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */,
+				F90DFF1529C5C0F8003D4D3A /* String + Extension.swift in Sources */,
 				F94BC38729C1419F0010B5B6 /* LocationManager.swift in Sources */,
+				F90DFF1729C5C20D003D4D3A /* General + Extensions .swift in Sources */,
 				F91B28C229C0EC2B009466E7 /* UIViewExtesnions.swift in Sources */,
 				F91B289729C0C0E2009466E7 /* OpenWeatherApp.xcdatamodeld in Sources */,
 				F94BC36D29C0FCC20010B5B6 /* DashboardEntity.swift in Sources */,

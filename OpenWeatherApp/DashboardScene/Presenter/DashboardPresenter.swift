@@ -30,12 +30,20 @@ extension DashboardPresenter: DashboardPresenterProtocol {
 // MARK: - Conforming to DashboardInteractorOutput
 extension DashboardPresenter: DashboardInteractorOutput {
     // MARK: UserLocationUpdates
-    func getUserCurrentLocation(latitude: Double, longitude: Double) {
+    func loadaUserCurrentWeather(byLocation latitude: Double, _ longitude: Double) {
         self.userLocation = (latitude, longitude)
         self.interactor?.fetchWeatherData(for: latitude, longitude)
     }
     // MARK: API Delegates
-    func displayWeatherData(_ weatherData: DashboardEntity.Weather) {
+    func didFetchCurrentWeatherData(_ weatherData: DashboardEntity.Weather) {
+        let item = CurrentWeatherItemDetails(currentTemp: weatherData.main?.temp ?? 0.0,
+                                             cloudsSate: weatherData.weather?.first?.main ?? "",
+                                             cloudsStateDescription: weatherData.weather?.first?.description ?? "",
+
+                                             cloudStateIconName: weatherData.weather?.first?.icon ?? "",
+                                             windSpeedValue: weatherData.wind?.speed ?? 0.0,
+                                             humidityValue: weatherData.main?.humidity ?? 0)
+        view?.displayCurrentWeatherDetails(item)
     }
     
     func failedToUpdateWeather(withError error: Error) {

@@ -22,6 +22,4 @@ extension DashboardRouter: DashboardRouterProtocol {
 
     func navigateToCurrentWeatherScreen() {
     }
-
-
 }

@@ -9,8 +9,16 @@ import UIKit
 
 final class DashboardViewController: UIViewController {
     // MARK: - IBOutlet
-    @IBOutlet weak var forcastScreenView: UIView!
-    @IBOutlet weak var currentWeatherView: UIView!
+    @IBOutlet private weak var forcastScreenView: UIView!
+    @IBOutlet private weak var currentWeatherView: UIView!
+    // Current Weather Temp
+    @IBOutlet private weak var weatherTempLabel: UILabel!
+    // Current Weather Details
+    @IBOutlet private weak var weatherCloudsStateLabel: UILabel!
+    @IBOutlet private weak var weatherCloudsDescriptionLabel: UILabel!
+    @IBOutlet private weak var windSpeedlLabel: UILabel!
+    @IBOutlet private weak var humidityLabel: UILabel!
+
     // MARK: - Properites
     var presenter: DashboardPresenterProtocol?
     // MARK: - Lifecycle
@@ -29,4 +37,11 @@ final class DashboardViewController: UIViewController {
 }
 // MARK: - Conforming to DashboardControllerProtocol
 extension DashboardViewController: DashboardControllerProtocol {
+    func displayCurrentWeatherDetails(_ details: CurrentWeatherItemDetails) {
+        weatherTempLabel.text = details.currentTemp
+        weatherCloudsStateLabel.text = details.cloudsSate
+        weatherCloudsDescriptionLabel.text = details.cloudsStateDescription
+        windSpeedlLabel.text = details.windSpeed
+        humidityLabel.text = details.humidity
+    }
 }
