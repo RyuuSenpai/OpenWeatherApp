@@ -7,7 +7,9 @@ target 'OpenWeatherApp' do
 
   # Pods for OpenWeatherApp
 
-pod 'Alamofire'
+pod 'Alamofire', '~> 5.4'
+pod 'AlamofireNetworkActivityIndicator', '~> 3.0'
+pod 'Kingfisher', '~> 7.0'
 
   target 'OpenWeatherAppTests' do
     inherit! :search_paths
