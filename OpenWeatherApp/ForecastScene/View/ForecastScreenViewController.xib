@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForecastScreenViewController" customModule="OpenWeatherApp" customModuleProvider="target">
             <connections>
+                <outlet property="searchHeaderView" destination="1Kq-Ge-7cD" id="ASF-Pk-z4L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,12 +18,51 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHf-ty-l9S">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="center" image="296972" translatesAutoresizingMaskIntoConstraints="NO" id="gGk-TF-xPh">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OdO-8s-M9c">
+                            <rect key="frame" x="0.0" y="59" width="393" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kq-Ge-7cD" customClass="SearchHeaderView" customModule="OpenWeatherApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" placeholder="YES" id="y6G-pn-6Ai"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="gGk-TF-xPh" secondAttribute="bottom" id="1FO-XB-TVg"/>
+                        <constraint firstItem="gGk-TF-xPh" firstAttribute="leading" secondItem="jHf-ty-l9S" secondAttribute="leading" id="E8W-L1-40N"/>
+                        <constraint firstItem="gGk-TF-xPh" firstAttribute="top" secondItem="jHf-ty-l9S" secondAttribute="top" id="Pwt-Ex-AYr"/>
+                        <constraint firstAttribute="trailing" secondItem="gGk-TF-xPh" secondAttribute="trailing" id="Shh-K7-mZM"/>
+                        <constraint firstAttribute="trailing" secondItem="OdO-8s-M9c" secondAttribute="trailing" id="aD3-5n-5LZ"/>
+                        <constraint firstItem="OdO-8s-M9c" firstAttribute="leading" secondItem="jHf-ty-l9S" secondAttribute="leading" id="j61-2O-G5A"/>
+                    </constraints>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jHf-ty-l9S" secondAttribute="bottom" id="Qtq-8x-ZrY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="OdO-8s-M9c" secondAttribute="top" id="Qus-1P-oJb"/>
+                <constraint firstItem="jHf-ty-l9S" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="acu-hB-Oxn"/>
+                <constraint firstItem="jHf-ty-l9S" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="leo-ZU-0mc"/>
+                <constraint firstAttribute="trailing" secondItem="jHf-ty-l9S" secondAttribute="trailing" id="m6a-6s-tde"/>
+            </constraints>
             <point key="canvasLocation" x="-31" y="20"/>
         </view>
     </objects>
     <resources>
+        <image name="296972" width="1200" height="1800"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

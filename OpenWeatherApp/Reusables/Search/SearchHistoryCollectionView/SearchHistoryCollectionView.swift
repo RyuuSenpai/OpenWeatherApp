@@ -14,8 +14,8 @@ protocol SearchHistoryCollectionViewDelegate: AnyObject {
 typealias SHCollectionViewDelegate = SearchHistoryCollectionViewDelegate
 final class SearchHistoryCollectionView: UIView {
     // MARK: - Outlets
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var historyCollectionView: UICollectionView!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var historyCollectionView: UICollectionView!
     // MARK: Properties
     private var data = [String]()
     weak var delegate: SHCollectionViewDelegate?
@@ -52,6 +52,10 @@ final class SearchHistoryCollectionView: UIView {
                                                    left: 16,
                                                    bottom: 0,
                                                    right: 16)
+
+        let layout = UICollectionViewFlowLayout()
+        historyCollectionView.collectionViewLayout = layout
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     }
 
 }
@@ -74,20 +78,4 @@ extension SearchHistoryCollectionView: UICollectionViewDelegate,
                         didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelectItem(atIndex: indexPath.row)
     }
-}
-
-// MARK: Conform to UICollectionViewDelegateFlowLayout
-extension SearchHistoryCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        estimatedSizeForItemAt indexPath: IndexPath) -> CGSize {
-        return UICollectionViewFlowLayout.automaticSize
-    }
-
 }

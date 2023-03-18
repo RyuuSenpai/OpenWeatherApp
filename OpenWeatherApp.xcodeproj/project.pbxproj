@@ -28,6 +28,7 @@
 		F9163D0829C677410056789F /* SearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9163D0629C677410056789F /* SearchHistoryCell.xib */; };
 		F9163D0B29C677F70056789F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163D0A29C677F70056789F /* CardView.swift */; };
 		F9163D0D29C679AD0056789F /* UICollectionView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163D0C29C679AD0056789F /* UICollectionView + Extensions.swift */; };
+		F9163D0F29C67C460056789F /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163D0E29C67C460056789F /* SearchHeaderView.swift */; };
 		F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288C29C0C0E2009466E7 /* AppDelegate.swift */; };
 		F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */; };
 		F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91B289229C0C0E2009466E7 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		F94BC37E29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37D29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift */; };
 		F94BC38129C131410010B5B6 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC37F29C12FD30010B5B6 /* APIError.swift */; };
 		F94BC38729C1419F0010B5B6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94BC38629C1419F0010B5B6 /* LocationManager.swift */; };
+		F9FD621F29C67C6E002AD4D3 /* SearchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9FD621E29C67C6E002AD4D3 /* SearchHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,7 @@
 		F9163D0629C677410056789F /* SearchHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryCell.xib; sourceTree = "<group>"; };
 		F9163D0A29C677F70056789F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F9163D0C29C679AD0056789F /* UICollectionView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extensions.swift"; sourceTree = "<group>"; };
+		F9163D0E29C67C460056789F /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
 		F91B288929C0C0E2009466E7 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91B288C29C0C0E2009466E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		F94BC37D29C12EBB0010B5B6 /* DashboardInteractorOutputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorOutputMock.swift; sourceTree = "<group>"; };
 		F94BC37F29C12FD30010B5B6 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		F94BC38629C1419F0010B5B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F9FD621E29C67C6E002AD4D3 /* SearchHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,8 +256,7 @@
 		F9163CF529C65FC20056789F /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
-				F9163CFC29C673AE0056789F /* SearchTextField */,
-				F9163D0129C673D50056789F /* SearchHistoryCollectionView */,
+				F9FD622029C67E43002AD4D3 /* Search */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -292,6 +295,15 @@
 				F9163D0A29C677F70056789F /* CardView.swift */,
 			);
 			path = IBDesignables;
+			sourceTree = "<group>";
+		};
+		F9163D1229C67C4F0056789F /* SearchHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				F9163D0E29C67C460056789F /* SearchHeaderView.swift */,
+				F9FD621E29C67C6E002AD4D3 /* SearchHeaderView.xib */,
+			);
+			path = SearchHeaderView;
 			sourceTree = "<group>";
 		};
 		F91B288029C0C0E1009466E7 = {
@@ -482,6 +494,16 @@
 			path = LocationHelpers;
 			sourceTree = "<group>";
 		};
+		F9FD622029C67E43002AD4D3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F9163D1229C67C4F0056789F /* SearchHeaderView */,
+				F9163CFC29C673AE0056789F /* SearchTextField */,
+				F9163D0129C673D50056789F /* SearchHistoryCollectionView */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -598,6 +620,7 @@
 				F9163D0329C674030056789F /* SearchHistoryCollectionView.xib in Resources */,
 				F9163CF429C65AD30056789F /* ForecastScreenViewController.xib in Resources */,
 				F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */,
+				F9FD621F29C67C6E002AD4D3 /* SearchHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,6 +765,7 @@
 				F94BC36D29C0FCC20010B5B6 /* DashboardEntity.swift in Sources */,
 				F9163D0B29C677F70056789F /* CardView.swift in Sources */,
 				F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */,
+				F9163D0F29C67C460056789F /* SearchHeaderView.swift in Sources */,
 				F94BC36929C0FB610010B5B6 /* DashboardPresenter.swift in Sources */,
 				F94BC37229C0FD7A0010B5B6 /* DashboardLoader.swift in Sources */,
 				F9163CED29C65A7C0056789F /* ForecastScreenInteractor.swift in Sources */,

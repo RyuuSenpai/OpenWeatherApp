@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class CardView: UIView {
+final class CardView: UIView {
 
     // MARK: - Properties
     @IBInspectable var cornerRadiusValue: CGFloat = 8.0 {
@@ -62,4 +62,3 @@ class CardView: UIView {
         layer.shadowRadius = shadowRadius
     }
 }
-
