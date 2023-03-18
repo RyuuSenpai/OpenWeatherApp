@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchHistoryCollectionView" customModule="OpenWeatherApp" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="oBx-YG-HwZ" id="iM2-bv-f4c"/>
+                <outlet property="historyCollectionView" destination="RaE-AX-egq" id="mjf-ex-gAu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Byn-lU-HS2">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBx-YG-HwZ">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJa-we-zfr">
+                                    <rect key="frame" x="16" y="0.0" width="66" height="26.333333333333332"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26.333333333333332" id="o83-BO-8ek"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RaE-AX-egq">
+                                    <rect key="frame" x="0.0" y="30.333333333333332" width="393" height="65.666666666666671"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="65.666666666666671" id="uxC-37-pRm"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Aqz-Gj-SPt">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="RJa-we-zfr" firstAttribute="top" secondItem="oBx-YG-HwZ" secondAttribute="top" id="PQL-gk-CuQ"/>
+                                <constraint firstItem="RaE-AX-egq" firstAttribute="leading" secondItem="oBx-YG-HwZ" secondAttribute="leading" id="PgL-TG-QxW"/>
+                                <constraint firstAttribute="trailing" secondItem="RaE-AX-egq" secondAttribute="trailing" id="a4F-C9-6pb"/>
+                                <constraint firstItem="RJa-we-zfr" firstAttribute="leading" secondItem="oBx-YG-HwZ" secondAttribute="leading" constant="16" id="afD-1J-Mz2"/>
+                                <constraint firstItem="RaE-AX-egq" firstAttribute="top" secondItem="RJa-we-zfr" secondAttribute="bottom" constant="4" id="owg-yr-xt0"/>
+                                <constraint firstAttribute="bottom" secondItem="RaE-AX-egq" secondAttribute="bottom" id="qGb-EC-oNF"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Byn-lU-HS2" secondAttribute="trailing" id="M3e-S5-Lj7"/>
+                <constraint firstAttribute="bottom" secondItem="Byn-lU-HS2" secondAttribute="bottom" id="NFj-Nh-fIR"/>
+                <constraint firstItem="Byn-lU-HS2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Q0p-72-vK8"/>
+                <constraint firstItem="Byn-lU-HS2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vPp-i5-baC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-289.3129770992366" y="898.59154929577471"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

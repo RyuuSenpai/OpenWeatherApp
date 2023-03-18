@@ -22,6 +22,12 @@
 		F9163CF729C65FCC0056789F /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CF629C65FCC0056789F /* SearchTextField.swift */; };
 		F9163CF929C65FE40056789F /* SearchTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9163CF829C65FE40056789F /* SearchTextField.xib */; };
 		F9163CFB29C66B990056789F /* ForecastScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CFA29C66B990056789F /* ForecastScreenConfiguration.swift */; };
+		F9163CFE29C673C90056789F /* SearchHistoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CFD29C673C90056789F /* SearchHistoryCollectionView.swift */; };
+		F9163D0329C674030056789F /* SearchHistoryCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9163D0229C674030056789F /* SearchHistoryCollectionView.xib */; };
+		F9163D0729C677410056789F /* SearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163D0529C677410056789F /* SearchHistoryCell.swift */; };
+		F9163D0829C677410056789F /* SearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9163D0629C677410056789F /* SearchHistoryCell.xib */; };
+		F9163D0B29C677F70056789F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163D0A29C677F70056789F /* CardView.swift */; };
+		F9163D0D29C679AD0056789F /* UICollectionView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163D0C29C679AD0056789F /* UICollectionView + Extensions.swift */; };
 		F91B288D29C0C0E2009466E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288C29C0C0E2009466E7 /* AppDelegate.swift */; };
 		F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */; };
 		F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91B289229C0C0E2009466E7 /* Main.storyboard */; };
@@ -87,6 +93,12 @@
 		F9163CF629C65FCC0056789F /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		F9163CF829C65FE40056789F /* SearchTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTextField.xib; sourceTree = "<group>"; };
 		F9163CFA29C66B990056789F /* ForecastScreenConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreenConfiguration.swift; sourceTree = "<group>"; };
+		F9163CFD29C673C90056789F /* SearchHistoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCollectionView.swift; sourceTree = "<group>"; };
+		F9163D0229C674030056789F /* SearchHistoryCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryCollectionView.xib; sourceTree = "<group>"; };
+		F9163D0529C677410056789F /* SearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCell.swift; sourceTree = "<group>"; };
+		F9163D0629C677410056789F /* SearchHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryCell.xib; sourceTree = "<group>"; };
+		F9163D0A29C677F70056789F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F9163D0C29C679AD0056789F /* UICollectionView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extensions.swift"; sourceTree = "<group>"; };
 		F91B288929C0C0E2009466E7 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91B288C29C0C0E2009466E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91B288E29C0C0E2009466E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -240,10 +252,46 @@
 		F9163CF529C65FC20056789F /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				F9163CFC29C673AE0056789F /* SearchTextField */,
+				F9163D0129C673D50056789F /* SearchHistoryCollectionView */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		F9163CFC29C673AE0056789F /* SearchTextField */ = {
+			isa = PBXGroup;
+			children = (
 				F9163CF629C65FCC0056789F /* SearchTextField.swift */,
 				F9163CF829C65FE40056789F /* SearchTextField.xib */,
 			);
-			path = Reusables;
+			path = SearchTextField;
+			sourceTree = "<group>";
+		};
+		F9163D0129C673D50056789F /* SearchHistoryCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F9163CFD29C673C90056789F /* SearchHistoryCollectionView.swift */,
+				F9163D0229C674030056789F /* SearchHistoryCollectionView.xib */,
+				F9163D0429C6772E0056789F /* Cell */,
+			);
+			path = SearchHistoryCollectionView;
+			sourceTree = "<group>";
+		};
+		F9163D0429C6772E0056789F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F9163D0529C677410056789F /* SearchHistoryCell.swift */,
+				F9163D0629C677410056789F /* SearchHistoryCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F9163D0929C677E10056789F /* IBDesignables */ = {
+			isa = PBXGroup;
+			children = (
+				F9163D0A29C677F70056789F /* CardView.swift */,
+			);
+			path = IBDesignables;
 			sourceTree = "<group>";
 		};
 		F91B288029C0C0E1009466E7 = {
@@ -310,6 +358,7 @@
 		F91B28BF29C0EC0C009466E7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F9163D0929C677E10056789F /* IBDesignables */,
 				F9163CDD29C5C8A10056789F /* Loader */,
 				F91B28C029C0EC1C009466E7 /* Extensions */,
 				F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */,
@@ -322,6 +371,7 @@
 			children = (
 				F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */,
 				F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */,
+				F9163D0C29C679AD0056789F /* UICollectionView + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -541,9 +591,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9163D0829C677410056789F /* SearchHistoryCell.xib in Resources */,
 				F91B289C29C0C0E3009466E7 /* LaunchScreen.storyboard in Resources */,
 				F9163CF929C65FE40056789F /* SearchTextField.xib in Resources */,
 				F91B289929C0C0E3009466E7 /* Assets.xcassets in Resources */,
+				F9163D0329C674030056789F /* SearchHistoryCollectionView.xib in Resources */,
 				F9163CF429C65AD30056789F /* ForecastScreenViewController.xib in Resources */,
 				F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */,
 			);
@@ -678,14 +730,17 @@
 				F9163CFB29C66B990056789F /* ForecastScreenConfiguration.swift in Sources */,
 				F9163CF029C65A8A0056789F /* ForecastScreenPresenter.swift in Sources */,
 				F9163CF329C65AD30056789F /* ForecastScreenViewController.swift in Sources */,
+				F9163D0729C677410056789F /* SearchHistoryCell.swift in Sources */,
 				F9163CF729C65FCC0056789F /* SearchTextField.swift in Sources */,
 				F9163CDF29C5C8B80056789F /* UIView + Extension.swift in Sources */,
 				F90DFF1529C5C0F8003D4D3A /* String + Extension.swift in Sources */,
 				F94BC38729C1419F0010B5B6 /* LocationManager.swift in Sources */,
 				F90DFF1729C5C20D003D4D3A /* General + Extensions .swift in Sources */,
 				F91B28C229C0EC2B009466E7 /* UIViewExtesnions.swift in Sources */,
+				F9163D0D29C679AD0056789F /* UICollectionView + Extensions.swift in Sources */,
 				F91B289729C0C0E2009466E7 /* OpenWeatherApp.xcdatamodeld in Sources */,
 				F94BC36D29C0FCC20010B5B6 /* DashboardEntity.swift in Sources */,
+				F9163D0B29C677F70056789F /* CardView.swift in Sources */,
 				F91B288F29C0C0E2009466E7 /* SceneDelegate.swift in Sources */,
 				F94BC36929C0FB610010B5B6 /* DashboardPresenter.swift in Sources */,
 				F94BC37229C0FD7A0010B5B6 /* DashboardLoader.swift in Sources */,
@@ -698,6 +753,7 @@
 				F91B28C829C0F6A0009466E7 /* APIClient.swift in Sources */,
 				F9163CEA29C65A660056789F /* ForecastScreenEntity.swift in Sources */,
 				F94BC36729C0FB5A0010B5B6 /* DashboardInteractor.swift in Sources */,
+				F9163CFE29C673C90056789F /* SearchHistoryCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,15 +28,15 @@ final class SearchTextField: UITextField {
         loadFromNib()
     }
 
-    init(frame: CGRect, searchDelegate: SearchTextFieldDelegate) {
-        self.searchDelegate = searchDelegate
+    override init(frame: CGRect) {
         super.init(frame: frame)
         loadFromNib()
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    // MARK: ConfigView
+    func configView(searchDelegate: SearchTextFieldDelegate) {
+        self.searchDelegate = searchDelegate
         configTextField()
+
     }
 
     private func configTextField() {

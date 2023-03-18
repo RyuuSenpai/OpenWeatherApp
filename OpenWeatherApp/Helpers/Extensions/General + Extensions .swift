@@ -12,3 +12,10 @@ extension Numeric {
         String(describing: self)
     }
 }
+
+extension Array {
+    /// Subscript that returns nil instead of crashing when accessing an out-of-bounds index.
+    subscript(safe index: Int) -> Element? {
+        return indices ~= index ? self[index] : nil
+    }
+}
