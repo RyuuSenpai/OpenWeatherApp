@@ -33,9 +33,10 @@ struct SearchQuery {
          }
          if let lat = input.components(separatedBy: ",")[safe: 0],
             let lng = input.components(separatedBy: ",")[safe: 1] {
-             return .coordinate(lat: lat, lng: lng)
+             return .coordinate(lat: lat.removeWhiteSpaces,
+                                lng: lng.removeWhiteSpaces)
          } else {
-             return .zipCode(value: input)
+             return .zipCode(value: input.removeWhiteSpaces)
          }
      }
 }

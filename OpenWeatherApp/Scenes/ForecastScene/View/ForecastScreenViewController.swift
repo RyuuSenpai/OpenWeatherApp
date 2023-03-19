@@ -10,7 +10,7 @@ import UIKit
 class ForecastScreenViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet private weak var searchHeaderView: SearchHeaderView!
-    
+    @IBOutlet private weak var searchResultTableView: UITableView!
     // MARK: Properties
     var presenter: ForecaseScreenPresenterProtocol?
     // MARK: - Lifecycle

@@ -14,11 +14,7 @@ final class DashboardViewController: UIViewController {
     // Current Weather Temp
     @IBOutlet private weak var weatherTempLabel: UILabel!
     // Current Weather Details
-    @IBOutlet private weak var weatherCloudsStateLabel: UILabel!
-    @IBOutlet private weak var weatherCloudsDescriptionLabel: UILabel!
-    @IBOutlet private weak var windSpeedlLabel: UILabel!
-    @IBOutlet private weak var humidityLabel: UILabel!
-
+    @IBOutlet weak var weatherDetailsView: WeatherAdditionalDetailsView!
     // MARK: - Properites
     var presenter: DashboardPresenterProtocol?
     // MARK: - Lifecycle
@@ -46,11 +42,8 @@ final class DashboardViewController: UIViewController {
 }
 // MARK: - Conforming to DashboardControllerProtocol
 extension DashboardViewController: DashboardControllerProtocol {
-    func displayCurrentWeatherDetails(_ details: CurrentWeatherItemDetails) {
+    func displayCurrentWeatherDetails(_ details: DashboardEntity) {
         weatherTempLabel.text = details.currentTemp
-        weatherCloudsStateLabel.text = details.cloudsSate
-        weatherCloudsDescriptionLabel.text = details.cloudsStateDescription
-        windSpeedlLabel.text = details.windSpeed
-        humidityLabel.text = details.humidity
+        weatherDetailsView.configView(with: details)
     }
 }

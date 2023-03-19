@@ -1,13 +1,13 @@
 //
-//  DashboardEntity.swift
+//  DashboardModel.swift
 //  OpenWeatherApp
 //
-//  Created by Eslam Abo El Fetouh on 14/03/2023.
+//  Created by Eslam Abo El Fetouh on 19/03/2023.
 //
 
 import Foundation
 
-struct DashboardEntity {
+struct DashboardModel {
     // MARK: - Weather
     struct Weather: Codable {
         let coord: Coord?
@@ -68,5 +68,4 @@ struct DashboardEntity {
         let deg: Int?
         let gust: Double?
     }
-
 }

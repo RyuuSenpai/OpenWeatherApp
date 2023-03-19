@@ -14,4 +14,8 @@ extension String {
     var urlHostCharactersAllowed: String {
         self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
     }
+
+    var removeWhiteSpaces: String {
+        return self.trimmingCharacters(in: .whitespaces)
+    }
 }

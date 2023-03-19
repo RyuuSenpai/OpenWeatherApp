@@ -24,11 +24,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJa-we-zfr">
-                                    <rect key="frame" x="16" y="0.0" width="66" height="26.333333333333332"/>
+                                    <rect key="frame" x="16" y="0.0" width="54" height="26.333333333333332"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="26.333333333333332" id="o83-BO-8ek"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="18"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>

@@ -18,15 +18,16 @@ enum APIRouter {
     case forecast(searchQuery: SearchQuery)
     // MARK: Get Endpoint
     var path: String {
+        let units = "&units=metric"
         switch self {
         case .weatherFor(let city):
             let city = city.urlHostCharactersAllowed
-            return Environment.dataMainVersion + "weather?q=\(city)"
+            return Environment.dataMainVersion + "weather?q=\(city)" + units
         case .getCurrentWeatherBy(let lat,let lng) :
-            return Environment.dataMainVersion + "weather?lat=\(lat)&lon=\(lng)&units=metric"
+            return Environment.dataMainVersion + "weather?lat=\(lat)&lon=\(lng)" + units
             // MARK: - Forecast
         case .forecast(let searchQuery):
-            return ForecastEndpoint(searchQuery: searchQuery).path
+            return ForecastEndpoint(searchQuery: searchQuery).path + units
         }
     }
 }
@@ -39,7 +40,7 @@ extension APIRouter {
             let base = Environment.dataMainVersion + "forecast?"
             switch searchQuery.inputType {
             case .coordinate(let lat, let lon):
-                return base + "lat=\(lat)&lon=\(lon)&units=metric"
+                return base + "lat=\(lat)&lon=\(lon)"
             case .zipCode(let value):
                 return base + "zip=\(value)"
             default:
