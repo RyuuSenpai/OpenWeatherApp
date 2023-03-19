@@ -20,7 +20,6 @@ class ForecastScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchHeaderView.config(searchDelegate: self,
-                                historyData: ["1212313", "TEST TEST TEST TEST TEST"],
                                 historyCollectionDelegate: self)
         hideKeyboardWhenTappedAround()
         configTableView()

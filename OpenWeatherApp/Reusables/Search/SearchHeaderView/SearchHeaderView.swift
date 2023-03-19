@@ -26,10 +26,13 @@ final class SearchHeaderView: UIView {
 
     // MARK: Config
     func config(searchDelegate: SearchTextFieldDelegate,
-                historyData: [String],
+                historyData: [String] = [],
                 historyCollectionDelegate collectionDelegate: SHCollectionViewDelegate) {
         searchTextFieldContainer.configView(searchDelegate: searchDelegate)
         searchHistoryContainer.configView(withData: historyData,
                                           delegate: collectionDelegate)
+    }
+    func setHistoryListData(_ data: [String]) {
+        searchHistoryContainer.setData(data)
     }
 }

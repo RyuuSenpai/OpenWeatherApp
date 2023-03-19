@@ -44,6 +44,10 @@ final class SearchHistoryCollectionView: UIView {
         configCollectionView()
     }
 
+    func setData(_ data: [String]) {
+        self.data = data
+        self.historyCollectionView.reloadData()
+    }
     private func configCollectionView() {
         historyCollectionView.delegate = self
         historyCollectionView.dataSource = self
