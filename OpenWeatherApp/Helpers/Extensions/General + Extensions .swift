@@ -13,9 +13,23 @@ extension Numeric {
     }
 }
 
+extension Double {
+    var roundNumber: String {
+        Int(self.rounded()).stringValue
+    }
+}
 extension Array {
     /// Subscript that returns nil instead of crashing when accessing an out-of-bounds index.
     subscript(safe index: Int) -> Element? {
-        return indices ~= index ? self[index] : nil
+        get {
+            return indices ~= index ? self[index] : nil
+        }
+        set {
+            if let newValue = newValue, indices ~= index {
+                self[index] = newValue
+            }
+        }
     }
 }
+
+

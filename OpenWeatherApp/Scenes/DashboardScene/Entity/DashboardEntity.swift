@@ -15,11 +15,13 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
     private let windSpeedValue: Double
     private let humidityValue: Int
 
+    let showIcons: Bool
+
     var currentTemp: String {
         Int(temp.rounded()).stringValue
     }
-    var cloudStateIconPath: String {
-        cloudStateIconName.imageUrlPath
+    var cloudStateIconPath: URL? {
+        cloudStateIconName.imageUrl
     }
     var windSpeed: String {
         windSpeedValue.stringValue + "mile"
@@ -32,12 +34,14 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
          cloudsStateDescription: String,
          cloudStateIconName: String,
          windSpeedValue: Double,
-         humidityValue: Int) {
+         humidityValue: Int,
+         showIcons: Bool = true) {
         self.temp = currentTemp
         self.cloudsSate = cloudsSate
         self.cloudsStateDescription = cloudsStateDescription
         self.cloudStateIconName = cloudStateIconName
         self.windSpeedValue = windSpeedValue
         self.humidityValue = humidityValue
+        self.showIcons = showIcons
     }
 }

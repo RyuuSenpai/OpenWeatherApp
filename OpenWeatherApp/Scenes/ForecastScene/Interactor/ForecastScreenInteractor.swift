@@ -21,15 +21,15 @@ final class ForecastScreenInteractor {
 // MARK: - Conforming to ForecastScreenPresenterInteractorProtocol
 extension ForecastScreenInteractor: ForecastScreenPresenterInteractorProtocol {
     func didSearhForQuery(searchQuery: SearchQuery) {
-        debugPrint("query: \(searchQuery.query), QueryType: \(searchQuery.inputType)")
         forecastLoader?.loadForecastData(for: searchQuery,
                                          completionHandler: { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let weatherData): break
+            case .success(let forecastData):
                 // handle success case
-//                self.presenter?.didFetchCurrentWeatherData(weatherData)
-            case .failure(let error): break
+                self.presenter?.didFetchForecast(data: forecastData)
+            case .failure(let error):
+                break
                 // handle error case
 //                self.presenter?.failedToUpdateWeather(withError: error)
             }

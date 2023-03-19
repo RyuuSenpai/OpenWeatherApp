@@ -9,9 +9,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherAdditionalDetailsView" customModule="OpenWeatherApp" customModuleProvider="target">
             <connections>
+                <outlet property="cloudsImageView" destination="Q8p-3g-raN" id="z3U-gI-lVD"/>
+                <outlet property="humedityImageView" destination="Q5r-df-jo5" id="4Jh-RH-ISg"/>
                 <outlet property="humidityLabel" destination="lQj-jO-kjx" id="aCE-9o-weO"/>
                 <outlet property="weatherCloudsDescriptionLabel" destination="Xjj-Ei-x9n" id="juI-3o-Ro8"/>
                 <outlet property="weatherCloudsStateLabel" destination="3E2-bb-qy9" id="0d8-vX-M94"/>
+                <outlet property="windImageView" destination="8e1-2H-EpF" id="Lhs-yC-ihe"/>
                 <outlet property="windSpeedlLabel" destination="qEq-Rh-PCF" id="2BB-D0-dCw"/>
             </connections>
         </placeholder>

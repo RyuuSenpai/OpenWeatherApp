@@ -6,15 +6,23 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol WeatherAdditionalDetailsDataSource {
     var cloudsSate: String { get }
     var cloudsStateDescription: String { get }
     var windSpeed: String { get }
     var humidity: String { get }
+    var showIcons: Bool { get }
+    var cloudStateIconPath: URL? { get }
 }
 final class WeatherAdditionalDetailsView: UIView {
     // MARK: - Outlets
+    // Icons
+    @IBOutlet private weak var cloudsImageView: UIImageView!
+    @IBOutlet private weak var windImageView: UIImageView!
+    @IBOutlet private weak var humedityImageView: UIImageView!
+    // Details Labels
     @IBOutlet private weak var weatherCloudsStateLabel: UILabel!
     @IBOutlet private weak var weatherCloudsDescriptionLabel: UILabel!
     @IBOutlet private weak var windSpeedlLabel: UILabel!
@@ -36,5 +44,8 @@ final class WeatherAdditionalDetailsView: UIView {
         weatherCloudsDescriptionLabel.text = details.cloudsStateDescription
         windSpeedlLabel.text = details.windSpeed
         humidityLabel.text = details.humidity
+        [cloudsImageView, windImageView, humedityImageView].forEach { $0?.isHidden = !details.showIcons }
+        cloudsImageView.kf.setImage(with: details.cloudStateIconPath)
+
     }
 }

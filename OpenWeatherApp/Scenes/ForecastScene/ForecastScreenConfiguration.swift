@@ -30,6 +30,7 @@ protocol ForecaseScreenPresenterProtocol: AnyObject {
 
 // Presenter --> Controller
 protocol ForecastScreenViewProtocol: AnyObject {
+    func displayForecastList(with cityData: ForecastScreenEntity.City?)
 }
 
 
@@ -40,6 +41,7 @@ protocol ForecastScreenPresenterInteractorProtocol: AnyObject {
 
 // Interactor --> Presenter
 protocol ForecastScreenInteractorOutput: AnyObject {
+    func didFetchForecast(data: ForecastModel.Forecast)
 }
 // Presenter --> Router
 protocol ForecastScreenRouterProtocol: AnyObject {
