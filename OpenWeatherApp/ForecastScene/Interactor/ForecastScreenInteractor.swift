@@ -15,6 +15,8 @@ final class ForecastScreenInteractor {
 
 // MARK: - Conforming to ForecastScreenPresenterInteractorProtocol
 extension ForecastScreenInteractor: ForecastScreenPresenterInteractorProtocol {
-
+    func didSearhForQuery(searchQuery: SearchQuery) {
+        debugPrint("query: \(searchQuery.query), QueryType: \(searchQuery.inputType)")
+    }
 }
 

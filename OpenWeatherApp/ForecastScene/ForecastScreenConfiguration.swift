@@ -25,6 +25,7 @@ final class ForecastScreenBuilder {
 // Controller --> Presenter
 protocol ForecaseScreenPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func didSearhForQuery(query: String)
 }
 
 // Presenter --> Controller
@@ -34,6 +35,7 @@ protocol ForecastScreenViewProtocol: AnyObject {
 
 // Presenter --> Interactor
 protocol ForecastScreenPresenterInteractorProtocol: AnyObject {
+    func didSearhForQuery(searchQuery: SearchQuery)
 }
 
 // Interactor --> Presenter

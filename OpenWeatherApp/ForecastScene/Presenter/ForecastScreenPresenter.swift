@@ -31,5 +31,7 @@ extension ForecastScreenPresenter: ForecaseScreenPresenterProtocol {
 }
 // MARK: - Conforming to ForecastScreenInteractorOutput
 extension ForecastScreenPresenter: ForecastScreenInteractorOutput {
-
+    func didSearhForQuery(query: String) {
+        interactor?.didSearhForQuery(searchQuery: .init(query: query))
+    }
 }

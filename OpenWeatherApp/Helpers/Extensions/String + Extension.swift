@@ -11,4 +11,7 @@ extension String {
     var imageUrlPath: String {
         APIClient.shared.baseUrl + self + ".png"
     }
+    var urlHostCharactersAllowed: String {
+        self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+    }
 }

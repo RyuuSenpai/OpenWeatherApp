@@ -33,7 +33,7 @@ extension ForecastScreenViewController: ForecastScreenViewProtocol {
 // MARK: - Conforming to SearchTextFieldDelegate
 extension ForecastScreenViewController: SearchTextFieldDelegate {
     func search(for query: String) {
-        debugPrint("Query: \(query)")
+        presenter?.didSearhForQuery(query: query)
     }
 }
 // MARK: - Conforming to SHCollectionViewDelegate

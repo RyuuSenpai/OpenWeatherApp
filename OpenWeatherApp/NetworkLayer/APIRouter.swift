@@ -15,13 +15,36 @@ fileprivate class Environment {
 enum APIRouter {
     case weatherFor(city: String)
     case getCurrentWeatherBy(lat: Double, lng: Double)
-    
+    case forecast(searchQuery: SearchQuery)
+    // MARK: Get Endpoint
     var path: String {
         switch self {
         case .weatherFor(let city):
-            let city = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+            let city = city.urlHostCharactersAllowed
             return Environment.dataMainVersion + "weather?q=\(city)"
-        case .getCurrentWeatherBy(let lat,let lng) : return Environment.dataMainVersion + "weather?lat=\(lat)&lon=\(lng)&units=metric"
+        case .getCurrentWeatherBy(let lat,let lng) :
+            return Environment.dataMainVersion + "weather?lat=\(lat)&lon=\(lng)&units=metric"
+            // MARK: - Forecast
+        case .forecast(let searchQuery):
+            return ForecastEndpoint(searchQuery: searchQuery).path
+        }
+    }
+}
+// MARK: ForecastEndpoint
+extension APIRouter {
+    struct ForecastEndpoint {
+        let searchQuery: SearchQuery
+
+        var path: String {
+            let base = Environment.dataMainVersion + "forecast?"
+            switch searchQuery.inputType {
+            case .coordinate(let lat, let lon):
+                return base + "lat=\(lat)&lon=\(lon)&units=metric"
+            case .zipCode(let value):
+                return base + "zip=\(value)"
+            default:
+                return base + "q=\(searchQuery.query.urlHostCharactersAllowed)"
+            }
         }
     }
 }
