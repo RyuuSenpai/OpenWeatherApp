@@ -83,7 +83,8 @@ extension SearchHistoryCollectionView: UICollectionViewDelegate,
 
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        guard let item = self.data[safe: indexPath.item] else { return }
+        guard let item = self.data[safe: indexPath.item],
+        !item.isSelected else { return }
         delegate?.didSelectItem(item)
     }
 }

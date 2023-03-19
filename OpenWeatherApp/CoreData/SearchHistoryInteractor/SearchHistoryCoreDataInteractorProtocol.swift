@@ -10,7 +10,8 @@ import CoreData
 
 protocol SearchHistoryCoreDataInteractorProtocol: AnyObject {
     var searchHistoryItems: [SearchHistoryCoreDataItem] { get set }
-    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
+    func didFetchSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
+    func didSearhForQuery(searchQuery: SearchQuery)
     var maxSavedSearchCount: Int { get }
 }
 
@@ -24,13 +25,22 @@ protocol WeatherSearhResultInput {
 extension SearchHistoryCoreDataInteractorProtocol {
 
     func fetchSearchHistory() {
+        let listWasEmpty = searchHistoryItems.isEmpty
         searchHistoryItems = CoreDataManager.shared.fetch(entityType: SearchHistoryCoreDataItem.self) ?? []
+        self.handleFirstListFetch(listWasEmpty)
+        resetSelectionForListAndSelectLastAdded()
+        // Reverse Items order, to make the last searched item at the top of the list
+        didFetchSearchHistoryList(with: self.searchHistoryItems.reversed())
+    }
+    private func resetSelectionForListAndSelectLastAdded() {
         searchHistoryItems.forEach { $0.isSelected = false }
         searchHistoryItems.last?.isSelected = true
-        // Reverse Items order, to make the last searched item at the top of the list
-        updateSearchHistoryList(with: self.searchHistoryItems.reversed())
     }
-
+    private func handleFirstListFetch(_ isFirstFetch: Bool) {
+        guard isFirstFetch,
+        let cityTitle = searchHistoryItems.last?.title else { return }
+        self.didSearhForQuery(searchQuery: .init(query: cityTitle))
+    }
     func saveFetchedForecastData(_ data: WeatherSearhResultInput) {
 
         defer {
