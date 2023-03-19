@@ -10,25 +10,25 @@ import UIKit
 class ForecastScreenViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet private weak var searchHeaderView: SearchHeaderView!
-
+    
     // MARK: Properties
     var presenter: ForecaseScreenPresenterProtocol?
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         searchHeaderView.config(searchDelegate: self,
                                 historyData: ["1212313", "TEST TEST TEST TEST TEST"],
                                 historyCollectionDelegate: self)
     }
+    
+    // MARK: - IBActions
+    @IBAction func popViewhandler(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 // MARK: - Conforming to ForecastScreenViewProtocol
 extension ForecastScreenViewController: ForecastScreenViewProtocol {
-
+    
 }
 // MARK: - Conforming to SearchTextFieldDelegate
 extension ForecastScreenViewController: SearchTextFieldDelegate {

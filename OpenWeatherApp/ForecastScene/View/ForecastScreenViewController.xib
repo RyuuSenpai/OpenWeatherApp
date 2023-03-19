@@ -26,10 +26,44 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OdO-8s-M9c">
-                            <rect key="frame" x="0.0" y="59" width="393" height="100"/>
+                            <rect key="frame" x="0.0" y="59" width="393" height="145"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OB5-vd-G3a">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Forecast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWy-if-hIQ">
+                                            <rect key="frame" x="158.66666666666666" y="9.3333333333333268" width="75.666666666666657" height="26.333333333333329"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26.333333333333332" id="DLd-KC-b0F"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                            <color key="highlightedColor" systemColor="labelColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12g-bS-cMt">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="1CO-1r-G8i"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="left-arrow"/>
+                                            <connections>
+                                                <action selector="popViewhandler:" destination="-1" eventType="touchUpInside" id="QAu-At-UX0"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="12g-bS-cMt" secondAttribute="bottom" id="DxV-Rn-FRm"/>
+                                        <constraint firstItem="12g-bS-cMt" firstAttribute="leading" secondItem="OB5-vd-G3a" secondAttribute="leading" id="RR1-uz-O25"/>
+                                        <constraint firstAttribute="height" constant="45" id="heY-Xu-Re9"/>
+                                        <constraint firstItem="XWy-if-hIQ" firstAttribute="centerX" secondItem="OB5-vd-G3a" secondAttribute="centerX" id="jJV-YM-FZC"/>
+                                        <constraint firstItem="XWy-if-hIQ" firstAttribute="centerY" secondItem="OB5-vd-G3a" secondAttribute="centerY" id="oHm-Vt-TDV"/>
+                                        <constraint firstItem="12g-bS-cMt" firstAttribute="top" secondItem="OB5-vd-G3a" secondAttribute="top" id="wxD-Wq-EXd"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kq-Ge-7cD" customClass="SearchHeaderView" customModule="OpenWeatherApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                    <rect key="frame" x="0.0" y="45" width="393" height="100"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" placeholder="YES" id="y6G-pn-6Ai"/>
@@ -63,6 +97,10 @@
     </objects>
     <resources>
         <image name="296972" width="1200" height="1800"/>
+        <image name="left-arrow" width="26" height="26"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

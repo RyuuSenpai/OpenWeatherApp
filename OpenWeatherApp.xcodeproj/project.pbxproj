@@ -10,6 +10,7 @@
 		1B8BDA0B7F61F096E3541D61 /* Pods_OpenWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B903F0CA47552051572A305B /* Pods_OpenWeatherAppTests.framework */; };
 		80ECF36281C658B649F19B22 /* Pods_OpenWeatherApp_OpenWeatherAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B7E7CDD7B39711BC20A14 /* Pods_OpenWeatherApp_OpenWeatherAppUITests.framework */; };
 		AB66EF84FA1964D9585F22D6 /* Pods_OpenWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57800F5B97C95F4E95327AE0 /* Pods_OpenWeatherApp.framework */; };
+		F9024A4E29C68704006E987C /* UITextField + Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = F9024A4D29C68704006E987C /* UITextField + Extension .swift */; };
 		F90DFF1529C5C0F8003D4D3A /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */; };
 		F90DFF1729C5C20D003D4D3A /* General + Extensions .swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */; };
 		F9163CDF29C5C8B80056789F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9163CDE29C5C8B80056789F /* UIView + Extension.swift */; };
@@ -83,6 +84,7 @@
 		B903F0CA47552051572A305B /* Pods_OpenWeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenWeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A0971F0FC1585D3994A19 /* Pods-OpenWeatherApp-OpenWeatherAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeatherApp-OpenWeatherAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-OpenWeatherApp-OpenWeatherAppUITests/Pods-OpenWeatherApp-OpenWeatherAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F1F467E427347912CB7A537C /* Pods-OpenWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeatherApp.release.xcconfig"; path = "Target Support Files/Pods-OpenWeatherApp/Pods-OpenWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		F9024A4D29C68704006E987C /* UITextField + Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension .swift"; sourceTree = "<group>"; };
 		F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "General + Extensions .swift"; sourceTree = "<group>"; };
 		F9163CDE29C5C8B80056789F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */,
 				F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */,
 				F9163D0C29C679AD0056789F /* UICollectionView + Extensions.swift */,
+				F9024A4D29C68704006E987C /* UITextField + Extension .swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				F94BC37429C110610010B5B6 /* APIRouter.swift in Sources */,
 				F94BC37629C1153D0010B5B6 /* APILoader.swift in Sources */,
 				F94BC36529C0FB4B0010B5B6 /* DashboardConfiguration.swift in Sources */,
+				F9024A4E29C68704006E987C /* UITextField + Extension .swift in Sources */,
 				F94BC36B29C0FB6B0010B5B6 /* DashboardRouter.swift in Sources */,
 				F91B28C829C0F6A0009466E7 /* APIClient.swift in Sources */,
 				F9163CEA29C65A660056789F /* ForecastScreenEntity.swift in Sources */,

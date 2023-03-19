@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchTextField" customModule="OpenWeatherApp" customModuleProvider="target">
             <connections>
+                <outlet property="clearButton" destination="bra-QA-4W9" id="HvQ-KB-0X4"/>
                 <outlet property="textField" destination="CF4-Jo-K4D" id="e9I-gG-DW2"/>
             </connections>
         </placeholder>
@@ -23,19 +24,44 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVQ-xD-RrN">
                             <rect key="frame" x="0.0" y="0.0" width="370" height="37"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-Jo-K4D">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYh-gZ-b98">
                                     <rect key="frame" x="0.0" y="0.0" width="370" height="37"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-Jo-K4D">
+                                            <rect key="frame" x="0.0" y="0.0" width="306" height="37"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bra-QA-4W9">
+                                            <rect key="frame" x="306" y="0.0" width="64" height="37"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Clear"/>
+                                            <connections>
+                                                <action selector="clearHandler:" destination="-1" eventType="touchUpInside" id="UrH-eB-mmd"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="CF4-Jo-K4D" secondAttribute="trailing" id="8PL-NJ-FjA"/>
-                                <constraint firstAttribute="bottom" secondItem="CF4-Jo-K4D" secondAttribute="bottom" id="OIT-H5-Kjh"/>
-                                <constraint firstItem="CF4-Jo-K4D" firstAttribute="leading" secondItem="PVQ-xD-RrN" secondAttribute="leading" id="xmE-9C-C0Z"/>
-                                <constraint firstItem="CF4-Jo-K4D" firstAttribute="top" secondItem="PVQ-xD-RrN" secondAttribute="top" id="yV9-JZ-ZAa"/>
+                                <constraint firstItem="WYh-gZ-b98" firstAttribute="leading" secondItem="PVQ-xD-RrN" secondAttribute="leading" id="N1k-Te-KCc"/>
+                                <constraint firstAttribute="trailing" secondItem="WYh-gZ-b98" secondAttribute="trailing" id="Pwe-Dc-Vh2"/>
+                                <constraint firstItem="WYh-gZ-b98" firstAttribute="top" secondItem="PVQ-xD-RrN" secondAttribute="top" id="nEC-QG-YXe"/>
+                                <constraint firstAttribute="bottom" secondItem="WYh-gZ-b98" secondAttribute="bottom" id="spY-Rg-ZAb"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                 </stackView>
@@ -52,6 +78,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
