@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="OpenWeatherApp" customModuleProvider="target">
+            <connections>
+                <outlet property="currentWeatherView" destination="L7a-kb-pGO" id="Mkb-7m-ale"/>
+                <outlet property="forcastScreenView" destination="Dwv-Bn-t2w" id="d07-3b-bpD"/>
+                <outlet property="view" destination="omm-ws-5ox" id="jxO-Ng-Syz"/>
+                <outlet property="weatherDetailsView" destination="rx2-Mn-p55" id="B6j-c7-MPm"/>
+                <outlet property="weatherTempLabel" destination="x5c-JX-vEL" id="nYU-5z-wJi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="omm-ws-5ox">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="296972" translatesAutoresizingMaskIntoConstraints="NO" id="zdc-Wz-x7R">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2J-5Y-0fd">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HBT-NB-amv">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="500.33333333333331"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZ3-us-IMe" userLabel="WeatherTemperatureView">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="miL-25-W62">
+                                            <rect key="frame" x="150.33333333333334" y="25" width="92.666666666666657" height="130"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5c-JX-vEL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="130"/>
+                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="108"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="158"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="°" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccr-sY-c63">
+                                                    <rect key="frame" x="66" y="0.0" width="26.666666666666671" height="60.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="50"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="75"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9n-ef-ARc">
+                                                    <rect key="frame" x="66" y="93.666666666666657" width="26.666666666666671" height="36.333333333333343"/>
+                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="55"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="p9n-ef-ARc" firstAttribute="leading" secondItem="Ccr-sY-c63" secondAttribute="leading" id="Gm6-Hf-gwl"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ccr-sY-c63" secondAttribute="trailing" id="ZYc-RH-Ckb"/>
+                                                <constraint firstItem="p9n-ef-ARc" firstAttribute="bottom" secondItem="x5c-JX-vEL" secondAttribute="bottom" id="dkw-Mm-b3A"/>
+                                                <constraint firstItem="x5c-JX-vEL" firstAttribute="top" secondItem="miL-25-W62" secondAttribute="top" id="hAO-sp-6kJ"/>
+                                                <constraint firstItem="Ccr-sY-c63" firstAttribute="leading" secondItem="x5c-JX-vEL" secondAttribute="trailing" id="hgP-8N-PLP"/>
+                                                <constraint firstItem="Ccr-sY-c63" firstAttribute="top" secondItem="x5c-JX-vEL" secondAttribute="top" id="iGr-Wx-1xo"/>
+                                                <constraint firstAttribute="bottom" secondItem="x5c-JX-vEL" secondAttribute="bottom" id="u6T-E0-S0O"/>
+                                                <constraint firstItem="p9n-ef-ARc" firstAttribute="trailing" secondItem="Ccr-sY-c63" secondAttribute="trailing" id="upJ-Iz-Bkd"/>
+                                                <constraint firstItem="x5c-JX-vEL" firstAttribute="leading" secondItem="miL-25-W62" secondAttribute="leading" id="vYd-dH-R3w"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="miL-25-W62" secondAttribute="bottom" constant="25" id="913-bK-gRK"/>
+                                        <constraint firstItem="miL-25-W62" firstAttribute="top" secondItem="QZ3-us-IMe" secondAttribute="top" constant="25" id="ncv-Xu-71v"/>
+                                        <constraint firstItem="miL-25-W62" firstAttribute="centerX" secondItem="QZ3-us-IMe" secondAttribute="centerX" id="nd2-iI-YaW"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rx2-Mn-p55" userLabel="WeatherDetailsView" customClass="WeatherAdditionalDetailsView" customModule="OpenWeatherApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="196" width="393" height="83"/>
+                                    <color key="backgroundColor" white="1" alpha="0.51350372519999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="83" id="QRT-QL-nLs"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuH-T2-sEh">
+                                    <rect key="frame" x="0.0" y="295" width="393" height="205.33333333333337"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NxS-y2-1RM">
+                                            <rect key="frame" x="0.0" y="16" width="393" height="189.33333333333334"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-Bn-t2w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="esH-tp-QGS">
+                                                            <rect key="frame" x="16" y="4" width="340" height="72"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBV-nG-FIR">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="340" height="25.333333333333332"/>
+                                                                    <string key="text">Forecast screen
+</string>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="21"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Displaying the weather conditions and temperatures for the upcoming days." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgz-cK-Yeu">
+                                                                    <rect key="frame" x="0.0" y="33.333333333333314" width="340" height="38.666666666666657"/>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XbX-V6-yyO">
+                                                            <rect key="frame" x="360" y="30.666666666666686" width="25" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="25" id="2en-lz-OCq"/>
+                                                                <constraint firstAttribute="height" constant="19" id="K2q-4l-0KJ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="0.79734064569999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="XbX-V6-yyO" firstAttribute="leading" secondItem="esH-tp-QGS" secondAttribute="trailing" constant="4" id="28q-hM-pzd"/>
+                                                        <constraint firstItem="esH-tp-QGS" firstAttribute="top" secondItem="Dwv-Bn-t2w" secondAttribute="top" constant="4" id="BIJ-O7-fLu"/>
+                                                        <constraint firstAttribute="trailing" secondItem="XbX-V6-yyO" secondAttribute="trailing" constant="8" id="aIG-Vz-jxs"/>
+                                                        <constraint firstItem="XbX-V6-yyO" firstAttribute="centerY" secondItem="Dwv-Bn-t2w" secondAttribute="centerY" id="kiI-tV-1cn"/>
+                                                        <constraint firstAttribute="bottom" secondItem="esH-tp-QGS" secondAttribute="bottom" constant="4" id="ov7-SA-Icy"/>
+                                                        <constraint firstItem="esH-tp-QGS" firstAttribute="leading" secondItem="Dwv-Bn-t2w" secondAttribute="leading" constant="16" id="pzh-hl-zER"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7a-kb-pGO">
+                                                    <rect key="frame" x="0.0" y="90" width="393" height="99.333333333333314"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hhe-Cp-4gn">
+                                                            <rect key="frame" x="16" y="4" width="340" height="91.333333333333329"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Current weather screen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTg-vh-0Ed">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="340" height="25.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="21"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAa-6e-QTW">
+                                                                    <rect key="frame" x="0.0" y="33.333333333333314" width="340" height="58"/>
+                                                                    <string key="text">Displaying the current weather conditions for a user's location, typically including the temperature, humidity, wind speed, and chance of precipitation.</string>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Chg-zJ-5VQ">
+                                                            <rect key="frame" x="360" y="40.333333333333314" width="25" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="CbR-fu-MBt"/>
+                                                                <constraint firstAttribute="width" constant="25" id="HI9-oR-sRJ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="0.79734064569999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Chg-zJ-5VQ" secondAttribute="trailing" constant="8" id="4a0-pY-zNg"/>
+                                                        <constraint firstItem="hhe-Cp-4gn" firstAttribute="leading" secondItem="L7a-kb-pGO" secondAttribute="leading" constant="16" id="G9C-FB-ksX"/>
+                                                        <constraint firstItem="Chg-zJ-5VQ" firstAttribute="centerY" secondItem="L7a-kb-pGO" secondAttribute="centerY" id="RjK-Sg-yVg"/>
+                                                        <constraint firstAttribute="bottom" secondItem="hhe-Cp-4gn" secondAttribute="bottom" constant="4" id="Tbm-6U-vVe"/>
+                                                        <constraint firstItem="Chg-zJ-5VQ" firstAttribute="leading" secondItem="hhe-Cp-4gn" secondAttribute="trailing" constant="4" id="fO9-aU-lAN"/>
+                                                        <constraint firstItem="hhe-Cp-4gn" firstAttribute="top" secondItem="L7a-kb-pGO" secondAttribute="top" constant="4" id="r4T-ex-o8a"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="NxS-y2-1RM" firstAttribute="leading" secondItem="yuH-T2-sEh" secondAttribute="leading" id="0sv-pE-LqY"/>
+                                        <constraint firstItem="NxS-y2-1RM" firstAttribute="top" secondItem="yuH-T2-sEh" secondAttribute="top" constant="16" id="7hy-B2-OK7"/>
+                                        <constraint firstAttribute="trailing" secondItem="NxS-y2-1RM" secondAttribute="trailing" id="9p8-Jl-Txj"/>
+                                        <constraint firstAttribute="bottom" secondItem="NxS-y2-1RM" secondAttribute="bottom" id="KaQ-7o-y0R"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="HBT-NB-amv" secondAttribute="bottom" id="Gdj-8R-AuI"/>
+                        <constraint firstAttribute="trailing" secondItem="HBT-NB-amv" secondAttribute="trailing" id="MkB-4r-dXA"/>
+                        <constraint firstItem="HBT-NB-amv" firstAttribute="leading" secondItem="x2J-5Y-0fd" secondAttribute="leading" id="fAw-in-JB8"/>
+                        <constraint firstItem="HBT-NB-amv" firstAttribute="top" secondItem="x2J-5Y-0fd" secondAttribute="top" id="kHN-Q4-DeM"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="HFR-tK-vzj"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="zdc-Wz-x7R" secondAttribute="bottom" id="9uw-84-X8O"/>
+                <constraint firstItem="HFR-tK-vzj" firstAttribute="trailing" secondItem="x2J-5Y-0fd" secondAttribute="trailing" id="BZA-4i-gMt"/>
+                <constraint firstItem="HBT-NB-amv" firstAttribute="width" secondItem="omm-ws-5ox" secondAttribute="width" id="C8H-Y7-oea"/>
+                <constraint firstItem="x2J-5Y-0fd" firstAttribute="leading" secondItem="HFR-tK-vzj" secondAttribute="leading" id="FCw-jc-8U6"/>
+                <constraint firstItem="zdc-Wz-x7R" firstAttribute="leading" secondItem="HFR-tK-vzj" secondAttribute="leading" id="QEu-ng-w2h"/>
+                <constraint firstItem="x2J-5Y-0fd" firstAttribute="top" secondItem="HFR-tK-vzj" secondAttribute="top" id="bNO-Mp-mfL"/>
+                <constraint firstItem="zdc-Wz-x7R" firstAttribute="top" secondItem="omm-ws-5ox" secondAttribute="top" id="bcR-LW-vnV"/>
+                <constraint firstAttribute="trailing" secondItem="zdc-Wz-x7R" secondAttribute="trailing" id="eDS-2c-8Qc"/>
+                <constraint firstItem="HFR-tK-vzj" firstAttribute="bottom" secondItem="x2J-5Y-0fd" secondAttribute="bottom" id="hoj-6j-j9R"/>
+            </constraints>
+            <point key="canvasLocation" x="56" y="-646"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="296972" width="1200" height="1800"/>
+        <image name="icon_right-arrow" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,6 +7,4 @@
 
 import Foundation
 
-struct CurrentWeatherEntity {
-    
-}
+typealias CurrentWeatherEntity = DashboardEntity

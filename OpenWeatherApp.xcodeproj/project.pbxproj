@@ -76,6 +76,7 @@
 		F9AAFF3129C7BDFD00CDC19F /* CurrentWeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAFF3029C7BDFD00CDC19F /* CurrentWeatherEntity.swift */; };
 		F9AAFF3329C7C07C00CDC19F /* CurrentWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9AAFF3229C7C07C00CDC19F /* CurrentWeatherViewController.xib */; };
 		F9AAFF3529C7C8EE00CDC19F /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9AAFF3429C7C8EE00CDC19F /* DashboardViewController.xib */; };
+		F9AAFF3729C7CC2500CDC19F /* CurrentWeatherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAFF3629C7CC2500CDC19F /* CurrentWeatherLoader.swift */; };
 		F9FD621F29C67C6E002AD4D3 /* SearchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9FD621E29C67C6E002AD4D3 /* SearchHeaderView.xib */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +177,7 @@
 		F9AAFF3029C7BDFD00CDC19F /* CurrentWeatherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherEntity.swift; sourceTree = "<group>"; };
 		F9AAFF3229C7C07C00CDC19F /* CurrentWeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentWeatherViewController.xib; sourceTree = "<group>"; };
 		F9AAFF3429C7C8EE00CDC19F /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
+		F9AAFF3629C7CC2500CDC19F /* CurrentWeatherLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherLoader.swift; sourceTree = "<group>"; };
 		F9FD621E29C67C6E002AD4D3 /* SearchHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -671,6 +673,7 @@
 		F9AAFF2029C7BBAB00CDC19F /* Loader */ = {
 			isa = PBXGroup;
 			children = (
+				F9AAFF3629C7CC2500CDC19F /* CurrentWeatherLoader.swift */,
 			);
 			path = Loader;
 			sourceTree = "<group>";
@@ -956,6 +959,7 @@
 				F9024A6829C740D3006E987C /* WeatherDetailsCell.swift in Sources */,
 				F9024A5D29C72D6D006E987C /* DashboardModel.swift in Sources */,
 				F9163CF029C65A8A0056789F /* ForecastScreenPresenter.swift in Sources */,
+				F9AAFF3729C7CC2500CDC19F /* CurrentWeatherLoader.swift in Sources */,
 				F9163CF329C65AD30056789F /* ForecastScreenViewController.swift in Sources */,
 				F9163D0729C677410056789F /* SearchHistoryCell.swift in Sources */,
 				F9163CF729C65FCC0056789F /* SearchTextField.swift in Sources */,

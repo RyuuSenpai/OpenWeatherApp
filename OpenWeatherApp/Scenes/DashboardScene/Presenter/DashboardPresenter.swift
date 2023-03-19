@@ -48,12 +48,7 @@ extension DashboardPresenter: DashboardInteractorOutput {
     }
     // MARK: API Delegates
     func didFetchCurrentWeatherData(_ weatherData: DashboardModel.Weather) {
-        let item = DashboardEntity(currentTemp: weatherData.main?.temp ?? 0.0,
-                                   cloudsSate: weatherData.weather?.first?.main ?? "",
-                                   cloudsStateDescription: weatherData.weather?.first?.description ?? "",
-                                   cloudStateIconName: weatherData.weather?.first?.icon ?? "",
-                                   windSpeedValue: weatherData.wind?.speed ?? 0.0,
-                                   humidityValue: weatherData.main?.humidity ?? 0)
+        let item = DashboardEntity(weatherData)
         view?.displayCurrentWeatherDetails(item)
     }
     

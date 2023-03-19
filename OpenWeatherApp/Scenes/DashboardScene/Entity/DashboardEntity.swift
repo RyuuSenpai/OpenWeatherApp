@@ -44,4 +44,15 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
         self.humidityValue = humidityValue
         self.showIcons = showIcons
     }
+
+    init(_ weatherData: DashboardModel.Weather,
+         showIcons: Bool = true) {
+        self.temp = weatherData.main?.temp ?? 0.0
+        self.cloudsSate = weatherData.weather?.first?.main ?? ""
+        self.cloudsStateDescription = weatherData.weather?.first?.description ?? ""
+        self.cloudStateIconName = weatherData.weather?.first?.icon ?? ""
+        self.windSpeedValue = weatherData.wind?.speed ?? 0.0
+        self.humidityValue = weatherData.main?.humidity ?? 0
+        self.showIcons = showIcons
+    }
 }

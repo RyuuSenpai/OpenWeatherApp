@@ -12,6 +12,8 @@ class CurrentWeatherViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet private weak var searchHeaderView: SearchHeaderView!
     @IBOutlet private weak var cityNameLabel: UILabel!
+    // Current Weather Details
+    @IBOutlet weak var weatherDetailsView: WeatherAdditionalDetailsView!
     // Temp Data
     @IBOutlet private weak var currentTempLabel: UILabel!
     @IBOutlet private weak var highTempLabel: UILabel!
@@ -41,8 +43,9 @@ class CurrentWeatherViewController: UIViewController {
 }
 
 extension CurrentWeatherViewController: CurrentWeatherControllerProtocol {
-    func displayCurrentWeatherDetails(_ details: CurrentWeatherEntity) {
-
+    func displayWeatherDetails(_ details: CurrentWeatherEntity) {
+        currentTempLabel.text = details.currentTemp
+        weatherDetailsView.configView(with: details)
     }
 }
 

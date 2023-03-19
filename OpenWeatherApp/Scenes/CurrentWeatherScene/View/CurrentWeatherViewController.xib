@@ -16,6 +16,7 @@
                 <outlet property="lowTempLabel" destination="T34-iF-0GA" id="4tg-ed-WBZ"/>
                 <outlet property="searchHeaderView" destination="cN5-xs-bQ0" id="eQg-GI-nag"/>
                 <outlet property="view" destination="aZ1-T4-zt3" id="9ag-61-KSr"/>
+                <outlet property="weatherDetailsView" destination="nSB-bq-Wsf" id="ey4-N1-Oa2"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

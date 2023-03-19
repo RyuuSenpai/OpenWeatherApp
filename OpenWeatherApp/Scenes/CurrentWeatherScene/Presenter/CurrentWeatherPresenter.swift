@@ -11,19 +11,22 @@ class CurrentWeatherPresenter {
     private let interactor: CurrentWeatherPresenterInteractorProtocol
     private let router: CurrentWeatherRouterProtocol
 
-    weak var view: CurrentWeatherControllerProtocol?
-
+    private var view: CurrentWeatherControllerProtocol?
+    private let userCurrentCoordinates: CurrentWeatherSceneBuilderInput
     init(view: CurrentWeatherControllerProtocol,
          interactor: CurrentWeatherPresenterInteractorProtocol,
-         router: CurrentWeatherRouterProtocol) {
+         router: CurrentWeatherRouterProtocol,
+         userCurrentCoordinates: CurrentWeatherSceneBuilderInput) {
+        self.view = view
         self.interactor = interactor
         self.router = router
+        self.userCurrentCoordinates = userCurrentCoordinates
     }
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     func viewDidLoad() {
-
+        interactor.getUserCurrentLocation(with: userCurrentCoordinates)
     }
     
     func didSearhForQuery(query: String) {
@@ -36,4 +39,12 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
+    func didFetchWeatherData(_ weatherData: DashboardModel.Weather) {
+        let detailsItem = DashboardEntity(weatherData)
+        view?.displayWeatherDetails(detailsItem)
+    }
+
+    func failedToUpdateWeather(withError error: Error) {
+
+    }
 }

@@ -13,31 +13,39 @@ fileprivate class Environment {
     }
 }
 enum APIRouter {
-    case weatherFor(city: String)
     case getCurrentWeatherBy(lat: Double, lng: Double)
+    case weather(searchQuery: SearchQuery)
     case forecast(searchQuery: SearchQuery)
     // MARK: Get Endpoint
     var path: String {
         let units = "&units=metric"
         switch self {
-        case .weatherFor(let city):
-            let city = city.urlHostCharactersAllowed
-            return Environment.dataMainVersion + "weather?q=\(city)" + units
         case .getCurrentWeatherBy(let lat,let lng) :
             return Environment.dataMainVersion + "weather?lat=\(lat)&lon=\(lng)" + units
-            // MARK: - Forecast
+        case .weather(let searchQuery):
+            return EndPoint.weather(searchQuery: searchQuery).path + units
         case .forecast(let searchQuery):
-            return ForecastEndpoint(searchQuery: searchQuery).path + units
+            return EndPoint.forecast(searchQuery: searchQuery).path + units
         }
     }
 }
 // MARK: ForecastEndpoint
 extension APIRouter {
-    struct ForecastEndpoint {
-        let searchQuery: SearchQuery
+    enum EndPoint {
+        case forecast(searchQuery: SearchQuery)
+        case weather(searchQuery: SearchQuery)
 
         var path: String {
-            let base = Environment.dataMainVersion + "forecast?"
+            var base = Environment.dataMainVersion
+            let searchQuery: SearchQuery
+            switch self {
+            case .forecast(let query):
+                base += "forecast?"
+                searchQuery = query
+            case .weather(let query):
+                base += "weather?"
+                searchQuery = query
+            }
             switch searchQuery.inputType {
             case .coordinate(let lat, let lon):
                 return base + "lat=\(lat)&lon=\(lon)"

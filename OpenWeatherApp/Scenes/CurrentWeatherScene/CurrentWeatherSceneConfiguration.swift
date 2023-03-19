@@ -20,11 +20,12 @@ struct CurrentWeatherSceneBuilderInputItem: CurrentWeatherSceneBuilderInput {
 final class CurrentWeatherSceneBuilder {
     static func build(with data: CurrentWeatherSceneBuilderInput) -> UIViewController {
         let view = CurrentWeatherViewController()
-        let interactor = CurrentWeatherInteractor()
+        let interactor = CurrentWeatherInteractor(weatherLoader: WeatherQueryLoader())
         let router = CurrentWeatherRouter(viewController: view)
         let presenter = CurrentWeatherPresenter(view: view,
                                                 interactor: interactor,
-                                                router: router)
+                                                router: router,
+                                                userCurrentCoordinates: data)
         view.presenter = presenter
         interactor.presenter = presenter
         return view
@@ -40,18 +41,21 @@ protocol CurrentWeatherPresenterProtocol: AnyObject {
 
 // Presenter --> Controller
 protocol CurrentWeatherControllerProtocol: AnyObject {
-    func displayCurrentWeatherDetails(_ details: CurrentWeatherEntity)
+    func displayWeatherDetails(_ details: CurrentWeatherEntity)
 }
 
 // Presenter --> Interactor
 protocol CurrentWeatherPresenterInteractorProtocol: AnyObject {
-    func getUserCurrentLocation()
+    func getUserCurrentLocation(with coordinates: CurrentWeatherSceneBuilderInput)
     func fetchWeatherData(for latitude: Double,
                           _ longitude: Double)
 }
 
 // Interactor --> Presenter
 protocol CurrentWeatherInteractorOutput: AnyObject {
+    func didFetchWeatherData(_ weatherData: DashboardModel.Weather)
+    func failedToUpdateWeather(withError error: Error)
+
 }
 // Presenter --> Router
 protocol CurrentWeatherRouterProtocol: AnyObject {
