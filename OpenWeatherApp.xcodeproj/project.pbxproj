@@ -75,6 +75,7 @@
 		F9AAFF2F29C7BCCD00CDC19F /* CurrentWeatherSceneConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAFF2E29C7BCCD00CDC19F /* CurrentWeatherSceneConfiguration.swift */; };
 		F9AAFF3129C7BDFD00CDC19F /* CurrentWeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAFF3029C7BDFD00CDC19F /* CurrentWeatherEntity.swift */; };
 		F9AAFF3329C7C07C00CDC19F /* CurrentWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9AAFF3229C7C07C00CDC19F /* CurrentWeatherViewController.xib */; };
+		F9AAFF3529C7C8EE00CDC19F /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9AAFF3429C7C8EE00CDC19F /* DashboardViewController.xib */; };
 		F9FD621F29C67C6E002AD4D3 /* SearchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9FD621E29C67C6E002AD4D3 /* SearchHeaderView.xib */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +175,7 @@
 		F9AAFF2E29C7BCCD00CDC19F /* CurrentWeatherSceneConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherSceneConfiguration.swift; sourceTree = "<group>"; };
 		F9AAFF3029C7BDFD00CDC19F /* CurrentWeatherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherEntity.swift; sourceTree = "<group>"; };
 		F9AAFF3229C7C07C00CDC19F /* CurrentWeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentWeatherViewController.xib; sourceTree = "<group>"; };
+		F9AAFF3429C7C8EE00CDC19F /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		F9FD621E29C67C6E002AD4D3 /* SearchHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -529,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				F91B28C329C0F38A009466E7 /* DashboardViewController.swift */,
+				F9AAFF3429C7C8EE00CDC19F /* DashboardViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				F9163CF429C65AD30056789F /* ForecastScreenViewController.xib in Resources */,
 				F91B289429C0C0E2009466E7 /* Main.storyboard in Resources */,
 				F9FD621F29C67C6E002AD4D3 /* SearchHeaderView.xib in Resources */,
+				F9AAFF3529C7C8EE00CDC19F /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

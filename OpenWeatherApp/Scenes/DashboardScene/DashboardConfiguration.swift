@@ -12,10 +12,7 @@ import UIKit
 final class DashboardModuleBuilder {
     
     static func build() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let view = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController else {
-            return UIViewController()
-        }
+        let view = DashboardViewController()
         let interactor = DashboardInteractor(weatherLoader: WeatherLoader(),
                                              locationManager: LocationManager.shared)
         let router = DashboardRouter(viewController: view)
