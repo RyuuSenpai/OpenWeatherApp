@@ -62,7 +62,7 @@ extension SearchHistoryCoreDataInteractorProtocol {
         searchHistoryItem.lon = lon
         return searchHistoryItem
     }
-    
+
     private func handleSearchHistoryLimit() {
         guard searchHistoryItems.count >= maxSavedSearchCount, let firstItem = searchHistoryItems.first else {
             return

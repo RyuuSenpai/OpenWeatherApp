@@ -25,7 +25,7 @@ extension ForecastScreenInteractor: ForecastScreenPresenterInteractorProtocol {
     }
 
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
-        
+        didSearhForQuery(searchQuery: .init(query: item.title))
     }
 
     func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {

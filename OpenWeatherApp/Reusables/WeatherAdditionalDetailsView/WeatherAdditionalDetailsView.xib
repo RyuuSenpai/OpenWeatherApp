@@ -97,16 +97,10 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpx-mz-b4a" userLabel="Seprator 1st&amp;2nd">
                             <rect key="frame" x="168.33333333333334" y="20.666666666666671" width="1" height="25"/>
                             <color key="backgroundColor" systemColor="systemGray2Color"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="25" id="hfs-Fu-WH4"/>
-                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-Zw-8Ze" userLabel="Seprator 2nd&amp;3rd">
                             <rect key="frame" x="325.66666666666669" y="20.666666666666671" width="1" height="25"/>
                             <color key="backgroundColor" systemColor="systemGray2Color"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="25" id="ICm-l1-KVm"/>
-                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.51350372519999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,8 +110,10 @@
                         <constraint firstItem="6Od-w1-eER" firstAttribute="leading" secondItem="vpx-mz-b4a" secondAttribute="trailing" id="GfX-ba-3qM"/>
                         <constraint firstItem="8W1-Zw-8Ze" firstAttribute="centerY" secondItem="wbc-al-ilS" secondAttribute="centerY" id="PUZ-Hz-rnX"/>
                         <constraint firstItem="6Od-w1-eER" firstAttribute="trailing" secondItem="8W1-Zw-8Ze" secondAttribute="leading" id="Wqg-gQ-aqy"/>
+                        <constraint firstItem="8W1-Zw-8Ze" firstAttribute="height" secondItem="vpx-mz-b4a" secondAttribute="height" id="aya-fi-hgw"/>
                         <constraint firstItem="wbc-al-ilS" firstAttribute="top" secondItem="JR5-OG-lYF" secondAttribute="top" id="bI0-Pu-hy7"/>
                         <constraint firstItem="wbc-al-ilS" firstAttribute="leading" secondItem="JR5-OG-lYF" secondAttribute="leading" constant="12" id="fcG-hm-2hb"/>
+                        <constraint firstItem="vpx-mz-b4a" firstAttribute="height" secondItem="JR5-OG-lYF" secondAttribute="height" multiplier="0.378788" id="jQC-6Z-vSy"/>
                         <constraint firstAttribute="bottom" secondItem="wbc-al-ilS" secondAttribute="bottom" id="qEJ-1z-ywP"/>
                         <constraint firstItem="z0x-Y3-D2g" firstAttribute="trailing" secondItem="vpx-mz-b4a" secondAttribute="leading" id="qWe-ib-y6E"/>
                         <constraint firstAttribute="trailing" secondItem="wbc-al-ilS" secondAttribute="trailing" constant="12" id="rDc-XY-CtU"/>

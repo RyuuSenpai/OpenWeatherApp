@@ -59,6 +59,7 @@ final class SearchHistoryCollectionView: UIView {
                                                    right: 16)
 
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         historyCollectionView.collectionViewLayout = layout
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     }
