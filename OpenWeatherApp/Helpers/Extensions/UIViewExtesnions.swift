@@ -73,3 +73,11 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+// MARK: - UICollectionView
+extension UICollectionView {
+    func scrollToFirstItem(animated: Bool) {
+        guard numberOfItems(inSection: 0) > 0 else { return }
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        scrollToItem(at: firstIndexPath, at: .left, animated: animated)
+    }
+}

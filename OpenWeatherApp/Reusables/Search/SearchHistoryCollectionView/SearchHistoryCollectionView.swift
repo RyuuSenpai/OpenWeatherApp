@@ -48,6 +48,7 @@ final class SearchHistoryCollectionView: UIView {
         self.data = data
         self.containerView.isHidden = data.isEmpty
         self.historyCollectionView.reloadData()
+        self.historyCollectionView.scrollToFirstItem(animated: true)
     }
     private func configCollectionView() {
         historyCollectionView.delegate = self

@@ -25,29 +25,35 @@ extension SearchHistoryCoreDataInteractorProtocol {
 
     func fetchSearchHistory() {
         searchHistoryItems = CoreDataManager.shared.fetch(entityType: SearchHistoryCoreDataItem.self) ?? []
+        searchHistoryItems.forEach { $0.isSelected = false }
+        searchHistoryItems.last?.isSelected = true
+        // Reverse Items order, to make the last searched item at the top of the list
         updateSearchHistoryList(with: self.searchHistoryItems.reversed())
     }
 
     func saveFetchedForecastData(_ data: WeatherSearhResultInput) {
 
-        let existingItem = searchHistoryItems.first(where: { $0.fullTitle == data.fullTitle })
-
-        if let existingItem = existingItem {
-            existingItem.isSelected = true
-        } else {
-            let searchHistoryItem = createSearchHistoryItem(fullTitle: data.fullTitle,
-                                                            cityName: data.cityName,
-                                                            country: data.country,
-                                                            lat: data.lat,
-                                                            lon: data.lon)
-            handleSearchHistoryLimit()
-            CoreDataManager.shared.saveObject(searchHistoryItem)
+        defer {
+            // SaveContext and FetchAllData
+            CoreDataManager.shared.saveContext()
+            fetchSearchHistory()
         }
-
-        CoreDataManager.shared.saveContext()
-        fetchSearchHistory()
+        handleExistingItemCase(data)
+        let searchHistoryItem = createSearchHistoryItem(fullTitle: data.fullTitle,
+                                                        cityName: data.cityName,
+                                                        country: data.country,
+                                                        lat: data.lat,
+                                                        lon: data.lon)
+        handleSearchHistoryLimit()
+        CoreDataManager.shared.saveObject(searchHistoryItem)
     }
 
+    private func handleExistingItemCase(_ data: WeatherSearhResultInput) {
+        guard  let index = searchHistoryItems.firstIndex(where: { $0.fullTitle == data.fullTitle }) else { return }
+        let existingItem = searchHistoryItems[index]
+        CoreDataManager.shared.delete(existingItem, andSave: false)
+        searchHistoryItems.remove(at: index)
+    }
     private func createSearchHistoryItem(fullTitle: String,
                                          cityName: String,
                                          country: String,
