@@ -23,6 +23,7 @@ class ForecastScreenViewController: UIViewController {
                                 historyCollectionDelegate: self)
         hideKeyboardWhenTappedAround()
         configTableView()
+        presenter?.viewDidLoad()
     }
 
     // MARK: Cofigurations
@@ -40,6 +41,10 @@ class ForecastScreenViewController: UIViewController {
 }
 // MARK: - Conforming to ForecastScreenViewProtocol
 extension ForecastScreenViewController: ForecastScreenViewProtocol {
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {
+        self.searchHeaderView.setHistoryListData(data)
+    }
+
     func displayForecastList(with cityData: ForecastScreenEntity.City?) {
         self.city = cityData
         self.items = city?.items ?? []
@@ -74,7 +79,7 @@ extension ForecastScreenViewController: SearchTextFieldDelegate {
 }
 // MARK: - Conforming to SHCollectionViewDelegate
 extension ForecastScreenViewController: SHCollectionViewDelegate {
-    func didSelectItem(atIndex index: Int) {
-        debugPrint("didSelectItem: \(index)")
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
+        presenter?.didSelectItem(item)
     }
 }

@@ -6,12 +6,12 @@
 //
 
 import Foundation
-
+import CoreData
 final class ForecastScreenInteractor {
     // MARK: - Properites
     var presenter: ForecastScreenInteractorOutput?
     var forecastLoader: ForecastLoaderProtocol?
-
+    internal var searchHistoryItems = [SearchHistoryCoreDataItem]()
     init(forecastLoader: ForecastLoaderProtocol? = nil) {
         self.forecastLoader = forecastLoader
     }
@@ -20,6 +20,18 @@ final class ForecastScreenInteractor {
 
 // MARK: - Conforming to ForecastScreenPresenterInteractorProtocol
 extension ForecastScreenInteractor: ForecastScreenPresenterInteractorProtocol {
+    var maxSavedSearchCount: Int {
+        5
+    }
+
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
+        
+    }
+
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {
+        self.presenter?.updateSearchHistoryList(with: data)
+    }
+
     func didSearhForQuery(searchQuery: SearchQuery) {
         forecastLoader?.loadForecastData(for: searchQuery,
                                          completionHandler: { [weak self] result in
@@ -28,11 +40,20 @@ extension ForecastScreenInteractor: ForecastScreenPresenterInteractorProtocol {
             case .success(let forecastData):
                 // handle success case
                 self.presenter?.didFetchForecast(data: forecastData)
+                self.saveFetchedForecastData(forecastData)
             case .failure(let error):
                 break
                 // handle error case
 //                self.presenter?.failedToUpdateWeather(withError: error)
             }
         })
+    }
+}
+extension ForecastScreenInteractor {
+
+}
+extension SearchHistoryCoreDataItem: SearchHistoryCollectionViewItemProtocol {
+    var title: String {
+        self.fullTitle ?? ""
     }
 }

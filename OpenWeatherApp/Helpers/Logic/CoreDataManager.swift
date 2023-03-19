@@ -10,17 +10,31 @@ import CoreData
 
 protocol CoreDataManagerProtocol {
     func saveContext()
-    func delete(_ object: NSManagedObject)
+    func delete(_ object: NSManagedObject, andSave save: Bool)
     func fetch<T: NSManagedObject>(entityType: T.Type, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [T]?
 }
+enum CoreDataEntity: String {
+    case searchHistoryItem = "SearchHistoryCoreDataItem"
+}
 
-final class CoreDataManager: CoreDataManagerProtocol {
+final class CoreDataManager {
+    static let shared = CoreDataManager()
 
-    private let persistentContainer: NSPersistentContainer
+    private init() {}
 
-    init(persistentContainer: NSPersistentContainer) {
-        self.persistentContainer = persistentContainer
-    }
+    // MARK: - Core Data stack
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "OpenWeatherApp")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+}
+extension CoreDataManager: CoreDataManagerProtocol {
 
     func saveContext() {
         guard persistentContainer.viewContext.hasChanges else {
@@ -34,12 +48,20 @@ final class CoreDataManager: CoreDataManagerProtocol {
         }
     }
 
-    func delete(_ object: NSManagedObject) {
+    func delete(_ object: NSManagedObject, andSave save: Bool) {
         persistentContainer.viewContext.delete(object)
+        guard save else { return }
         saveContext()
     }
 
-    func fetch<T: NSManagedObject>(entityType: T.Type, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [T]? {
+    func saveObject<T: NSManagedObject>(_ object: T) {
+        persistentContainer.viewContext.insert(object)
+        saveContext()
+    }
+
+    func fetch<T: NSManagedObject>(entityType: T.Type,
+                                   predicate: NSPredicate? = .none,
+                                   sortDescriptors: [NSSortDescriptor]? = .none) -> [T]? {
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: entityType))
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors

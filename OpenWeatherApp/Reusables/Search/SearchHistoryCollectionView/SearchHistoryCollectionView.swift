@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SearchHistoryCollectionViewDelegate: AnyObject {
-    func didSelectItem(atIndex index: Int)
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
 }
 typealias SHCollectionViewDelegate = SearchHistoryCollectionViewDelegate
 final class SearchHistoryCollectionView: UIView {
@@ -17,7 +17,7 @@ final class SearchHistoryCollectionView: UIView {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var historyCollectionView: UICollectionView!
     // MARK: Properties
-    private var data = [String]()
+    private var data = [SearchHistoryCollectionViewItemProtocol]()
     weak var delegate: SHCollectionViewDelegate?
     // MARK: Init
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +36,7 @@ final class SearchHistoryCollectionView: UIView {
     }
 
     // MARK: ConfigView
-    func configView(withData data: [String],
+    func configView(withData data: [SearchHistoryCollectionViewItemProtocol],
                     delegate: SHCollectionViewDelegate) {
         self.data = data
         self.containerView.isHidden = data.isEmpty
@@ -44,8 +44,9 @@ final class SearchHistoryCollectionView: UIView {
         configCollectionView()
     }
 
-    func setData(_ data: [String]) {
+    func setData(_ data: [SearchHistoryCollectionViewItemProtocol]) {
         self.data = data
+        self.containerView.isHidden = data.isEmpty
         self.historyCollectionView.reloadData()
     }
     private func configCollectionView() {
@@ -74,12 +75,13 @@ extension SearchHistoryCollectionView: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchHistoryCell",
                                                       for: indexPath) as! SearchHistoryCell
-        cell.configCell(withTitle: data[safe: indexPath.row] ?? "")
+        cell.configCell(withData: data[safe: indexPath.row])
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelectItem(atIndex: indexPath.row)
+        guard let item = self.data[safe: indexPath.item] else { return }
+        delegate?.didSelectItem(item)
     }
 }

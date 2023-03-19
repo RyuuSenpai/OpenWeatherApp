@@ -26,22 +26,26 @@ final class ForecastScreenBuilder {
 protocol ForecaseScreenPresenterProtocol: AnyObject {
     func viewDidLoad()
     func didSearhForQuery(query: String)
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
 }
 
 // Presenter --> Controller
 protocol ForecastScreenViewProtocol: AnyObject {
     func displayForecastList(with cityData: ForecastScreenEntity.City?)
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
 }
 
 
 // Presenter --> Interactor
-protocol ForecastScreenPresenterInteractorProtocol: AnyObject {
+protocol ForecastScreenPresenterInteractorProtocol: SearchHistoryCoreDataInteractorProtocol {
     func didSearhForQuery(searchQuery: SearchQuery)
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
 }
 
 // Interactor --> Presenter
 protocol ForecastScreenInteractorOutput: AnyObject {
     func didFetchForecast(data: ForecastModel.Forecast)
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
 }
 // Presenter --> Router
 protocol ForecastScreenRouterProtocol: AnyObject {

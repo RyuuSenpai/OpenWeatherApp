@@ -24,12 +24,20 @@ final class ForecastScreenPresenter {
 }
 // MARK: - Conforming to ForecaseScreenPresenterProtocol
 extension ForecastScreenPresenter: ForecaseScreenPresenterProtocol {
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
+        interactor?.didSelectItem(item)
+    }
+
     func viewDidLoad() {
-        
+        interactor?.fetchSearchHistory()
     }
 }
 // MARK: - Conforming to ForecastScreenInteractorOutput
 extension ForecastScreenPresenter: ForecastScreenInteractorOutput {
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {
+        self.view?.updateSearchHistoryList(with: data)
+    }
+
     func didFetchForecast(data: ForecastModel.Forecast) {
         self.view?.displayForecastList(with: .init(name: data.city?.name ?? "",
                                                    country: data.city?.country ?? "",

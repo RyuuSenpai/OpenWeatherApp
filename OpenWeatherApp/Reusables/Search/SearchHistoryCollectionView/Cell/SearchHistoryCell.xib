@@ -46,6 +46,7 @@
             </constraints>
             <size key="customSize" width="165" height="56"/>
             <connections>
+                <outlet property="containerCardView" destination="Km3-9E-3Dv" id="5il-Ri-5xk"/>
                 <outlet property="titleLabel" destination="kRo-iN-hCe" id="KX6-3e-pYe"/>
             </connections>
             <point key="canvasLocation" x="92.36641221374046" y="24.647887323943664"/>
