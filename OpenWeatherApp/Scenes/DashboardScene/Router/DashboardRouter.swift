@@ -17,11 +17,13 @@ final class DashboardRouter {
 }
 
 extension DashboardRouter: DashboardRouterProtocol {
-    func navigateToForecastScreen() {
-        let vc = ForecastScreenBuilder.build()
+    func navigateToCurrentWeatherScreen(data: CurrentWeatherSceneBuilderInput) {
+        let vc = CurrentWeatherSceneBuilder.build(with: data)
         self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 
-    func navigateToCurrentWeatherScreen() {
+    func navigateToForecastScreen() {
+        let vc = ForecastScreenBuilder.build()
+        self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

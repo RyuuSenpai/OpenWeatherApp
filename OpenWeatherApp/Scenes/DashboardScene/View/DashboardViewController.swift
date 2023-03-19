@@ -33,10 +33,14 @@ final class DashboardViewController: UIViewController {
     }
     func addActionsForViews() {
         forcastScreenView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openForecastScreen)))
+        currentWeatherView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openCurrentWeatherScreen)))
     }
     // MARK: Actions
     @objc func openForecastScreen() {
         presenter?.navigateToForecastScreen()
+    }
+    @objc func openCurrentWeatherScreen() {
+        presenter?.navigateToCurrentWeatherScreen()
     }
 
 }

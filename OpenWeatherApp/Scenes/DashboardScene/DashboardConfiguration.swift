@@ -30,8 +30,10 @@ final class DashboardModuleBuilder {
 
 // MARK: - Protocols
 // Controller --> Presenter
-protocol DashboardPresenterProtocol: DashboardRouterProtocol {
+protocol DashboardPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func navigateToForecastScreen()
+    func navigateToCurrentWeatherScreen()
 }
 
 // Presenter --> Controller
@@ -56,5 +58,5 @@ protocol DashboardInteractorOutput: AnyObject {
 // Presenter --> Router
 protocol DashboardRouterProtocol: AnyObject {
     func navigateToForecastScreen()
-    func navigateToCurrentWeatherScreen()
+    func navigateToCurrentWeatherScreen(data: CurrentWeatherSceneBuilderInput)
 }

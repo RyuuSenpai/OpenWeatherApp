@@ -24,15 +24,19 @@ final class DashboardPresenter {
 }
 // MARK: - Conforming to DashboardPresenterProtocol
 extension DashboardPresenter: DashboardPresenterProtocol {
+    func viewDidLoad() {
+        interactor?.getUserCurrentLocation()
+    }
+
     func navigateToForecastScreen() {
         router?.navigateToForecastScreen()
     }
-
     func navigateToCurrentWeatherScreen() {
-    }
-
-    func viewDidLoad() {
-        interactor?.getUserCurrentLocation()
+        let lat = userLocation?.latitude.stringValue ?? ""
+        let lon = userLocation?.longitude.stringValue ?? ""
+        let currentLocationCoordinates = CurrentWeatherSceneBuilderInputItem(lat: lat,
+                                                                             lon: lon)
+        router?.navigateToCurrentWeatherScreen(data: currentLocationCoordinates)
     }
 }
 // MARK: - Conforming to DashboardInteractorOutput
