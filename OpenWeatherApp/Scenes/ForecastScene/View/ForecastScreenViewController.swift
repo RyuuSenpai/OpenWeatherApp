@@ -15,7 +15,7 @@ class ForecastScreenViewController: UIViewController {
     // MARK: Properties
     var presenter: ForecaseScreenPresenterProtocol?
     var city: ForecastScreenEntity.City?
-    var items = [ForecastScreenEntity.Item]()
+    var items = [WeatherDetailsCellDataSource]()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

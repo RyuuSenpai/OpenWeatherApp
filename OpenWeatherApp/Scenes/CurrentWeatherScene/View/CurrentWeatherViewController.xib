@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,19 +10,285 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrentWeatherViewController" customModule="OpenWeatherApp" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="iN0-l3-epB" id="gsy-Za-tJy"/>
+                <outlet property="cityNameLabel" destination="hBO-Er-IQi" id="AeN-TE-F5z"/>
+                <outlet property="currentTempLabel" destination="UHh-1t-fuY" id="3ka-06-Ug9"/>
+                <outlet property="highTempLabel" destination="fuo-nz-pPF" id="6Y8-Kn-jZS"/>
+                <outlet property="lowTempLabel" destination="T34-iF-0GA" id="4tg-ed-WBZ"/>
+                <outlet property="searchHeaderView" destination="cN5-xs-bQ0" id="eQg-GI-nag"/>
+                <outlet property="view" destination="aZ1-T4-zt3" id="9ag-61-KSr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="aZ1-T4-zt3">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-A5-qG2">
+                    <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="center" image="296972" translatesAutoresizingMaskIntoConstraints="NO" id="xNq-CG-RMb">
+                            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7L5-RA-fB9">
+                            <rect key="frame" x="0.0" y="47" width="428" height="145"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CB2-sj-DFn">
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="45"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Current Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-LG-5cd">
+                                            <rect key="frame" x="138" y="9.3333333333333339" width="152" height="26.333333333333329"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26.333333333333332" id="vbk-pU-Hqq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                            <color key="highlightedColor" systemColor="labelColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LE-gD-Qfo">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="lJa-7j-CR3"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="left-arrow"/>
+                                            <connections>
+                                                <action selector="popViewhandler:" destination="-1" eventType="touchUpInside" id="BpT-Ku-czz"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="7LE-gD-Qfo" firstAttribute="top" secondItem="CB2-sj-DFn" secondAttribute="top" id="28U-h1-dpR"/>
+                                        <constraint firstAttribute="bottom" secondItem="7LE-gD-Qfo" secondAttribute="bottom" id="Ce1-jU-M7W"/>
+                                        <constraint firstItem="7LE-gD-Qfo" firstAttribute="leading" secondItem="CB2-sj-DFn" secondAttribute="leading" id="Idi-41-Rsj"/>
+                                        <constraint firstAttribute="height" constant="45" id="gO6-nV-qTH"/>
+                                        <constraint firstItem="S3K-LG-5cd" firstAttribute="centerX" secondItem="CB2-sj-DFn" secondAttribute="centerX" id="lyl-YC-V3g"/>
+                                        <constraint firstItem="S3K-LG-5cd" firstAttribute="centerY" secondItem="CB2-sj-DFn" secondAttribute="centerY" id="stT-lR-4a6"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cN5-xs-bQ0" customClass="SearchHeaderView" customModule="OpenWeatherApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="45" width="428" height="100"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" placeholder="YES" id="NA6-qy-zYh"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dk-BP-4Vf">
+                            <rect key="frame" x="0.0" y="204" width="428" height="722"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="My City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBO-Er-IQi">
+                                    <rect key="frame" x="15.999999999999996" y="0.0" width="53.666666666666657" height="26.333333333333332"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26.333333333333332" id="DPb-LT-Elu"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="18"/>
+                                    <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ozk-Ag-vOz">
+                                    <rect key="frame" x="0.0" y="26.333333333333343" width="428" height="382"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xc8-R5-RsY" userLabel="WeatherTemperatureView">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="160"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-6s-585">
+                                                    <rect key="frame" x="152.66666666666666" y="16" width="122.66666666666666" height="128"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOD-cW-yUW">
+                                                            <rect key="frame" x="26" y="0.0" width="71" height="96.333333333333329"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHh-1t-fuY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="96.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="80"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="100"/>
+                                                                    </variation>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="°" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mj-q8-zoy">
+                                                                    <rect key="frame" x="49" y="0.0" width="22" height="49.333333333333336"/>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="41"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="60"/>
+                                                                    </variation>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="UHh-1t-fuY" firstAttribute="leading" secondItem="zOD-cW-yUW" secondAttribute="leading" id="DyP-ao-Jug"/>
+                                                                <constraint firstItem="6Mj-q8-zoy" firstAttribute="leading" secondItem="UHh-1t-fuY" secondAttribute="trailing" id="GpK-bN-xiM"/>
+                                                                <constraint firstItem="6Mj-q8-zoy" firstAttribute="top" secondItem="UHh-1t-fuY" secondAttribute="top" id="HDQ-HQ-7cx"/>
+                                                                <constraint firstItem="UHh-1t-fuY" firstAttribute="top" secondItem="zOD-cW-yUW" secondAttribute="top" id="gDZ-BG-YiL"/>
+                                                                <constraint firstAttribute="bottom" secondItem="UHh-1t-fuY" secondAttribute="bottom" id="nob-o2-Dd2"/>
+                                                                <constraint firstAttribute="trailing" secondItem="6Mj-q8-zoy" secondAttribute="trailing" id="oFQ-iN-0G3"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="CnS-iQ-pn1">
+                                                            <rect key="frame" x="0.0" y="100.33333333333334" width="122.66666666666667" height="27.666666666666657"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pxL-Bc-lCP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="27.666666666666668"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="H:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15d-GB-vqM">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="19.666666666666668" height="27.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="20"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuo-nz-pPF">
+                                                                            <rect key="frame" x="21.666666666666686" y="0.0" width="14.333333333333336" height="27.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="23"/>
+                                                                            <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="251" text="°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIX-WO-aBh">
+                                                                            <rect key="frame" x="38" y="0.0" width="12.333333333333336" height="27.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="23"/>
+                                                                            <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YcN-3m-lYu">
+                                                                    <rect key="frame" x="75.333333333333343" y="0.0" width="47.333333333333343" height="27.666666666666668"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="L:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydu-7D-QM8">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="16.666666666666668" height="27.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="20"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T34-iF-0GA">
+                                                                            <rect key="frame" x="18.666666666666657" y="0.0" width="14.333333333333336" height="27.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="23"/>
+                                                                            <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="251" text="°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQY-I9-zCv">
+                                                                            <rect key="frame" x="35" y="0.0" width="12.333333333333336" height="27.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="23"/>
+                                                                            <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="t8H-6s-585" secondAttribute="bottom" constant="16" id="5ya-ky-nFR"/>
+                                                <constraint firstItem="t8H-6s-585" firstAttribute="centerX" secondItem="Xc8-R5-RsY" secondAttribute="centerX" id="AKT-zV-XVA"/>
+                                                <constraint firstItem="t8H-6s-585" firstAttribute="centerY" secondItem="Xc8-R5-RsY" secondAttribute="centerY" id="SO8-bU-Wfg"/>
+                                                <constraint firstItem="t8H-6s-585" firstAttribute="top" secondItem="Xc8-R5-RsY" secondAttribute="top" constant="16" id="d1P-WP-o4z"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSB-bq-Wsf" userLabel="WeatherDetailsView" customClass="WeatherAdditionalDetailsView" customModule="OpenWeatherApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="175.99999999999997" width="428" height="110.00000000000003"/>
+                                            <color key="backgroundColor" white="1" alpha="0.51350372519999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="110" id="Icf-jQ-IwY"/>
+                                            </constraints>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bQa-Zq-8Ds">
+                                            <rect key="frame" x="0.0" y="302" width="428" height="80"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zx-hY-kzL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="428" height="80"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dWV-Ao-mEA">
+                                                            <rect key="frame" x="16" y="4" width="375" height="72"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCu-k2-wCF">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="25.333333333333332"/>
+                                                                    <string key="text">Forecast screen
+</string>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="21"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Displaying the weather conditions and temperatures for the upcoming days." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TI-f1-w6B">
+                                                                    <rect key="frame" x="0.0" y="33.333333333333258" width="375" height="38.666666666666657"/>
+                                                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="8a4-I6-gEb">
+                                                            <rect key="frame" x="395" y="30.666666666666629" width="25" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="Ckd-OE-anV"/>
+                                                                <constraint firstAttribute="width" constant="25" id="ak1-xX-r4b"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="0.79734064569999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="dWV-Ao-mEA" secondAttribute="bottom" constant="4" id="TeN-ap-jiY"/>
+                                                        <constraint firstItem="8a4-I6-gEb" firstAttribute="leading" secondItem="dWV-Ao-mEA" secondAttribute="trailing" constant="4" id="cEb-CV-UXO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8a4-I6-gEb" secondAttribute="trailing" constant="8" id="h3V-N4-ntv"/>
+                                                        <constraint firstItem="8a4-I6-gEb" firstAttribute="centerY" secondItem="6Zx-hY-kzL" secondAttribute="centerY" id="irL-U3-gjk"/>
+                                                        <constraint firstItem="dWV-Ao-mEA" firstAttribute="leading" secondItem="6Zx-hY-kzL" secondAttribute="leading" constant="16" id="uqs-TL-LDV"/>
+                                                        <constraint firstItem="dWV-Ao-mEA" firstAttribute="top" secondItem="6Zx-hY-kzL" secondAttribute="top" constant="4" id="xRA-at-uRn"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="hBO-Er-IQi" firstAttribute="top" secondItem="4dk-BP-4Vf" secondAttribute="top" id="5DW-VC-Jxe"/>
+                                <constraint firstItem="hBO-Er-IQi" firstAttribute="leading" secondItem="4dk-BP-4Vf" secondAttribute="leading" constant="16" id="DNd-lI-ibG"/>
+                                <constraint firstItem="Ozk-Ag-vOz" firstAttribute="leading" secondItem="4dk-BP-4Vf" secondAttribute="leading" id="NXJ-Rx-jSb"/>
+                                <constraint firstAttribute="trailing" secondItem="Ozk-Ag-vOz" secondAttribute="trailing" id="kdX-lZ-HXQ"/>
+                                <constraint firstItem="Ozk-Ag-vOz" firstAttribute="top" secondItem="hBO-Er-IQi" secondAttribute="bottom" id="q6J-zb-XFC"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="4dk-BP-4Vf" firstAttribute="top" secondItem="7L5-RA-fB9" secondAttribute="bottom" constant="12" id="AH6-t1-HxC"/>
+                        <constraint firstItem="4dk-BP-4Vf" firstAttribute="leading" secondItem="hXi-A5-qG2" secondAttribute="leading" id="ALI-cH-KiY"/>
+                        <constraint firstAttribute="bottom" secondItem="4dk-BP-4Vf" secondAttribute="bottom" id="PK2-KA-eh6"/>
+                        <constraint firstAttribute="trailing" secondItem="7L5-RA-fB9" secondAttribute="trailing" id="YyQ-au-3lR"/>
+                        <constraint firstAttribute="trailing" secondItem="4dk-BP-4Vf" secondAttribute="trailing" id="b9V-3L-0yu"/>
+                        <constraint firstAttribute="trailing" secondItem="xNq-CG-RMb" secondAttribute="trailing" id="hBi-bb-ZOl"/>
+                        <constraint firstItem="7L5-RA-fB9" firstAttribute="leading" secondItem="hXi-A5-qG2" secondAttribute="leading" id="ncB-7d-OpZ"/>
+                        <constraint firstItem="xNq-CG-RMb" firstAttribute="leading" secondItem="hXi-A5-qG2" secondAttribute="leading" id="qEU-Mv-Rmk"/>
+                        <constraint firstAttribute="bottom" secondItem="xNq-CG-RMb" secondAttribute="bottom" id="uUR-ef-tDp"/>
+                        <constraint firstItem="xNq-CG-RMb" firstAttribute="top" secondItem="hXi-A5-qG2" secondAttribute="top" id="yid-cg-dnB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="wWn-IS-b7e"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="111" y="-1"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hXi-A5-qG2" secondAttribute="trailing" id="DHm-TU-WkY"/>
+                <constraint firstItem="hXi-A5-qG2" firstAttribute="leading" secondItem="aZ1-T4-zt3" secondAttribute="leading" id="Us4-Ms-9rH"/>
+                <constraint firstItem="wWn-IS-b7e" firstAttribute="top" secondItem="7L5-RA-fB9" secondAttribute="top" id="edD-Pj-Bta"/>
+                <constraint firstAttribute="bottom" secondItem="hXi-A5-qG2" secondAttribute="bottom" id="lGZ-i4-9PD"/>
+                <constraint firstItem="hXi-A5-qG2" firstAttribute="top" secondItem="aZ1-T4-zt3" secondAttribute="top" id="uzL-yc-v8P"/>
+            </constraints>
+            <point key="canvasLocation" x="-31.297709923664122" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
+        <image name="296972" width="1200" height="1800"/>
+        <image name="icon_right-arrow" width="512" height="512"/>
+        <image name="left-arrow" width="26" height="26"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

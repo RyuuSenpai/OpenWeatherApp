@@ -25,6 +25,14 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     func viewDidLoad() {
 
     }
+    
+    func didSearhForQuery(query: String) {
+
+    }
+
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
+        
+    }
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
