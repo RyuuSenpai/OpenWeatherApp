@@ -186,6 +186,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F9024A4F29C68C3A006E987C /* SearchProtocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchProtocol;
+			sourceTree = "<group>";
+		};
+		F9024A5029C68C5E006E987C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F9163D0929C677E10056789F /* IBDesignables */,
+				F9163CDD29C5C8A10056789F /* Loader */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F9024A5129C68C67006E987C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				F94BC38829C145DF0010B5B6 /* LocationHelpers */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 		F9163CDD29C5C8A10056789F /* Loader */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,7 +363,7 @@
 				F9163CFA29C66B990056789F /* ForecastScreenConfiguration.swift */,
 				F91B28C529C0F4ED009466E7 /* DashboardScene */,
 				F91B28C629C0F4F7009466E7 /* NetworkLayer */,
-				F94BC38829C145DF0010B5B6 /* LocationHelpers */,
+				F9024A4F29C68C3A006E987C /* SearchProtocol */,
 				F91B289229C0C0E2009466E7 /* Main.storyboard */,
 				F91B289829C0C0E3009466E7 /* Assets.xcassets */,
 				F91B289A29C0C0E3009466E7 /* LaunchScreen.storyboard */,
@@ -372,10 +396,9 @@
 		F91B28BF29C0EC0C009466E7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F9163D0929C677E10056789F /* IBDesignables */,
-				F9163CDD29C5C8A10056789F /* Loader */,
+				F9024A5129C68C67006E987C /* Logic */,
+				F9024A5029C68C5E006E987C /* UI */,
 				F91B28C029C0EC1C009466E7 /* Extensions */,
-				F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -383,6 +406,7 @@
 		F91B28C029C0EC1C009466E7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F90DFF1429C5C0F8003D4D3A /* String + Extension.swift */,
 				F91B28C129C0EC2B009466E7 /* UIViewExtesnions.swift */,
 				F90DFF1629C5C20D003D4D3A /* General + Extensions .swift */,
 				F9163D0C29C679AD0056789F /* UICollectionView + Extensions.swift */,

@@ -31,4 +31,5 @@ extension ForecastScreenPresenter: ForecaseScreenPresenterProtocol {
 }
 // MARK: - Conforming to ForecastScreenInteractorOutput
 extension ForecastScreenPresenter: ForecastScreenInteractorOutput {
+
 }
