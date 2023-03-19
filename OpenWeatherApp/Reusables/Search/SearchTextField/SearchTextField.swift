@@ -12,7 +12,7 @@ protocol SearchTextFieldDelegate: AnyObject {
     func search(for query: String)
 }
 
-final class SearchTextField: UITextField {
+final class SearchTextField: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var clearButton: UIButton!

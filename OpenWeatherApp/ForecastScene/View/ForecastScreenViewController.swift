@@ -19,6 +19,7 @@ class ForecastScreenViewController: UIViewController {
         searchHeaderView.config(searchDelegate: self,
                                 historyData: ["1212313", "TEST TEST TEST TEST TEST"],
                                 historyCollectionDelegate: self)
+        hideKeyboardWhenTappedAround()
     }
     
     // MARK: - IBActions

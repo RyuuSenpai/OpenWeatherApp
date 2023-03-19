@@ -10,6 +10,7 @@ target 'OpenWeatherApp' do
 pod 'Alamofire', '~> 5.4'
 pod 'AlamofireNetworkActivityIndicator', '~> 3.0'
 pod 'Kingfisher', '~> 7.0'
+pod 'IQKeyboardManagerSwift'
 
   target 'OpenWeatherAppTests' do
     inherit! :search_paths
