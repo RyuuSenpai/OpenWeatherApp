@@ -18,6 +18,7 @@ final class DashboardInteractor {
          locationManager: LocationManagerDelegate? = nil) {
         self.weatherLoader = weatherLoader
         self.locationManager = locationManager
+        self.locationManager?.authorizationDelegate = self
     }
 }
 // MARK: Conforming to DashboardPresenterInteractorProtocol
@@ -44,5 +45,11 @@ extension DashboardInteractor: DashboardPresenterInteractorProtocol {
                 self.presenter?.failedToUpdateWeather(withError: error)
             }
         }
+    }
+}
+// MARK: Conform to LocationAuthorizationDelegate
+extension DashboardInteractor: LocationAuthorizationDelegate {
+    func authorizationStatusChanged(status: LocationAuthorizationStatus) {
+        self.presenter?.userDidGiveLocationAccessPermission(status == .authorized)
     }
 }

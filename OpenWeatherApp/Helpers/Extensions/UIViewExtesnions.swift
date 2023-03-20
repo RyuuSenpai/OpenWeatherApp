@@ -33,7 +33,7 @@ extension UIView {
             layer.masksToBounds = true
         }
     }
-
+    
     @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -42,7 +42,7 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
-
+    
     @IBInspectable var borderColor: UIColor? {
         get {
             return UIColor(cgColor: layer.borderColor!)
@@ -51,7 +51,7 @@ extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
-
+    
     @IBInspectable var backgroundColor: UIColor? {
         get {
             return self.backgroundColor
@@ -68,18 +68,34 @@ extension UIViewController {
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
     }
-
+    
     @objc private func hideKeyboard() {
         view.endEditing(true)
     }
-
+    
     func showAlert(withTitle title: String,
-                   message: String,
-                   buttonTitle: String = "OK") {
+                   message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: .default))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
+    
+    func showAlert(title: String,
+                   message: String,
+                   actionTitle: String = "OK",
+                   completionHandler: (() -> Void)?) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: actionTitle, style: .default) { _ in
+            completionHandler?()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 // MARK: - UICollectionView
 extension UICollectionView {

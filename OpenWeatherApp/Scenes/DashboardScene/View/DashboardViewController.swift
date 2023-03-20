@@ -42,7 +42,6 @@ final class DashboardViewController: UIViewController {
     @objc func openCurrentWeatherScreen() {
         presenter?.navigateToCurrentWeatherScreen()
     }
-
 }
 // MARK: - Conforming to DashboardControllerProtocol
 extension DashboardViewController: DashboardControllerProtocol {

@@ -29,13 +29,19 @@ final class DashboardModuleBuilder {
 // Controller --> Presenter
 protocol DashboardPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func viewWillAppear()
     func navigateToForecastScreen()
     func navigateToCurrentWeatherScreen()
+    func navigateToAppSettings()
 }
 
 // Presenter --> Controller
-protocol DashboardControllerProtocol: AnyObject {
+protocol DashboardControllerProtocol: ViewProtocol {
     func displayCurrentWeatherDetails(_ details: DashboardEntity)
+    func showAlert(title: String,
+                   message: String,
+                   actionTitle: String,
+                   completionHandler: (() -> Void)?)
 }
 
 // Presenter --> Interactor
@@ -46,14 +52,16 @@ protocol DashboardPresenterInteractorProtocol: AnyObject {
 }
 
 // Interactor --> Presenter
-protocol DashboardInteractorOutput: AnyObject {
+protocol DashboardInteractorOutput: PresenterProtocol {
     func didFetchCurrentWeatherData(_ weatherData: DashboardModel.Weather)
     func failedToUpdateWeather(withError error: Error)
     func loadaUserCurrentWeather(byLocation latitude: Double,
                                  _ longitude: Double)
+    func userDidGiveLocationAccessPermission(_ state: Bool)
 }
 // Presenter --> Router
 protocol DashboardRouterProtocol: AnyObject {
     func navigateToForecastScreen()
     func navigateToCurrentWeatherScreen(data: CurrentWeatherSceneBuilderInput)
+    func navigateToAppSettings()
 }

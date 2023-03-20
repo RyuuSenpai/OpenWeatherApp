@@ -15,12 +15,10 @@ protocol InteractorProtocol: MainSharedMethodsProtocol {
 
 protocol PresenterProtocol: MainSharedMethodsProtocol {
     func showAlert(withTitle title: String,
-                   message: String,
-                   buttonTitle: String)
+                   message: String)
 }
 
 protocol ViewProtocol: MainSharedMethodsProtocol {
     func showAlert(withTitle title: String,
-                   message: String,
-                   buttonTitle: String)
+                   message: String)
 }

@@ -51,7 +51,7 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     func navigateToForecastScreen() {
         guard didSearchOnce else {
             let message = "Must search for a location before being able to navigating to Forecast screen"
-            showAlert(withTitle: "Sorry", message: message, buttonTitle: "Let's go")
+            showAlert(withTitle: "Sorry", message: message)
             return
         }
         self.interactor?.saveCoreDataItems()
@@ -60,8 +60,8 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
-    func showAlert(withTitle title: String, message: String, buttonTitle: String) {
-        view?.showAlert(withTitle: title, message: message, buttonTitle: buttonTitle)
+    func showAlert(withTitle title: String, message: String) {
+        view?.showAlert(withTitle: title, message: message)
     }
 
     func didFetchWeatherData(_ weatherData: DashboardModel.Weather,
@@ -79,6 +79,6 @@ extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
         self.view?.updateSearchHistoryList(with: data)
     }
     func failedToUpdateWeather(withError error: Error) {
-        showAlert(withTitle: "Error", message: "\(error.localizedDescription)", buttonTitle: "OK")
+        showAlert(withTitle: "Error", message: "Invalid Search")
     }
 }

@@ -26,4 +26,11 @@ extension DashboardRouter: DashboardRouterProtocol {
         let vc = ForecastScreenBuilder.build()
         self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
+
+    func navigateToAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        guard UIApplication.shared.canOpenURL(settingsUrl) else { return }
+        UIApplication.shared.open(settingsUrl, completionHandler: nil)
+
+    }
 }

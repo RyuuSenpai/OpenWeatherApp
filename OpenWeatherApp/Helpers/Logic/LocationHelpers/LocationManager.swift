@@ -21,6 +21,8 @@ protocol LocationAuthorizationDelegate: AnyObject {
 protocol LocationManagerDelegate: AnyObject {
     func getCurrentLocation(completion: @escaping (CLLocation?) -> Void)
     func requestAuthorization()
+    var authorizationStatus: LocationAuthorizationStatus { get }
+    var authorizationDelegate: LocationAuthorizationDelegate? { get set }
 }
 
 final class LocationManager: NSObject, LocationManagerDelegate {
