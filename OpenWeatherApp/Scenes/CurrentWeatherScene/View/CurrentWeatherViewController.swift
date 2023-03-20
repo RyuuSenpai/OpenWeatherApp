@@ -34,6 +34,10 @@ class CurrentWeatherViewController: UIViewController {
         presenter?.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
+    }
     // MARK: Cofigurations
     func configView() {
         addActionsToForecastView()

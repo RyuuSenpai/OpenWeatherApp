@@ -56,6 +56,7 @@ final class SearchTextField: UIView {
         self.textField.text = ""
         cancelPreviousSearchQuery()
         notifyDelegate()
+        self.textField.becomeFirstResponder()
     }
     // MARK: Config SearchTextField change text Action
     @objc private func searchTextFieldChanged() {

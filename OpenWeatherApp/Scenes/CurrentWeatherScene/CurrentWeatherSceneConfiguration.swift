@@ -35,6 +35,7 @@ final class CurrentWeatherSceneBuilder {
 // Controller --> Presenter
 protocol CurrentWeatherPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func viewWillAppear()
     func didSearhForQuery(query: String)
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
     func navigateToForecastScreen()

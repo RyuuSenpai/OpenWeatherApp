@@ -29,10 +29,19 @@ class CurrentWeatherPresenter {
 extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     func viewDidLoad() {
         view?.showSearchHistory(false)
-        interactor?.fetchSearchHistory()
-        interactor?.getUserCurrentLocationWeatherData(with: userCurrentCoordinates)
     }
 
+    func viewWillAppear() {
+        guard !didSearchOnce else {
+            // Handle the case where the user navigate back from forecase screen
+            interactor?.didFetchCoreDataOnce = false
+            interactor?.fetchSearchHistory()
+            return
+        }
+        interactor?.fetchSearchHistory()
+        // Handle the case of first launch screen and get Current weather data.
+        interactor?.getUserCurrentLocationWeatherData(with: userCurrentCoordinates)
+    }
     func switchUnitOfMeasurement() {
         interactor?.switchUnitOfMeasurement()
     }
