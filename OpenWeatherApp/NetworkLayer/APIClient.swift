@@ -26,6 +26,10 @@ final class APIClient: APIClientProtocol {
     let baseUrl = "http://api.openweathermap.org"
     private let accessKey = "115567a480c96d212ae01ead7371ecd4"
 
+    enum UnitsOfMeasurement: String  {
+        case fahrenheit = "&units=imperial"
+        case celsius = "&units=metric"
+    }
     private init() {}
 
     func performRequest<Entity: Codable>(router: APIRouter,

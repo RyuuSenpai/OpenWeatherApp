@@ -42,6 +42,10 @@ class CurrentWeatherViewController: UIViewController {
     @IBAction func popViewhandler(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func convertDegreeType(_ sender: UIButton) {
+        presenter?.switchUnitOfMeasurement()
+    }
+
     func addActionsToForecastView() {
         forcastScreenView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openForecastScreen)))
     }

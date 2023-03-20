@@ -14,7 +14,7 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
     private let cloudStateIconName: String
     private let windSpeedValue: Double
     private let humidityValue: Int
-
+    private let unitOfMeasurement: APIClient.UnitsOfMeasurement
     let showIcons: Bool
 
     var currentTemp: String {
@@ -24,7 +24,7 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
         cloudStateIconName.imageUrl
     }
     var windSpeed: String {
-        windSpeedValue.stringValue + "mile"
+        windSpeedValue.stringValue + unitOfMeasurement.unitOfLength
     }
     var humidity: String {
         humidityValue.stringValue + "%"
@@ -35,6 +35,7 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
          cloudStateIconName: String,
          windSpeedValue: Double,
          humidityValue: Int,
+         unitOfMeasurement: APIClient.UnitsOfMeasurement = .celsius,
          showIcons: Bool = true) {
         self.temp = currentTemp
         self.cloudsSate = cloudsSate
@@ -42,10 +43,12 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
         self.cloudStateIconName = cloudStateIconName
         self.windSpeedValue = windSpeedValue
         self.humidityValue = humidityValue
+        self.unitOfMeasurement = unitOfMeasurement
         self.showIcons = showIcons
     }
 
     init(_ weatherData: DashboardModel.Weather,
+         unitOfMeasurement: APIClient.UnitsOfMeasurement = .celsius,
          showIcons: Bool = true) {
         self.temp = weatherData.main?.temp ?? 0.0
         self.cloudsSate = weatherData.weather?.first?.main ?? ""
@@ -53,6 +56,7 @@ struct DashboardEntity: WeatherAdditionalDetailsDataSource {
         self.cloudStateIconName = weatherData.weather?.first?.icon ?? ""
         self.windSpeedValue = weatherData.wind?.speed ?? 0.0
         self.humidityValue = weatherData.main?.humidity ?? 0
+        self.unitOfMeasurement = unitOfMeasurement
         self.showIcons = showIcons
     }
 }

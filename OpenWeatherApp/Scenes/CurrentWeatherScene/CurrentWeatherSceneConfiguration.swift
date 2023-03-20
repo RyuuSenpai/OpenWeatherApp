@@ -38,6 +38,7 @@ protocol CurrentWeatherPresenterProtocol: AnyObject {
     func didSearhForQuery(query: String)
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
     func navigateToForecastScreen()
+    func switchUnitOfMeasurement()
 }
 
 // Presenter --> Controller
@@ -51,14 +52,17 @@ protocol CurrentWeatherControllerProtocol: AnyObject {
 protocol CurrentWeatherPresenterInteractorProtocol: SearchHistoryCoreDataInteractorProtocol {
     func getUserCurrentLocationWeatherData(with coordinates: CurrentWeatherSceneBuilderInput)
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
+    func saveCoreDataItems()
+    func switchUnitOfMeasurement()
 }
 
 // Interactor --> Presenter
 protocol CurrentWeatherInteractorOutput: AnyObject {
-    func didFetchWeatherData(_ weatherData: DashboardModel.Weather)
+    func didFetchWeatherData(_ weatherData: DashboardModel.Weather,
+                             unitOfMeasurement: APIClient.UnitsOfMeasurement)
     func failedToUpdateWeather(withError error: Error)
     func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
-
+    
 }
 // Presenter --> Router
 protocol CurrentWeatherRouterProtocol: AnyObject {

@@ -37,14 +37,6 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CB2-sj-DFn">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="45"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Current Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-LG-5cd">
-                                            <rect key="frame" x="138" y="9.3333333333333339" width="152" height="26.333333333333329"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="26.333333333333332" id="vbk-pU-Hqq"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
-                                            <color key="highlightedColor" systemColor="labelColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LE-gD-Qfo">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
                                             <constraints>
@@ -57,13 +49,37 @@
                                                 <action selector="popViewhandler:" destination="-1" eventType="touchUpInside" id="BpT-Ku-czz"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Current Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-LG-5cd">
+                                            <rect key="frame" x="138" y="9.3333333333333339" width="152" height="26.333333333333329"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26.333333333333332" id="vbk-pU-Hqq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                            <color key="highlightedColor" systemColor="labelColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxJ-gL-KcR">
+                                            <rect key="frame" x="378" y="0.0" width="50" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="TZJ-l7-CLt"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="change"/>
+                                            <connections>
+                                                <action selector="convertDegreeType:" destination="-1" eventType="touchUpInside" id="5HK-sX-cT8"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="sxJ-gL-KcR" firstAttribute="top" secondItem="CB2-sj-DFn" secondAttribute="top" id="1ic-TK-kYg"/>
+                                        <constraint firstItem="sxJ-gL-KcR" firstAttribute="centerY" secondItem="7LE-gD-Qfo" secondAttribute="centerY" id="1nZ-ER-ft8"/>
                                         <constraint firstItem="7LE-gD-Qfo" firstAttribute="top" secondItem="CB2-sj-DFn" secondAttribute="top" id="28U-h1-dpR"/>
                                         <constraint firstAttribute="bottom" secondItem="7LE-gD-Qfo" secondAttribute="bottom" id="Ce1-jU-M7W"/>
                                         <constraint firstItem="7LE-gD-Qfo" firstAttribute="leading" secondItem="CB2-sj-DFn" secondAttribute="leading" id="Idi-41-Rsj"/>
                                         <constraint firstAttribute="height" constant="45" id="gO6-nV-qTH"/>
+                                        <constraint firstAttribute="trailing" secondItem="sxJ-gL-KcR" secondAttribute="trailing" id="gvt-au-Fnp"/>
+                                        <constraint firstAttribute="bottom" secondItem="sxJ-gL-KcR" secondAttribute="bottom" id="jQ6-0n-aQd"/>
                                         <constraint firstItem="S3K-LG-5cd" firstAttribute="centerX" secondItem="CB2-sj-DFn" secondAttribute="centerX" id="lyl-YC-V3g"/>
                                         <constraint firstItem="S3K-LG-5cd" firstAttribute="centerY" secondItem="CB2-sj-DFn" secondAttribute="centerY" id="stT-lR-4a6"/>
                                     </constraints>
@@ -298,6 +314,7 @@
     </objects>
     <resources>
         <image name="296972" width="1200" height="1800"/>
+        <image name="change" width="32" height="32"/>
         <image name="icon_right-arrow" width="512" height="512"/>
         <image name="left-arrow" width="26" height="26"/>
         <systemColor name="labelColor">

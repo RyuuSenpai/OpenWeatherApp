@@ -14,15 +14,17 @@ fileprivate class Environment {
 }
 enum APIRouter {
     case getCurrentWeatherBy(lat: Double, lng: Double)
-    case weather(searchQuery: SearchQuery)
+    case weather(searchQuery: SearchQuery,
+                 unitOfMeasurement: APIClient.UnitsOfMeasurement)
     case forecast(searchQuery: SearchQuery)
     // MARK: Get Endpoint
     var path: String {
-        let units = "&units=metric"
+        var units = APIClient.UnitsOfMeasurement.celsius.rawValue
         switch self {
         case .getCurrentWeatherBy(let lat,let lng) :
             return Environment.dataMainVersion + "weather?lat=\(lat)&lon=\(lng)" + units
-        case .weather(let searchQuery):
+        case .weather(let searchQuery, let unitOfMeasurement):
+            units = unitOfMeasurement.rawValue
             return EndPoint.weather(searchQuery: searchQuery).path + units
         case .forecast(let searchQuery):
             return EndPoint.forecast(searchQuery: searchQuery).path + units
@@ -54,6 +56,17 @@ extension APIRouter {
             default:
                 return base + "q=\(searchQuery.query.urlHostCharactersAllowed)"
             }
+        }
+    }
+}
+// MARK: Unit of length
+extension APIClient.UnitsOfMeasurement {
+    var unitOfLength: String {
+        switch self {
+        case .fahrenheit:
+            return "Mile"
+        case .celsius:
+            return "K/h"
         }
     }
 }

@@ -30,7 +30,10 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
         interactor?.fetchSearchHistory()
         interactor?.getUserCurrentLocationWeatherData(with: userCurrentCoordinates)
     }
-    
+
+    func switchUnitOfMeasurement() {
+        interactor?.switchUnitOfMeasurement()
+    }
     func didSearhForQuery(query: String) {
         guard !query.isEmpty else { return }
         interactor?.didSearhForQuery(searchQuery: .init(query: query))
@@ -42,16 +45,18 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     }
 
     func navigateToForecastScreen() {
-        CoreDataManager.shared.saveContext()
+        self.interactor?.saveCoreDataItems()
         self.router?.navigateToForecastScreen()
     }
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
-    func didFetchWeatherData(_ weatherData: DashboardModel.Weather) {
+    func didFetchWeatherData(_ weatherData: DashboardModel.Weather,
+                             unitOfMeasurement: APIClient.UnitsOfMeasurement) {
         let tempMax = weatherData.main?.tempMax?.roundNumber ?? ""
         let tempMin = weatherData.main?.tempMin?.roundNumber ?? ""
-        let detailsItem = DashboardEntity(weatherData)
+        let detailsItem = DashboardEntity(weatherData,
+                                          unitOfMeasurement: unitOfMeasurement)
         view?.displayWeatherDetails(.init(weatherBaseData: detailsItem,
                                           highestTemp: tempMax,
                                           lowestTemp: tempMin,
