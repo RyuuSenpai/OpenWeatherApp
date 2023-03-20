@@ -63,7 +63,6 @@ protocol CurrentWeatherPresenterInteractorProtocol: InteractorProtocol,
 protocol CurrentWeatherInteractorOutput: PresenterProtocol {
     func didFetchWeatherData(_ weatherData: DashboardModel.Weather,
                              unitOfMeasurement: APIClient.UnitsOfMeasurement)
-    func failedToUpdateWeather(withError error: Error)
     func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
     
 }

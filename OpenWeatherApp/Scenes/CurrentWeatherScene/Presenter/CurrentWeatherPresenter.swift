@@ -87,7 +87,4 @@ extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
     func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {
         self.view?.updateSearchHistoryList(with: data)
     }
-    func failedToUpdateWeather(withError error: Error) {
-        showAlert(withTitle: "Error", message: "Invalid Search")
-    }
 }

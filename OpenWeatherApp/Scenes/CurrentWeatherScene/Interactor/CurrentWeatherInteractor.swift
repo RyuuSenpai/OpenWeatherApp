@@ -74,9 +74,7 @@ extension CurrentWeatherInteractor: CurrentWeatherPresenterInteractorProtocol {
                                                 unitOfMeasurement: self.unitOfMeasurement)
             guard saveResultToCoreData else { return }
             self.saveFetchedForecastData(weatherData)
-        case .failure(let error):
-            // handle error case
-            self.presenter?.failedToUpdateWeather(withError: error)
+        case .failure(_): break
         }
     }
 }
