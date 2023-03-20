@@ -69,3 +69,24 @@ struct DashboardModel {
         let gust: Double?
     }
 }
+extension DashboardModel.Weather: WeatherSearhResultInput {
+    var cityName: String {
+        self.name ?? ""
+    }
+
+    var country: String {
+        self.sys?.country ?? ""
+    }
+
+    var fullTitle: String {
+        cityName + ", " + country
+    }
+
+    var lat: Double {
+        coord?.lat ?? 0.0
+    }
+
+    var lon: Double {
+        coord?.lon ?? 0.0
+    }
+}

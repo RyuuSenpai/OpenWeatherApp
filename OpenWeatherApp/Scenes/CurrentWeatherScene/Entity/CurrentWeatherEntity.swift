@@ -7,4 +7,9 @@
 
 import Foundation
 
-typealias CurrentWeatherEntity = DashboardEntity
+struct CurrentWeatherEntity {
+    let weatherBaseData: DashboardEntity
+    let highestTemp: String
+    let lowestTemp: String
+    let cityName: String
+}

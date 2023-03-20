@@ -42,19 +42,20 @@ protocol CurrentWeatherPresenterProtocol: AnyObject {
 // Presenter --> Controller
 protocol CurrentWeatherControllerProtocol: AnyObject {
     func displayWeatherDetails(_ details: CurrentWeatherEntity)
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
 }
 
 // Presenter --> Interactor
-protocol CurrentWeatherPresenterInteractorProtocol: AnyObject {
+protocol CurrentWeatherPresenterInteractorProtocol: SearchHistoryCoreDataInteractorProtocol {
     func getUserCurrentLocation(with coordinates: CurrentWeatherSceneBuilderInput)
-    func fetchWeatherData(for latitude: Double,
-                          _ longitude: Double)
+    func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
 }
 
 // Interactor --> Presenter
 protocol CurrentWeatherInteractorOutput: AnyObject {
     func didFetchWeatherData(_ weatherData: DashboardModel.Weather)
     func failedToUpdateWeather(withError error: Error)
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
 
 }
 // Presenter --> Router

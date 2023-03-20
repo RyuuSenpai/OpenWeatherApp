@@ -44,11 +44,16 @@ class CurrentWeatherViewController: UIViewController {
 
 extension CurrentWeatherViewController: CurrentWeatherControllerProtocol {
     func displayWeatherDetails(_ details: CurrentWeatherEntity) {
-        currentTempLabel.text = details.currentTemp
-        weatherDetailsView.configView(with: details)
+        cityNameLabel.text = details.cityName
+        currentTempLabel.text = details.weatherBaseData.currentTemp
+        highTempLabel.text = details.highestTemp
+        lowTempLabel.text = details.lowestTemp
+        weatherDetailsView.configView(with: details.weatherBaseData)
+    }
+    func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {
+        self.searchHeaderView.setHistoryListData(data)
     }
 }
-
 // MARK: - Conforming to SearchTextFieldDelegate
 extension CurrentWeatherViewController: SearchTextFieldDelegate {
     func search(for query: String) {
