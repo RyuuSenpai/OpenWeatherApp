@@ -35,4 +35,8 @@ final class SearchHeaderView: UIView {
     func setHistoryListData(_ data: [SearchHistoryCollectionViewItemProtocol]) {
         searchHistoryContainer.setData(data)
     }
+
+    func hideSearchHistoryContainer(_ hide: Bool) {
+        self.searchHistoryContainer.isHidden = hide
+    }
 }

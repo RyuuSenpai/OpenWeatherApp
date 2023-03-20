@@ -37,17 +37,19 @@ protocol CurrentWeatherPresenterProtocol: AnyObject {
     func viewDidLoad()
     func didSearhForQuery(query: String)
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
+    func navigateToForecastScreen()
 }
 
 // Presenter --> Controller
 protocol CurrentWeatherControllerProtocol: AnyObject {
     func displayWeatherDetails(_ details: CurrentWeatherEntity)
     func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
+    func showSearchHistory(_ show: Bool)
 }
 
 // Presenter --> Interactor
 protocol CurrentWeatherPresenterInteractorProtocol: SearchHistoryCoreDataInteractorProtocol {
-    func getUserCurrentLocation(with coordinates: CurrentWeatherSceneBuilderInput)
+    func getUserCurrentLocationWeatherData(with coordinates: CurrentWeatherSceneBuilderInput)
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
 }
 

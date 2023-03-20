@@ -19,6 +19,8 @@ class CurrentWeatherViewController: UIViewController {
     @IBOutlet private weak var highTempLabel: UILabel!
     @IBOutlet private weak var lowTempLabel: UILabel!
 
+    @IBOutlet private weak var forcastScreenView: UIView!
+
     // MARK: Properties
     var presenter: CurrentWeatherPresenterProtocol?
     var items = [WeatherDetailsCellDataSource]()
@@ -34,11 +36,18 @@ class CurrentWeatherViewController: UIViewController {
 
     // MARK: Cofigurations
     func configView() {
-
+        addActionsToForecastView()
     }
     // MARK: - IBActions
     @IBAction func popViewhandler(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    func addActionsToForecastView() {
+        forcastScreenView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openForecastScreen)))
+    }
+    // MARK: Actions
+    @objc func openForecastScreen() {
+        presenter?.navigateToForecastScreen()
     }
 }
 
@@ -52,6 +61,10 @@ extension CurrentWeatherViewController: CurrentWeatherControllerProtocol {
     }
     func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {
         self.searchHeaderView.setHistoryListData(data)
+    }
+
+    func showSearchHistory(_ show: Bool) {
+        self.searchHeaderView.hideSearchHistoryContainer(!show)
     }
 }
 // MARK: - Conforming to SearchTextFieldDelegate

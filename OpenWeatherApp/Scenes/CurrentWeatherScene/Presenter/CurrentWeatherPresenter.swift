@@ -26,17 +26,24 @@ class CurrentWeatherPresenter {
 
 extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     func viewDidLoad() {
+        view?.showSearchHistory(false)
         interactor?.fetchSearchHistory()
-        interactor?.getUserCurrentLocation(with: userCurrentCoordinates)
+        interactor?.getUserCurrentLocationWeatherData(with: userCurrentCoordinates)
     }
     
     func didSearhForQuery(query: String) {
         guard !query.isEmpty else { return }
         interactor?.didSearhForQuery(searchQuery: .init(query: query))
+        self.view?.showSearchHistory(true)
     }
 
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
         interactor?.didSelectItem(item)
+    }
+
+    func navigateToForecastScreen() {
+        CoreDataManager.shared.saveContext()
+        self.router?.navigateToForecastScreen()
     }
 }
 

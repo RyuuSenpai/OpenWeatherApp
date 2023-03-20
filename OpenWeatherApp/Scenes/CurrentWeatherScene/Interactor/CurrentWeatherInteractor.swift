@@ -46,7 +46,7 @@ extension CurrentWeatherInteractor: CurrentWeatherPresenterInteractorProtocol {
         didSearhForQuery(searchQuery: .init(query: item.title))
     }
 
-    func getUserCurrentLocation(with coordinates: CurrentWeatherSceneBuilderInput) {
+    func getUserCurrentLocationWeatherData(with coordinates: CurrentWeatherSceneBuilderInput) {
         let query = coordinates.lat + ", " + coordinates.lon
         didSearhForQuery(searchQuery: .init(query: query),
                          saveResultToCoreData: false)

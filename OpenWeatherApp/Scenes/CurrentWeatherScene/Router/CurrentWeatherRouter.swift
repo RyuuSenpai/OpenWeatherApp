@@ -18,7 +18,8 @@ class CurrentWeatherRouter {
 
 extension CurrentWeatherRouter: CurrentWeatherRouterProtocol {
     func navigateToForecastScreen() {
-        
+        let vc = ForecastScreenBuilder.build()
+        self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 
     func popViewController() {

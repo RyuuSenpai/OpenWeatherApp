@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="cityNameLabel" destination="hBO-Er-IQi" id="AeN-TE-F5z"/>
                 <outlet property="currentTempLabel" destination="UHh-1t-fuY" id="3ka-06-Ug9"/>
+                <outlet property="forcastScreenView" destination="6Zx-hY-kzL" id="0vE-om-xcw"/>
                 <outlet property="highTempLabel" destination="fuo-nz-pPF" id="6Y8-Kn-jZS"/>
                 <outlet property="lowTempLabel" destination="T34-iF-0GA" id="4tg-ed-WBZ"/>
                 <outlet property="searchHeaderView" destination="cN5-xs-bQ0" id="eQg-GI-nag"/>
