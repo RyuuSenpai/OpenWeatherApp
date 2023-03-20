@@ -37,12 +37,14 @@ class CurrentWeatherViewController: UIViewController {
     // MARK: Cofigurations
     func configView() {
         addActionsToForecastView()
+        setForcastScreenViewVisibility(true)
     }
     // MARK: - IBActions
     @IBAction func popViewhandler(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func convertDegreeType(_ sender: UIButton) {
+        self.view.endEditing(true)
         presenter?.switchUnitOfMeasurement()
     }
 
@@ -69,6 +71,9 @@ extension CurrentWeatherViewController: CurrentWeatherControllerProtocol {
 
     func showSearchHistory(_ show: Bool) {
         self.searchHeaderView.hideSearchHistoryContainer(!show)
+    }
+    func setForcastScreenViewVisibility(_ isSlightlyVisible: Bool) {
+        forcastScreenView.alpha = isSlightlyVisible ? 0.33 : 1
     }
 }
 // MARK: - Conforming to SearchTextFieldDelegate

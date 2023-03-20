@@ -13,6 +13,8 @@ class CurrentWeatherPresenter {
 
     private var view: CurrentWeatherControllerProtocol?
     private var userCurrentCoordinates: CurrentWeatherSceneBuilderInput
+    private var didSearchOnce = false
+    // MARK: - Init
     init(view: CurrentWeatherControllerProtocol,
          interactor: CurrentWeatherPresenterInteractorProtocol,
          router: CurrentWeatherRouterProtocol,
@@ -36,8 +38,10 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     }
     func didSearhForQuery(query: String) {
         guard !query.isEmpty else { return }
+        self.didSearchOnce = true
         interactor?.didSearhForQuery(searchQuery: .init(query: query))
         self.view?.showSearchHistory(true)
+        self.view?.setForcastScreenViewVisibility(false)
     }
 
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
@@ -45,12 +49,21 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     }
 
     func navigateToForecastScreen() {
+        guard didSearchOnce else {
+            let message = "Must search for a location before being able to navigating to Forecast screen"
+            showAlert(withTitle: "Sorry", message: message, buttonTitle: "Let's go")
+            return
+        }
         self.interactor?.saveCoreDataItems()
         self.router?.navigateToForecastScreen()
     }
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
+    func showAlert(withTitle title: String, message: String, buttonTitle: String) {
+        view?.showAlert(withTitle: title, message: message, buttonTitle: buttonTitle)
+    }
+
     func didFetchWeatherData(_ weatherData: DashboardModel.Weather,
                              unitOfMeasurement: APIClient.UnitsOfMeasurement) {
         let tempMax = weatherData.main?.tempMax?.roundNumber ?? ""
@@ -66,6 +79,6 @@ extension CurrentWeatherPresenter: CurrentWeatherInteractorOutput {
         self.view?.updateSearchHistoryList(with: data)
     }
     func failedToUpdateWeather(withError error: Error) {
-
+        showAlert(withTitle: "Error", message: "\(error.localizedDescription)", buttonTitle: "OK")
     }
 }

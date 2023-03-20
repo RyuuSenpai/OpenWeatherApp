@@ -72,6 +72,14 @@ extension UIViewController {
     @objc private func hideKeyboard() {
         view.endEditing(true)
     }
+
+    func showAlert(withTitle title: String,
+                   message: String,
+                   buttonTitle: String = "OK") {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default))
+        present(alert, animated: true)
+    }
 }
 // MARK: - UICollectionView
 extension UICollectionView {
