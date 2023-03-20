@@ -27,12 +27,15 @@ protocol ForecaseScreenPresenterProtocol: AnyObject {
     func viewDidLoad()
     func didSearhForQuery(query: String)
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
+    func refreshData()
 }
 
 // Presenter --> Controller
 protocol ForecastScreenViewProtocol: AnyObject {
     func displayForecastList(with cityData: ForecastScreenEntity.City?)
     func updateSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
+    func beginRefreshing()
+    func endRefreshing()
 }
 
 
@@ -40,6 +43,7 @@ protocol ForecastScreenViewProtocol: AnyObject {
 protocol ForecastScreenPresenterInteractorProtocol: SearchHistoryCoreDataInteractorProtocol {
     func didSearhForQuery(searchQuery: SearchQuery)
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol)
+    func refreshData()
 }
 
 // Interactor --> Presenter

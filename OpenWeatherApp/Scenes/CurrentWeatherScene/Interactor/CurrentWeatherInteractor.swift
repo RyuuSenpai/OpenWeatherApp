@@ -12,6 +12,7 @@ class CurrentWeatherInteractor {
     var presenter: CurrentWeatherInteractorOutput?
     private var weatherLoader: WeatherQueryLoaderProtocol?
     internal var searchHistoryItems = [SearchHistoryCoreDataItem]()
+    internal var didFetchCoreDataOnce = false
     // MARK: Init
     init(weatherLoader: WeatherQueryLoaderProtocol?) {
         self.weatherLoader = weatherLoader
@@ -28,10 +29,16 @@ extension CurrentWeatherInteractor: CurrentWeatherPresenterInteractorProtocol {
     }
 
     func didSearhForQuery(searchQuery: SearchQuery) {
+        didSearhForQuery(searchQuery: searchQuery,
+                         saveResultToCoreData: true)
+    }
+    private func didSearhForQuery(searchQuery: SearchQuery,
+                          saveResultToCoreData save: Bool = true) {
         weatherLoader?.loadWeatherData(with: searchQuery,
                                        completionHandler: { [weak self] result in
             guard let self else { return }
-            self.handleWeatherResponse(result: result)
+            self.handleWeatherResponse(result: result,
+                                       saveResultToCoreData: save)
         })
     }
 
@@ -41,14 +48,17 @@ extension CurrentWeatherInteractor: CurrentWeatherPresenterInteractorProtocol {
 
     func getUserCurrentLocation(with coordinates: CurrentWeatherSceneBuilderInput) {
         let query = coordinates.lat + ", " + coordinates.lon
-        didSearhForQuery(searchQuery: .init(query: query))
+        didSearhForQuery(searchQuery: .init(query: query),
+                         saveResultToCoreData: false)
     }
 
-    private func handleWeatherResponse(result: APIResult<DashboardModel.Weather>) {
+    private func handleWeatherResponse(result: APIResult<DashboardModel.Weather>,
+                                       saveResultToCoreData: Bool = true) {
         switch result {
         case .success(let weatherData):
             // handle success case
             self.presenter?.didFetchWeatherData(weatherData)
+            guard saveResultToCoreData else { return }
             self.saveFetchedForecastData(weatherData)
         case .failure(let error):
             // handle error case

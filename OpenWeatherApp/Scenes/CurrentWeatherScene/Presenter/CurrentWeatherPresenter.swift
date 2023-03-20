@@ -26,6 +26,7 @@ class CurrentWeatherPresenter {
 
 extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
     func viewDidLoad() {
+        interactor?.fetchSearchHistory()
         interactor?.getUserCurrentLocation(with: userCurrentCoordinates)
     }
     

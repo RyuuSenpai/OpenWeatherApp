@@ -12,6 +12,7 @@ final class ForecastScreenInteractor {
     var presenter: ForecastScreenInteractorOutput?
     var forecastLoader: ForecastLoaderProtocol?
     internal var searchHistoryItems = [SearchHistoryCoreDataItem]()
+    internal var didFetchCoreDataOnce = false
     init(forecastLoader: ForecastLoaderProtocol? = nil) {
         self.forecastLoader = forecastLoader
     }
@@ -30,6 +31,10 @@ extension ForecastScreenInteractor: ForecastScreenPresenterInteractorProtocol {
 
     func didFetchSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol]) {
         self.presenter?.updateSearchHistoryList(with: data)
+    }
+
+    func refreshData() {
+        didSearhForQuery(searchQuery: .init(query: searchHistoryItems.last?.title ?? ""))
     }
 
     func didSearhForQuery(searchQuery: SearchQuery) {

@@ -75,9 +75,17 @@ extension UIViewController {
 }
 // MARK: - UICollectionView
 extension UICollectionView {
-    func scrollToFirstItem(animated: Bool) {
+    func scrollToFirstItem(animated: Bool,
+                           at scrollPosition: UICollectionView.ScrollPosition ) {
         guard numberOfItems(inSection: 0) > 0 else { return }
         let firstIndexPath = IndexPath(item: 0, section: 0)
-        scrollToItem(at: firstIndexPath, at: .left, animated: animated)
+        scrollToItem(at: firstIndexPath, at: scrollPosition, animated: animated)
+    }
+}
+extension UITableView {
+    func scrollToTop(animated: Bool) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard indexPath.row < numberOfRows(inSection: indexPath.section) else { return }
+        scrollToRow(at: indexPath, at: .top, animated: animated)
     }
 }

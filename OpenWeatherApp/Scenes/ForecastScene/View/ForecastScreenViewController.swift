@@ -16,6 +16,8 @@ class ForecastScreenViewController: UIViewController {
     var presenter: ForecaseScreenPresenterProtocol?
     var city: ForecastScreenEntity.City?
     var items = [WeatherDetailsCellDataSource]()
+    // MARK: Constants
+    let refreshControl = UIRefreshControl()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class ForecastScreenViewController: UIViewController {
                                 historyCollectionDelegate: self)
         hideKeyboardWhenTappedAround()
         configTableView()
+        setupRefreshControl()
         presenter?.viewDidLoad()
     }
 
@@ -34,6 +37,24 @@ class ForecastScreenViewController: UIViewController {
                                              bundle: .none),
                                        forCellReuseIdentifier: "WeatherDetailsCell")
     }
+    private func setupRefreshControl() {
+        searchResultTableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+
+    @objc private func refreshData() {
+        beginRefreshing()
+        presenter?.refreshData()
+    }
+
+    func beginRefreshing() {
+        refreshControl.beginRefreshing()
+    }
+
+    func endRefreshing() {
+        refreshControl.endRefreshing()
+    }
+
     // MARK: - IBActions
     @IBAction func popViewhandler(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -81,5 +102,6 @@ extension ForecastScreenViewController: SearchTextFieldDelegate {
 extension ForecastScreenViewController: SHCollectionViewDelegate {
     func didSelectItem(_ item: SearchHistoryCollectionViewItemProtocol) {
         presenter?.didSelectItem(item)
+        self.searchResultTableView.scrollToTop(animated: true)
     }
 }

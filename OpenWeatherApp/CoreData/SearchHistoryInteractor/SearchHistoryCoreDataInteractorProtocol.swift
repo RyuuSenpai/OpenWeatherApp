@@ -10,6 +10,7 @@ import CoreData
 
 protocol SearchHistoryCoreDataInteractorProtocol: AnyObject {
     var searchHistoryItems: [SearchHistoryCoreDataItem] { get set }
+    var didFetchCoreDataOnce: Bool { get set }
     func didFetchSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
     func didSearhForQuery(searchQuery: SearchQuery)
     var maxSavedSearchCount: Int { get }
@@ -25,9 +26,8 @@ protocol WeatherSearhResultInput {
 extension SearchHistoryCoreDataInteractorProtocol {
 
     func fetchSearchHistory() {
-        let listWasEmpty = searchHistoryItems.isEmpty
         searchHistoryItems = CoreDataManager.shared.fetch(entityType: SearchHistoryCoreDataItem.self) ?? []
-        self.handleFirstListFetch(listWasEmpty)
+        self.handleFirstListFetch(didFetchCoreDataOnce)
         resetSelectionForListAndSelectLastAdded()
         // Reverse Items order, to make the last searched item at the top of the list
         didFetchSearchHistoryList(with: self.searchHistoryItems.reversed())
@@ -36,9 +36,10 @@ extension SearchHistoryCoreDataInteractorProtocol {
         searchHistoryItems.forEach { $0.isSelected = false }
         searchHistoryItems.last?.isSelected = true
     }
-    private func handleFirstListFetch(_ isFirstFetch: Bool) {
-        guard isFirstFetch,
+    private func handleFirstListFetch(_ didFetchCoreDataOnce: Bool) {
+        guard !didFetchCoreDataOnce,
         let cityTitle = searchHistoryItems.last?.title else { return }
+        self.didFetchCoreDataOnce = true
         self.didSearhForQuery(searchQuery: .init(query: cityTitle))
     }
     func saveFetchedForecastData(_ data: WeatherSearhResultInput) {
@@ -59,7 +60,7 @@ extension SearchHistoryCoreDataInteractorProtocol {
     }
 
     private func handleExistingItemCase(_ data: WeatherSearhResultInput) {
-        guard  let index = searchHistoryItems.firstIndex(where: { $0.fullTitle == data.fullTitle }) else { return }
+        guard let index = searchHistoryItems.firstIndex(where: { $0.fullTitle == data.fullTitle }) else { return }
         let existingItem = searchHistoryItems[index]
         CoreDataManager.shared.delete(existingItem, andSave: false)
         searchHistoryItems.remove(at: index)

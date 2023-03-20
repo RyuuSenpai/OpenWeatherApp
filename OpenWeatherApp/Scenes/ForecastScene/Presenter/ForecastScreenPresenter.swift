@@ -31,6 +31,10 @@ extension ForecastScreenPresenter: ForecaseScreenPresenterProtocol {
     func viewDidLoad() {
         interactor?.fetchSearchHistory()
     }
+
+    func refreshData() {
+        interactor?.refreshData()
+    }
 }
 // MARK: - Conforming to ForecastScreenInteractorOutput
 extension ForecastScreenPresenter: ForecastScreenInteractorOutput {
@@ -42,6 +46,7 @@ extension ForecastScreenPresenter: ForecastScreenInteractorOutput {
         self.view?.displayForecastList(with: .init(name: data.city?.name ?? "",
                                                    country: data.city?.country ?? "",
                                                    items: getForecastItems(from: data.list)))
+        self.view?.endRefreshing()
     }
 
     private func getForecastItems(from data: [ForecastModel.WeatherDetails]?) -> [ForecastScreenEntity.Item] {
