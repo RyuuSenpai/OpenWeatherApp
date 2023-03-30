@@ -20,7 +20,8 @@ struct CurrentWeatherSceneBuilderInputItem: CurrentWeatherSceneBuilderInput {
 final class CurrentWeatherSceneBuilder {
     static func build(with data: CurrentWeatherSceneBuilderInput) -> UIViewController {
         let view = CurrentWeatherViewController()
-        let interactor = CurrentWeatherInteractor(weatherLoader: WeatherQueryLoader())
+        let interactor = CurrentWeatherInteractor(weatherLoader: WeatherQueryLoader(),
+                                                  coreDataManager: CoreDataManager.shared)
         let router = CurrentWeatherRouter(viewController: view)
         let presenter = CurrentWeatherPresenter(view: view,
                                                 interactor: interactor,

@@ -11,13 +11,16 @@ class CurrentWeatherInteractor {
 
     var presenter: CurrentWeatherInteractorOutput?
     private var weatherLoader: WeatherQueryLoaderProtocol?
+    var coreDataManager: CoreDataManagerProtocol?
     internal var searchHistoryItems = [SearchHistoryCoreDataItem]()
     internal var didFetchCoreDataOnce = false
     private var unitOfMeasurement: APIClient.UnitsOfMeasurement = .celsius
     private var lastSearchedQuery: SearchQuery?
     // MARK: Init
-    init(weatherLoader: WeatherQueryLoaderProtocol?) {
+    init(weatherLoader: WeatherQueryLoaderProtocol?,
+         coreDataManager: CoreDataManagerProtocol?) {
         self.weatherLoader = weatherLoader
+        self.coreDataManager = coreDataManager
     }
 }
 extension CurrentWeatherInteractor: CurrentWeatherPresenterInteractorProtocol {

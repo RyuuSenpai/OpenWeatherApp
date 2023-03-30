@@ -39,7 +39,7 @@ extension APIRouter {
 
         var path: String {
             var base = Environment.dataMainVersion
-            let searchQuery: SearchQuery
+            var searchQuery: SearchQuery
             switch self {
             case .forecast(let query):
                 base += "forecast?"

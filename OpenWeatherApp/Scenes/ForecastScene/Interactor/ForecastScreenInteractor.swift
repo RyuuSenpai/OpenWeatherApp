@@ -11,10 +11,13 @@ final class ForecastScreenInteractor {
     // MARK: - Properites
     var presenter: ForecastScreenInteractorOutput?
     var forecastLoader: ForecastLoaderProtocol?
+    var coreDataManager: CoreDataManagerProtocol?
     internal var searchHistoryItems = [SearchHistoryCoreDataItem]()
     internal var didFetchCoreDataOnce = false
-    init(forecastLoader: ForecastLoaderProtocol? = nil) {
+    init(forecastLoader: ForecastLoaderProtocol? = nil,
+         coreDataManager: CoreDataManagerProtocol?) {
         self.forecastLoader = forecastLoader
+        self.coreDataManager = coreDataManager
     }
     
 }

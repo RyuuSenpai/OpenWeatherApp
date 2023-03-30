@@ -11,7 +11,8 @@ import UIKit
 final class ForecastScreenBuilder {
     static func build() -> UIViewController {
         let view = ForecastScreenViewController()
-        let interactor = ForecastScreenInteractor(forecastLoader: ForecastLoader())
+        let interactor = ForecastScreenInteractor(forecastLoader: ForecastLoader(),
+                                                  coreDataManager: CoreDataManager.shared)
         let router = ForecastScreenRouter(viewController: view)
         let presenter = ForecastScreenPresenter(view: view,
                                                 interactor: interactor,

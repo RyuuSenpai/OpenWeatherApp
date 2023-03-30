@@ -9,9 +9,11 @@ import Foundation
 import CoreData
 
 protocol CoreDataManagerProtocol {
+    var persistentContainer: NSPersistentContainer { get }
     func saveContext()
     func delete(_ object: NSManagedObject, andSave save: Bool)
-    func fetch<T: NSManagedObject>(entityType: T.Type, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [T]?
+    func fetch<T: NSManagedObject>(entityType: T.Type) -> [T]?
+    func saveObject<T: NSManagedObject>(_ object: T)
 }
 enum CoreDataEntity: String {
     case searchHistoryItem = "SearchHistoryCoreDataItem"
@@ -59,13 +61,8 @@ extension CoreDataManager: CoreDataManagerProtocol {
         saveContext()
     }
 
-    func fetch<T: NSManagedObject>(entityType: T.Type,
-                                   predicate: NSPredicate? = .none,
-                                   sortDescriptors: [NSSortDescriptor]? = .none) -> [T]? {
+    func fetch<T: NSManagedObject>(entityType: T.Type) -> [T]? {
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: entityType))
-        fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = sortDescriptors
-
         do {
             let results = try persistentContainer.viewContext.fetch(fetchRequest)
             return results

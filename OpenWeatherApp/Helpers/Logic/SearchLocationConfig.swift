@@ -16,9 +16,9 @@ struct SearchQuery {
     }
 
     let query: String
-    var inputType: InputType {
+   lazy var inputType: InputType = {
         determineInputType(input: query)
-    }
+    }()
     // MARK: - Init
     init(query: String) {
         self.query = query

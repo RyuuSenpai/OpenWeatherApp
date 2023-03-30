@@ -14,6 +14,7 @@ protocol SearchHistoryCoreDataInteractorProtocol: AnyObject {
     func didFetchSearchHistoryList(with data: [SearchHistoryCollectionViewItemProtocol])
     func didSearhForQuery(searchQuery: SearchQuery)
     var maxSavedSearchCount: Int { get }
+    var coreDataManager: CoreDataManagerProtocol? { get }
 }
 
 protocol WeatherSearhResultInput {
@@ -26,7 +27,7 @@ protocol WeatherSearhResultInput {
 extension SearchHistoryCoreDataInteractorProtocol {
 
     func fetchSearchHistory() {
-        searchHistoryItems = CoreDataManager.shared.fetch(entityType: SearchHistoryCoreDataItem.self) ?? []
+        searchHistoryItems = coreDataManager?.fetch(entityType: SearchHistoryCoreDataItem.self) ?? []
         self.handleFirstListFetch(didFetchCoreDataOnce)
         resetSelectionForListAndSelectLastAdded()
         // Reverse Items order, to make the last searched item at the top of the list
@@ -38,7 +39,7 @@ extension SearchHistoryCoreDataInteractorProtocol {
     }
     private func handleFirstListFetch(_ didFetchCoreDataOnce: Bool) {
         guard !didFetchCoreDataOnce,
-        let cityTitle = searchHistoryItems.last?.title else { return }
+              let cityTitle = searchHistoryItems.last?.title else { return }
         self.didFetchCoreDataOnce = true
         self.didSearhForQuery(searchQuery: .init(query: cityTitle))
     }
@@ -46,31 +47,35 @@ extension SearchHistoryCoreDataInteractorProtocol {
 
         defer {
             // SaveContext and FetchAllData
-            CoreDataManager.shared.saveContext()
+            coreDataManager?.saveContext()
             fetchSearchHistory()
         }
         handleExistingItemCase(data)
-        let searchHistoryItem = createSearchHistoryItem(fullTitle: data.fullTitle,
+       guard let searchHistoryItem = createSearchHistoryItem(fullTitle: data.fullTitle,
                                                         cityName: data.cityName,
                                                         country: data.country,
                                                         lat: data.lat,
-                                                        lon: data.lon)
+                                                             lon: data.lon)  else { return }
         handleSearchHistoryLimit()
-        CoreDataManager.shared.saveObject(searchHistoryItem)
+        coreDataManager?.saveObject(searchHistoryItem)
     }
 
     private func handleExistingItemCase(_ data: WeatherSearhResultInput) {
         guard let index = searchHistoryItems.firstIndex(where: { $0.fullTitle == data.fullTitle }) else { return }
         let existingItem = searchHistoryItems[index]
-        CoreDataManager.shared.delete(existingItem, andSave: false)
+        coreDataManager?.delete(existingItem, andSave: false)
         searchHistoryItems.remove(at: index)
     }
     private func createSearchHistoryItem(fullTitle: String,
                                          cityName: String,
                                          country: String,
                                          lat: Double,
-                                         lon: Double) -> SearchHistoryCoreDataItem {
-        let searchHistoryItem = NSEntityDescription.insertNewObject(forEntityName: CoreDataEntity.searchHistoryItem.rawValue, into: CoreDataManager.shared.persistentContainer.viewContext) as! SearchHistoryCoreDataItem
+                                         lon: Double) -> SearchHistoryCoreDataItem? {
+        guard let coreDataManager = coreDataManager,
+              let searchHistoryItem = NSEntityDescription.insertNewObject(forEntityName: CoreDataEntity.searchHistoryItem.rawValue,
+                                                                          into: coreDataManager.persistentContainer.viewContext) as? SearchHistoryCoreDataItem else {
+            return nil
+        }
         searchHistoryItem.isSelected = true
         searchHistoryItem.fullTitle = fullTitle
         searchHistoryItem.city = cityName
@@ -84,7 +89,7 @@ extension SearchHistoryCoreDataInteractorProtocol {
         guard searchHistoryItems.count >= maxSavedSearchCount, let firstItem = searchHistoryItems.first else {
             return
         }
-        CoreDataManager.shared.delete(firstItem, andSave: false)
+        coreDataManager?.delete(firstItem, andSave: false)
         searchHistoryItems.remove(at: .zero)
     }
 }
